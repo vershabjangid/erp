@@ -1,0 +1,60 @@
+/* max height responsive */
+
+@media screen and (max-height:545px) {
+    .login_inner{
+        margin: 100px 0px 10px 0px;
+    }
+}
+
+
+
+@media screen and (max-height:450px) {
+    .login_inner{
+        margin: 150px 0px 10px 0px;
+    }
+}
+
+
+
+@media screen and (max-height:395px) {
+    .login_inner{
+        margin: 250px 0px 10px 0px;
+    }
+}
+
+/* max height responsive closed */
+
+
+
+
+/* min width responsive */
+
+@media screen and (min-width:1500px) {
+    
+/* common main */
+.main{
+    width: 1500px;
+    margin: auto;
+}
+/* common main closed*/
+
+}
+/* min width responsive closed */
+
+
+
+
+
+@media screen and (max-width:512px) {
+    .Login_main{
+        padding: 0px 10px;
+    }
+}
+
+
+
+@media screen and (max-width:435px) {
+    .login_input_fields{
+        width: 100% !important;
+    }
+}
