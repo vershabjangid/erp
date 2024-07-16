@@ -32,10 +32,7 @@
 @media screen and (min-width:1500px) {
     
 /* common main */
-.main{
-    width: 1500px;
-    margin: auto;
-}
+
 /* common main closed*/
 
 }
@@ -46,9 +43,12 @@
 
 
 @media screen and (max-width:512px) {
+    /* login page section */
     .Login_main{
         padding: 0px 10px;
     }
+
+    /* login page section closed */
 }
 
 

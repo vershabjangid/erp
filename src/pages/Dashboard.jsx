@@ -4,9 +4,9 @@ import { Header } from '../common/Header'
 export function Dashboard() {
   return (
     <>
-      <section className='main'>
-        <Header />
-      </section>
+    <section className='main'>
+      <Header/>
+    </section>
     </>
   )
 }
