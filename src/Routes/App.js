@@ -4,6 +4,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { Dashboard } from "../pages/Dashboard";
 import { Login } from "../pages/Login pages/Login";
 import { Employee_login } from "../pages/Login pages/Employee_login";
+import { Add_employee } from "../pages/add pages/Add_employee";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
 
           <Route element={<PrivateRoute />} >
             <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='/add-employee' element={<Add_employee/>} />
 
           </Route>
         </Routes>

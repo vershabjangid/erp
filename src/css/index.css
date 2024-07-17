@@ -81,7 +81,6 @@ header{
   width: 100%;
   height: 70px;
   box-shadow: 0px 0px 150px 10px rgba(0, 0, 0, 0.432);
-  border-radius: 0px 0px 15px 15px;
 }
 
 .header-options{
@@ -91,15 +90,21 @@ header{
   transition: 1s;
 }
 
-.sidebar{
+.sidebar_active{
   width: 260px;
   height: calc(100vh - 70px);
   background-color: #1b1b29;
   overflow-y: scroll;
+  transition: 1s;
 }
 
+.sidebar_deactive{
+  width: 0px !important;
+  left: -100%;
+  transition: 1s !important;
+}
 
-.sidebar::-webkit-scrollbar{
+.sidebar_active::-webkit-scrollbar{
   display: none;
 }
 
@@ -110,12 +115,49 @@ header{
 
 .suboptions{
   z-index: 9999 !important;
+  height: auto;
+  transform: skew(0deg);
+  transition: 0.5s;
+}
+
+.arrow_rotate{
+  transform: rotate(90deg);
+}
+
+.sub_options_deactive{
+  height: 0;
+  transform: skew(90deg);
+  transition: 0.5s;
+}
+
+
+.sideoptions:hover{
+  background-color: rgba(255, 255, 255, 0.384) !important;
+  border: none;
+  border-right: 5px solid white !important;
 }
 /* header section closed */
 
 
-/* common main  */
+/* common things */
 
 .main{
   background-color: #e8eff9;
 }
+
+.page_label{
+  height: 70px;
+}
+
+.common_form_outer{
+  background-image: url("../images/top-view-desk-concept-with-notepad.jpg");
+  background-size: cover;
+  background-position: center;
+  height:100vh;
+  overflow-y: scroll;
+}
+
+.common_form_outer::-webkit-scrollbar{
+  display: none;
+}
+/* common things closed */

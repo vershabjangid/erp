@@ -7,21 +7,23 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons/faArr
 import { Link } from 'react-router-dom';
 import { faHome } from '@fortawesome/free-solid-svg-icons/faHome';
 import { sidebardata } from './Sidebar data/sidebardata';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 export function Header() {
 
     let [option, setoption] = useState(false)
     let data = sidebardata
     let [sidedata, setsidedata] = useState(data[0].id)
+    let [sidebar,setsidebar]=useState(false); 
     return (
         <>
-            <header className=' d-flex '>
+            <header className=' position-relative d-flex '>
                 <section className='w-50  d-flex align-items-center fs-5 '>
                     <div className='h-100'>
-                        <img src={logo} alt="" className='h-100' />
+                        {/* <img src={logo} alt="" className='h-100' /> */}
                     </div>
 
                     <div className=' ms-3'>
-                        <FontAwesomeIcon icon={faBars} />
+                        <FontAwesomeIcon icon={faBars} onClick={()=>setsidebar(!sidebar)} />
                     </div>
                 </section>
                 <section className='w-50 d-flex justify-content-end pe-4'>
@@ -47,18 +49,16 @@ export function Header() {
                         </div>
                     </div>
                 </section>
-            </header>
-
-            <section className='sidebar border border-1 border-danger text-white'>
+            <section className={sidebar? "sidebar_active position-absolute top-100 text-white" : "sidebar_deactive position-absolute top-100 text-white"}>
                 {
                     data.map((items, i) => {
-                        console.log(items)
+                        
                         if (items.path) {
                             return (
                                 <>
                                     <Link className=' text-decoration-none text-white' to={items.path}>
-                                        <section className='border border-1'>
-                                            <div className='border border-1 bg-black border-danger d-flex justify-content-center align-items-center py-3'>
+                                        <section className='border-bottom'>
+                                            <div className='sideoptions d-flex justify-content-center align-items-center py-3'>
                                                 <div className=''>
                                                     {items.icon}
                                                 </div>
@@ -77,8 +77,8 @@ export function Header() {
                         else {
                             return (
                                 <>
-                                    <section className='border border-1 position-relative ' onClick={() => setsidedata(items.id)}>
-                                        <div className='border border-1 bg-black border-danger d-flex justify-content-center align-items-center py-3'>
+                                    <section className=' border-bottom  position-relative ' onClick={() => (setsidedata(items.id))}>
+                                        <div className=' border-bottom  sideoptions  d-flex justify-content-center align-items-center py-3'>
                                             <div className=''>
                                                 {items.icon}
                                             </div>
@@ -86,22 +86,29 @@ export function Header() {
                                             <div className='ms-2'>
                                                 {items.name}
                                             </div>
+
+
+                                            <div className={items.id == sidedata ? "ms-5 arrow_rotate" : "arrow_rotate_disabled ms-5"}>
+                                                <FontAwesomeIcon icon={faChevronRight} />
+                                            </div>
                                         </div>
 
-                                        <div className={items.id == sidedata ? "suboptions position-absolute top-100 w-100 bg-black " : "d-none"}>
+                                        <div className={items.id == sidedata ? "suboptions top-100 w-100 bg-primary " : "sub_options_deactive"}>
                                             {
                                                 items.subcategory.map((v, i) => {
                                                     return (
                                                         <>
-                                                            <div className='w-100 border py-3 text-center d-flex justify-content-center'>
-                                                                <div className=''>
-                                                                    {v.sub_icon}
-                                                                </div>
+                                                            <Link className='text-white text-decoration-none' to={v.path}>
+                                                                <div className='w-100 sideoptions border-top py-3 text-center d-flex justify-content-center'>
+                                                                    <div className=''>
+                                                                        {v.sub_icon}
+                                                                    </div>
 
-                                                                <div className='ms-2'>
-                                                                    {v.subcategory_name}
+                                                                    <div className='ms-2'>
+                                                                        {v.subcategory_name}
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                            </Link>
                                                         </>
                                                     )
                                                 })
@@ -116,6 +123,8 @@ export function Header() {
 
 
             </section>
+            </header>
+
         </>
     )
 }
