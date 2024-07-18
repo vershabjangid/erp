@@ -5,7 +5,7 @@ import { Formik, Form, Field } from 'formik'
 export function Add_employee() {
     return (
         <>
-            <section className='main'>
+            <section className='main w-100'>
                 <Header />
 
                 <section className='page_label  bg-primary d-flex justify-content-between align-items-center flex-column flex-lg-row h-auto'>
@@ -24,9 +24,9 @@ export function Add_employee() {
                 <Formik >
                     <Form>
 
-                        <section className='common_form_outer border border-1 border-black  mt-3'>
+                        <section className='common_form_outer d-flex  border border-1 border-black   mt-3'>
 
-                            <section className='col-8 border border-1 border-success d-flex justify-content-center align-items-end flex-column'>
+                            <section className='col-12 col-lg-6 border border-1 border-success d-flex justify-content-center align-items-end flex-column rounded-3'>
 
                             </section>
                         </section>

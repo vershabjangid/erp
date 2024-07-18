@@ -16,9 +16,12 @@ export function Login() {
   let [eye, seteye] = useState(true);
   // here i make all states of login page
   let [FormValues, SetFormValues] = useState('');
+
+
   let [userdata, setdata] = useState(null);
 
   localStorage.setItem('login', JSON.stringify(userdata))
+
 
   let successnotification = (success) => toast.success(success);
   let errornotification = (error) => toast.error(error);
@@ -105,7 +108,7 @@ export function Login() {
 
             </Form>
           </Formik>
-        </section> 
+        </section>
 
 
 

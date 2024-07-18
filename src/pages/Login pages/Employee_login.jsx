@@ -1,12 +1,30 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from 'axios';
 import { Field, Form, Formik } from 'formik'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 export function Employee_login() {
 
     let [eye, seteye] = useState(true);
+    let [userdata, setdata] = useState([]);
+    let [formvalue, setformvalue] = useState('');
+
+console.log(formvalue)
+    console.log(userdata)
+    let getdata = () => {
+        axios.get(`/erp/view-employe.php`)
+            .then((res) => {
+                setdata(res.data)
+            })
+    }
+
+    useEffect(() => {
+        getdata();
+    }, [])
+
+    
     return (
         <>
             <section className='Login_main border border-1 border-danger'>
@@ -28,7 +46,7 @@ export function Employee_login() {
                         }}
 
                         onSubmit={(value) => {
-
+                            setformvalue(value)
                         }}
 
                     >
