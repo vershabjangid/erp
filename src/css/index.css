@@ -95,6 +95,24 @@ body::-webkit-scrollbar{
   background-color: #f2f9ff;
 }
 
+
+
+.subnav_active{
+  background-color: #3f6199;
+  color: white;
+  height: auto;
+  transform: scale(1);
+  transition: 0.2s;
+}
+
+
+
+.subnav_de-active{
+  background-color: #3f6199;
+  color: white;
+  height: 0;
+  transform: scale(0);
+}
 /* sidebar section closed */
 
 

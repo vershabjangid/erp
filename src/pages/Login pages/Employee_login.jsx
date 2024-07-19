@@ -11,12 +11,10 @@ export function Employee_login() {
     let [userdata, setdata] = useState([]);
     let [formvalue, setformvalue] = useState('');
 
-console.log(formvalue)
-    console.log(userdata)
     let getdata = () => {
         axios.get(`/erp/view-employe.php`)
             .then((res) => {
-                setdata(res.data)
+                setdata(res.data.Details)
             })
     }
 

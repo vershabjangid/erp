@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login />} />
-          <Route path="/Employee-login" element={<Employee_login />} />
+          <Route path="/Employee-login" element={<Employee_login/>} />
 
           <Route element={<PrivateRoute />} >
             <Route path='/dashboard' element={<Dashboard />} />
