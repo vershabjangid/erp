@@ -74,10 +74,18 @@ body::-webkit-scrollbar{
 /* sidebar section  */
 .sidebar{
   width: 260px;
-  height: 100%;
-  border: 1px solid  blue;
+  height:calc(100vh - 75px);
   background-color: white;
   overflow-y: scroll;
+  transition: 0.5s;
+  
+}
+
+.sidebar_deactive{
+  width: 0px;
+  height:calc(100vh - 75px);
+  background-color: white;
+  left: -100%;
 }
 
 .sidebar::-webkit-scrollbar{
@@ -117,6 +125,37 @@ body::-webkit-scrollbar{
 
 
 
+/* header section  */
+
+header{
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+
+.menubar{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+
+.menubar:hover{
+  background-color: #002869;
+  color: white;
+}
+
+.header_profile{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+
+/* header section closed */
+
 
 
 
@@ -151,4 +190,41 @@ body::-webkit-scrollbar{
 .common_form_outer::-webkit-scrollbar{
   display: none;
 }
+
+.common_input_section_card{
+  width: 600px;
+  margin: 10px 0px;
+}
+
+.customize_btn{
+  background: linear-gradient(red,purple,blue);
+  bottom: 15px;
+  right: 15px;
+  border-radius: 15px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
 /* common things closed */
+
+
+/* dashboard section  */
+
+
+/* dashboard section  closed  */
+
+
+
+
+/* add employee section  */
+
+.add_employee_secction{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+
+/* add employee  closed  */
+

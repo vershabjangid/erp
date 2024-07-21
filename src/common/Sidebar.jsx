@@ -7,12 +7,14 @@ import { Link } from 'react-router-dom';
 
 
 export function Sidebar() {
-
   let sidedata = sidebardata
   let [current, setcurrent] = useState(sidedata[0].id)
+  
+  
+
   return (
     <>
-      <section className='sidebar'>
+      <section className={ JSON.parse(localStorage.getItem('sidebar')) ? "sidebar_deactive" : "sidebar"}>
         <section className='px-2'>
           <section className='w-100 border border-1 border-success d-flex justify-content-center mb-2 align-items-center'>
             <img src={logo} alt="" className='w-50' />
@@ -61,40 +63,40 @@ export function Sidebar() {
                         <div className='w-100'>
                           {
                             items.subcategory.map((items, i) => {
-                             if(items.path){
-                              return (
-                                <>
-                                  <Link className=' text-decoration-none text-white' to={items.path}>
-                                    <div className=' d-flex justify-content-center py-2 border-bottom border-1 border-black w-100'>
-                                      <div className='me-2'>
-                                        {items.sub_icon}
+                              if (items.path) {
+                                return (
+                                  <>
+                                    <Link className=' text-decoration-none text-white' to={items.path}>
+                                      <div className=' d-flex justify-content-center py-2 border-bottom border-1 border-black w-100'>
+                                        <div className='me-2'>
+                                          {items.sub_icon}
+                                        </div>
+                                        <div className=''>
+                                          {items.subcategory_name}
+                                        </div>
                                       </div>
-                                      <div className=''>
-                                        {items.subcategory_name}
-                                      </div>
-                                    </div>
-                                  </Link>
-                                </>
-                              )
-                             }
+                                    </Link>
+                                  </>
+                                )
+                              }
 
 
-                             else{
-                              return (
-                                <>
-                                  <Link className=' text-decoration-none text-white' to={items.path}>
-                                    <div className=' d-flex justify-content-center py-2 border-bottom border-1 border-black w-100'>
-                                      <div className='me-2'>
-                                        {items.sub_icon}
+                              else {
+                                return (
+                                  <>
+                                    <Link className=' text-decoration-none text-white' to={items.path}>
+                                      <div className=' d-flex justify-content-center py-2 border-bottom border-1 border-black w-100'>
+                                        <div className='me-2'>
+                                          {items.sub_icon}
+                                        </div>
+                                        <div className=''>
+                                          {items.subcategory_name}
+                                        </div>
                                       </div>
-                                      <div className=''>
-                                        {items.subcategory_name}
-                                      </div>
-                                    </div>
-                                  </Link>
-                                </>
-                              )
-                             }
+                                    </Link>
+                                  </>
+                                )
+                              }
                             })
                           }
                         </div>
