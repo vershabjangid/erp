@@ -224,7 +224,25 @@ header{
   justify-content: space-evenly;
 }
 
+.common_input_section_card{
+  margin-left: 10px;
+}
 
 
 /* add employee  closed  */
+
+
+
+.table_overflow_section{
+  width: 100%;
+  height: calc(100vh - 72.5px);
+  border: 1px solid blue;
+  overflow: scroll;
+}
+
+
+.table_overflow_section::-webkit-scrollbar{
+  /* display: none; */
+}
+
 

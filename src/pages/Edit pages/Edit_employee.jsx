@@ -1,43 +1,19 @@
 import React from 'react'
 import { Header } from '../../common/Header'
-import { Formik, Form, Field } from 'formik'
+import { Field, Formik ,Form } from 'formik'
+import { ToastContainer } from 'react-toastify'
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
-import axios, { toFormData } from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
 
-
-export function Add_employee() {
-
-    let notifysuccess = (successmsg) => toast.success(successmsg)
-    let notifyerror = (error) => toast.error(error)
-
-
-    const datainsert = (data) => {
-
-        console.log(data)
-        axios.post('https://netdomainindia.in/erp/add-employe.php', toFormData(data))
-            .then((res) => {
-                if (res.data.Status == 1) {
-                    notifysuccess(res.data.msg)
-                }
-
-                else {
-                    notifyerror(res.data.msg)
-                }
-            })
-    }
-
-
-
-    return (
-        <>
-            <section className='main w-100'>
+export  function Edit_employee() {
+  return (
+    <>
+      <section className='main w-100'>
                 <Header />
+
 
                 <Formik
 
                     initialValues={{
-                        Admin_id:"0",
                         First_Name: "",
                         Last_Name: " ",
                         Email: "",
@@ -67,7 +43,7 @@ export function Add_employee() {
 
 
                     onSubmit={(values)=>{
-                        datainsert(values)
+                        // datainsert(values)
                     }}
                 >
                     <div className='add_employee_secction w-100 border border-1 border-success'>
@@ -434,6 +410,6 @@ export function Add_employee() {
             </section>
 
             <ToastContainer/>
-        </>
-    )
+    </>
+  )
 }
