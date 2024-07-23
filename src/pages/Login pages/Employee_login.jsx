@@ -11,16 +11,7 @@ export function Employee_login() {
     let [userdata, setdata] = useState([]);
     let [formvalue, setformvalue] = useState('');
 
-    let getdata = () => {
-        axios.get(`/erp/view-employe.php`)
-            .then((res) => {
-                setdata(res.data.Details)
-            })
-    }
-
-    useEffect(() => {
-        getdata();
-    }, [])
+    // /erp/view-employe.php
 
     
     return (

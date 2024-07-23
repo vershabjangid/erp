@@ -20,7 +20,7 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/add-employee' element={<Add_employee />} />
             <Route path="/view-employee" element={<View_Employees />} />
-            <Route path="/edit-employee" element={<Edit_employee />} />
+            <Route path="/edit_employee/:id" element={<Edit_employee />} />
           </Route>
         </Routes>
       </BrowserRouter>

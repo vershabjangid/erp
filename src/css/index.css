@@ -245,4 +245,23 @@ header{
   /* display: none; */
 }
 
+table{
+  width: 3850px;
+}
+
+.first_name_table_heading{
+  width: 200px;
+}
+
+.last_name_table_heading{
+  width: 200px;
+}
+
+.email_table_heading{
+  width: 300px;
+}
+
+.address_table_heading{
+  width: 400px;
+}
 

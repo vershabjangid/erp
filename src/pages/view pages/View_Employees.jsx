@@ -1,20 +1,41 @@
 import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
 import axios from 'axios'
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import { IoIosLink } from "react-icons/io";
+
+
 
 export function View_Employees() {
 
+    let successnotify = (success) => toast.success(success);
+    let error = (error) => toast.error(error)
+
     let [data, setdata] = useState([])
+    let [dataid, setdataid] = useState([])
     const viewemployee = () => {
-        axios.get('https://netdomainindia.in/erp/view-employe.php')
+        axios.get('/erp/view-employe.php')
             .then((res) => {
                 setdata(res.data.Details)
+                setdataid(res.data.Details)
             })
     }
 
     useEffect(() => {
         viewemployee();
     }, [])
+
+    const deleteemployee = (deletedata) => {
+        axios.delete(`/erp/delete-employe.php?id=${deletedata}`)
+            .then((res) => {
+                successnotify(res.data.msg)
+                viewemployee();
+            })
+    }
+
+    let count = 1;
     return (
         <>
             <section className='main'>
@@ -28,16 +49,28 @@ export function View_Employees() {
                             {
                                 data == "No Data Found" ?
 
-                                    <div className='text-center fs-1 text-danger fw-bold '>No Data Found</div>
+                                    <div className='text-center fs-1 text-danger fw-bold '>
+                                        <div>
+                                            No Data Found
+                                        </div>
+
+                                        <Link to={"/add-employee"} className='text-decoration-none'>
+                                            <div className='fs-3'>
+                                                <IoIosLink className='me-2' />
+                                                Go To Add Employee
+                                            </div>
+                                        </Link>
+                                    </div>
 
                                     :
                                     <table>
-                                        <tr className='border border-1 border-black'>
-                                            <th className='border border-1 border-black text-center px-1'>First Name</th>
-                                            <th className='border border-1 border-black text-center px-1'>Last Name</th>
-                                            <th className='border border-1 border-black text-center px-1'>Email</th>
-                                            <th className='border border-1 border-black text-center px-1'>Phone Number</th>
-                                            <th className='border border-1 border-black text-center px-1'>Address</th>
+                                        <tr className=' border border-1 border-black'>
+                                            <th>S.No</th>
+                                            <th className='first_name_table_heading border border-1 border-black text-center px-1'>First Name</th>
+                                            <th className='last_name_table_heading border border-1 border-black text-center px-1'>Last Name</th>
+                                            <th className='email_table_heading border border-1 border-black text-center px-1'>Email</th>
+                                            <th className=' border border-1 border-black text-center px-1'>Phone Number</th>
+                                            <th className='address_table_heading border border-1 border-black text-center px-1'>Address</th>
                                             <th className='border border-1 border-black text-center px-1'>Organization Email</th>
                                             <th className='border border-1 border-black text-center px-1'>CTC / Hrs</th>
                                             <th className='border border-1 border-black text-center px-1'>Billable / Hrs</th>
@@ -65,8 +98,7 @@ export function View_Employees() {
 
 
                                                     <tr>
-
-
+                                                        <th className='border border-1 border-black'>{count++}</th>
                                                         <th className='border border-1 border-black text-center px-1'>{items.First_Name}</th>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Last_Name}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Email}</td>
@@ -90,7 +122,21 @@ export function View_Employees() {
                                                         <td className='border border-1 border-black text-center px-1'>{items.Lead_Handler}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Customer_List}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Show_Billing}</td>
-                                                        <td className='border border-1 border-black text-center px-1'><button>dfskfsldkfjdlkfsjdlfk</button></td>
+                                                        <td className='border border-1 border-black text-center px-1'>
+                                                            <div className='d-flex justify-content-center align-items-center flex-column'>
+                                                                <Dropdown className="d-inline my-2 mx-2">
+                                                                    <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
+                                                                        Action
+                                                                    </Dropdown.Toggle>
+
+                                                                    <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
+                                                                        <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
+                                                                        <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' >Edit</Dropdown.Item></Link>
+                                                                        <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deleteemployee(items.id)}>Delete</Dropdown.Item>
+                                                                    </Dropdown.Menu>
+                                                                </Dropdown>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 )
                                             })
@@ -101,6 +147,7 @@ export function View_Employees() {
                     </div>
                 </section>
             </section>
+            <ToastContainer/>
         </>
     )
 }
