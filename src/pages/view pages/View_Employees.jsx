@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
 import axios from 'axios'
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import { IoIosLink } from "react-icons/io";
 
@@ -36,6 +36,12 @@ export function View_Employees() {
     }
 
     let count = 1;
+
+let navigate = useNavigate();
+
+let updatedata = (employedata) =>{
+    navigate('/add-employee',{state : employedata})
+}
     return (
         <>
             <section className='main'>
@@ -54,7 +60,7 @@ export function View_Employees() {
                                             No Data Found
                                         </div>
 
-                                        <Link to={"/add-employee"} className='text-decoration-none'>
+                                        <Link to={"add-employee"} className='text-decoration-none'>
                                             <div className='fs-3'>
                                                 <IoIosLink className='me-2' />
                                                 Go To Add Employee
@@ -131,7 +137,7 @@ export function View_Employees() {
 
                                                                     <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
                                                                         <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
-                                                                        <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' >Edit</Dropdown.Item></Link>
+                                                                        <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' onClick={()=>updatedata(items)} >Edit</Dropdown.Item>
                                                                         <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deleteemployee(items.id)}>Delete</Dropdown.Item>
                                                                     </Dropdown.Menu>
                                                                 </Dropdown>
@@ -147,7 +153,7 @@ export function View_Employees() {
                     </div>
                 </section>
             </section>
-            <ToastContainer/>
+            <ToastContainer />
         </>
     )
 }

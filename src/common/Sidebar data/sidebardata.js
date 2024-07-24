@@ -45,7 +45,8 @@ export const sidebardata = [
             {
                 id: 3,
                 subcategory_name: "Add Customer",
-                sub_icon: <FontAwesomeIcon icon={faPlus} />
+                sub_icon: <FontAwesomeIcon icon={faPlus} />,
+                path:"/add-customer"
             },
             {
                 id: 3,

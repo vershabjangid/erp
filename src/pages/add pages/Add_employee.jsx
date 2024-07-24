@@ -4,12 +4,14 @@ import { Formik, Form, Field } from 'formik'
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import axios, { toFormData } from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
 export function Add_employee() {
 
     let notifysuccess = (successmsg) => toast.success(successmsg)
     let notifyerror = (error) => toast.error(error)
+    let dataupdate = (update) => toast.success(update)
 
 
     const datainsert = (data) => {
@@ -27,7 +29,17 @@ export function Add_employee() {
             })
     }
 
+    const locatedata = useLocation();
+    const data = locatedata.state || {};
+    console.log(data)
+    const navigate = useNavigate();
 
+    let updatedata = (upadatedata) => {
+        axios.post(`/erp/updateemploye.php?id=`, toFormData(upadatedata))
+            .then((res) => {
+                dataupdate(res.data.msg)
+            })
+    }
 
     return (
         <>
@@ -38,45 +50,88 @@ export function Add_employee() {
 
                     initialValues={{
                         Admin_id: "0",
-                        First_Name: "",
-                        Last_Name: " ",
-                        Email: "",
-                        Phone: "",
-                        Org_Email: "",
-                        Password: "",
-                        Address: "",
-                        CTC_Hrs: "",
-                        Billable: "",
-                        CTC_Mon: "",
-                        Gender: "",
+                        First_Name: data.First_Name || "",
+                        Last_Name: data.Last_Name || "",
+                        Email: data.Email || "",
+                        Phone: data.Phone || "",
+                        Org_Email: data.Org_Email || "",
+                        Password: data.Password || "",
+                        Address: data.Address || "",
+                        CTC_Hrs: data.CTC_Hrs || "",
+                        Billable: data.Billable || "",
+                        CTC_Mon: data.CTC_Mon || "",
+                        Gender: data.Gender || "",
                         Photo: "",
-                        DOB: "",
-                        Date_Of_Joining: "",
-                        Date_Of_Leaving: "",
-                        Referred: "",
+                        DOB: data.DOB || "",
+                        Date_Of_Joining: data.Date_Of_Joining || "",
+                        Date_Of_Leaving: data.Date_Of_Leaving || "",
+                        Referred: data.Referred || "",
                         Address_Proof: "",
-                        Designation: "",
-                        Working_under: "",
-                        Reporting: "",
-                        Login_Access: false,
-                        Active_User: false,
-                        Lead_Handler: false,
-                        Customer_List: false,
-                        Show_Billing: false
+                        Designation: data.Designation || "",
+                        Working_under: data.Working_under || "",
+                        Reporting: data.Reporting || "",
+                        Login_Access: data.Login_Access || false,
+                        Active_User: data.Active_User || false,
+                        Lead_Handler: data.Lead_Handler || false,
+                        Customer_List: data.Customer_List || false,
+                        Show_Billing: data.Show_Billing || false,
+                        id: data.id
                     }}
-
-
-                    onSubmit={(values) => {
-
+                    
+                    
+                    onSubmit={(values, { resetform }) => {
+                        
                         if (values.Login_Access == false && values.Active_User == false && values.Lead_Handler == false && values.Customer_List == false && values.Show_Billing == false) {
-                            notifyerror("Choose One Option")
+                                notifyerror("Choose One Option")
+                            }
+                            
+                        else {
+                            if (!data.id) {
+                                datainsert(values)
+                            }
+
+                            else {
+                                updatedata(values)
+                                navigate('/add-employee', { state: {} })
+                            }
                         }
 
-                        else {
-                            datainsert(values)
-                        }
+                        resetform(
+                            {
+                                values: {
+                                    // Admin_id: '',
+                                    First_Name: '',
+                                    Last_Name: '',
+                                    Email: '',
+                                    Phone: '',
+                                    Org_Email: '',
+                                    Address: '',
+                                    CTC_Hrs: '',
+                                    Billable: '',
+                                    CTC_Mon: '',
+                                    Gender: '',
+                                    Image: '',
+                                    DOB: '',
+                                    Date_Of_Joining: '',
+                                    Date_Of_Leaving: '',
+                                    Referred: '',
+                                    Address_Proof: '',
+                                    Designation: '',
+                                    Working_under: '',
+                                    Reporting: '',
+                                    Login_Access: false,
+                                    Active_User: false,
+                                    Lead_Handler: false,
+                                    Customer_List: false,
+                                    Show_Billing: false,
+                                    id: data.id
+                                }
+                            })
 
                     }}
+
+
+
                 >
                     <div className='add_employee_secction w-100 border border-1 border-success'>
                         <Form className='add_employee_secction '>
@@ -355,8 +410,9 @@ export function Add_employee() {
                                         </div>
                                     </div>
 
-                                    <div className='common_input_section_card bg-white  rounded-1'>
-                                        <div className='border-bottom border-1 border-secondary'>
+                                    <div className='mt-3  bg-white  rounded-1'>
+                                       <div>
+                                       <div className='border-bottom border-1 border-secondary'>
                                             <h3 className='p-2'>Login Permission</h3>
                                         </div>
 
@@ -415,6 +471,7 @@ export function Add_employee() {
                                                 <Field type="checkbox" className="" name="Show_Billing" />
                                             </div>
                                         </div>
+                                       </div>
                                         <div className=' d-flex justify-content-center my-3'>
                                             <button type='submit' className='bg-primary me-1 px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Save</button>
                                             <button type='reset' className='bg-danger px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Clear</button>
