@@ -60,7 +60,7 @@ let updatedata = (employedata) =>{
                                             No Data Found
                                         </div>
 
-                                        <Link to={"add-employee"} className='text-decoration-none'>
+                                        <Link to={"/add-employee"} className='text-decoration-none'>
                                             <div className='fs-3'>
                                                 <IoIosLink className='me-2' />
                                                 Go To Add Employee
@@ -104,8 +104,8 @@ let updatedata = (employedata) =>{
 
 
                                                     <tr>
-                                                        <th className='border border-1 border-black'>{count++}</th>
-                                                        <th className='border border-1 border-black text-center px-1'>{items.First_Name}</th>
+                                                        <td className='border border-1 border-black text-center'>{count++}</td>
+                                                        <td className='border border-1 border-black text-center px-1'>{items.First_Name}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Last_Name}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Email}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Phone}</td>

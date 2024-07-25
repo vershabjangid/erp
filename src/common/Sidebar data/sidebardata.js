@@ -51,7 +51,8 @@ export const sidebardata = [
             {
                 id: 3,
                 subcategory_name: "View Customer",
-                sub_icon: <FontAwesomeIcon icon={faEye} />
+                sub_icon: <FontAwesomeIcon icon={faEye} />,
+                path:"/view-customer"
             }
         ]
     },

@@ -17,7 +17,7 @@ export function Add_employee() {
     const datainsert = (data) => {
 
         console.log(data)
-        axios.post('https://netdomainindia.in/erp/add-employe.php', toFormData(data))
+        axios.post('/erp/add-employe.php', toFormData(data))
             .then((res) => {
                 if (res.data.Status == 1) {
                     notifysuccess(res.data.msg)
@@ -77,14 +77,14 @@ export function Add_employee() {
                         Show_Billing: data.Show_Billing || false,
                         id: data.id
                     }}
-                    
-                    
+
+
                     onSubmit={(values, { resetform }) => {
-                        
+
                         if (values.Login_Access == false && values.Active_User == false && values.Lead_Handler == false && values.Customer_List == false && values.Show_Billing == false) {
-                                notifyerror("Choose One Option")
-                            }
-                            
+                            notifyerror("Choose One Option")
+                        }
+
                         else {
                             if (!data.id) {
                                 datainsert(values)
@@ -411,67 +411,67 @@ export function Add_employee() {
                                     </div>
 
                                     <div className='mt-3  bg-white  rounded-1'>
-                                       <div>
-                                       <div className='border-bottom border-1 border-secondary'>
-                                            <h3 className='p-2'>Login Permission</h3>
-                                        </div>
+                                        <div>
+                                            <div className='border-bottom border-1 border-secondary'>
+                                                <h3 className='p-2'>Login Permission</h3>
+                                            </div>
 
 
 
-                                        <div className='px-2 d-flex pb-3 pt-2'>
-                                            <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                                                <label>
-                                                    Enable Login Access
-                                                </label>
+                                            <div className='px-2 d-flex pb-3 pt-2'>
+                                                <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
+                                                    <label>
+                                                        Enable Login Access
+                                                    </label>
 
-                                                <Field type="checkbox" className="" name="Login_Access" />
+                                                    <Field type="checkbox" className="" name="Login_Access" />
+                                                </div>
+                                            </div>
+
+
+                                            <div className='px-2 d-flex pb-3 '>
+                                                <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
+                                                    <label>
+                                                        Activate User
+                                                    </label>
+
+                                                    <Field type="checkbox" className=" border border-1 border-black" name="Active_User" />
+                                                </div>
+                                            </div>
+
+
+                                            <div className='px-2 d-flex pb-3'>
+                                                <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
+                                                    <label>
+                                                        Lead Handler
+                                                    </label>
+
+                                                    <Field type="checkbox" className="" name="Lead_Handler" />
+                                                </div>
+                                            </div>
+
+
+                                            <div className='px-2 d-flex pb-3'>
+                                                <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
+                                                    <label>
+                                                        Show Only Assigned Customer List
+                                                    </label>
+
+                                                    <Field type="checkbox" className="" name="Customer_List" />
+                                                </div>
+                                            </div>
+
+
+                                            <div className='px-2 d-flex pb-3'>
+                                                <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
+                                                    <label>
+                                                        Show Customer Billing
+                                                    </label>
+
+                                                    <Field type="checkbox" className="" name="Show_Billing" />
+                                                </div>
                                             </div>
                                         </div>
-
-
-                                        <div className='px-2 d-flex pb-3 '>
-                                            <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                                                <label>
-                                                    Activate User
-                                                </label>
-
-                                                <Field type="checkbox" className=" border border-1 border-black" name="Active_User" />
-                                            </div>
-                                        </div>
-
-
-                                        <div className='px-2 d-flex pb-3'>
-                                            <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                                                <label>
-                                                    Lead Handler
-                                                </label>
-
-                                                <Field type="checkbox" className="" name="Lead_Handler" />
-                                            </div>
-                                        </div>
-
-
-                                        <div className='px-2 d-flex pb-3'>
-                                            <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                                                <label>
-                                                    Show Only Assigned Customer List
-                                                </label>
-
-                                                <Field type="checkbox" className="" name="Customer_List" />
-                                            </div>
-                                        </div>
-
-
-                                        <div className='px-2 d-flex pb-3'>
-                                            <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                                                <label>
-                                                    Show Customer Billing
-                                                </label>
-
-                                                <Field type="checkbox" className="" name="Show_Billing" />
-                                            </div>
-                                        </div>
-                                       </div>
                                         <div className=' d-flex justify-content-center my-3'>
                                             <button type='submit' className='bg-primary me-1 px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Save</button>
                                             <button type='reset' className='bg-danger px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Clear</button>

@@ -2,44 +2,140 @@ import React from 'react'
 import { Header } from '../../common/Header'
 import { Field, Formik, Form } from 'formik'
 import { HiAdjustmentsHorizontal } from 'react-icons/hi2'
+import axios, { toFormData } from 'axios'
+import { toast, ToastContainer } from 'react-toastify'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export function Add_customer() {
+
+  let notifyerror = (error) => toast.error(error)
+  let successmsg = (successin) => toast.success(successin)
+  let dataupdate = (update) => toast.success(update)
+
+  let senddata = (customerdata) => {
+    console.log(customerdata)
+    axios.post(`/erp/Create-customer.php`, toFormData(customerdata))
+      .then((res) => {
+        if (res.data.Status == 0) {
+          notifyerror(res.data.msg)
+        }
+        else {
+          successmsg("Got The Data")
+        }
+      })
+  }
+
+
+
+  let location = useLocation();
+  let data = location.state || {}
+  let navigate = useNavigate();
+
+
+  let updatingdata = (updatedata) => {
+    console.log(updatedata)
+    axios.post(`/erp/update-customer.php?id=`, toFormData(updatedata))
+      .then((res) => {
+        if (res.data.Status == 1) {
+          dataupdate(res.data.msg)
+        }
+
+        else {
+          notifyerror(res.data.msg)
+        }
+      })
+  }
   return (
     <>
       <section className='main'>
         <Header />
 
-        <Formik>
+        <Formik
+
+          initialValues={{
+            Admin_id: 0,
+            File_Code: data.File_Code || "",
+            Name: data.Name || "",
+            GSTIN: data.GSTIN || "",
+            Registration_Date: data.Registration_Date || "",
+            Address: data.Address || "",
+            Phone_Number: data.Phone_Number || "",
+            Email: data.Email || "",
+            Username: data.Username || "",
+            Password: data.Password || "",
+            Status: data.Status || "",
+            Image: data.Image || "",
+            id: data.id
+          }}
+
+
+          onSubmit={(values, { resetform }) => {
+
+            if (!data.id) {
+              senddata(values)
+            }
+            else {
+              updatingdata(values)
+              navigate('/view-customer', { state: {} })
+            }
+
+
+            resetform(
+              {
+                values: {
+                  File_Code: "",
+                  Name: "",
+                  GSTIN: "",
+                  Registration_Date: "",
+                  Address: "",
+                  Phone_Number: "",
+                  Email: "",
+                  Username: "",
+                  Password: "",
+                  Status: "",
+                  Image: "",
+                  id: data.id
+                }
+              }
+            )
+          }}
+        >
           <div className='add_employee_secction w-100 border border-1 border-success'>
             <Form className='add_employee_secction '>
               <div className='input_common_outer d-flex'>
                 <div className='common_input_section_card bg-white  rounded-1'>
                   <div className='border-bottom border-1 border-secondary'>
-                    <h3 className='p-2'>Employee Details</h3>
+                    <h3 className='p-2'>Customer Details</h3>
                   </div>
 
-                  <div className='px-2 d-flex pb-3 pt-2'>
-                    <div className='w-50 me-1'>
+
+
+
+                  <div className='px-2 d-flex pb-3'>
+                    <div className='w-100 me-1'>
                       <label>
-                        Code
+                        File Code
                       </label>
 
                       <div>
-                        <Field type="number" className="w-100" name="First_Name" />
+                        <Field type="text" className="w-100" name="File_Code" />
                       </div>
                     </div>
+                  </div>
 
 
-                    <div className='w-50 ms-1'>
+                  <div className='px-2 d-flex pb-3'>
+                    <div className='w-100 me-1'>
                       <label>
                         Name
                       </label>
 
                       <div>
-                        <Field type="text" className="w-100" name="Last_Name" />
+                        <Field type="text" className="w-100" name="Name" />
                       </div>
                     </div>
                   </div>
+
 
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
@@ -48,23 +144,23 @@ export function Add_customer() {
                       </label>
 
                       <div>
-                        <Field type="text" className="w-100" name="Email" />
+                        <Field type="text" className="w-100" name="GSTIN" />
                       </div>
                     </div>
                   </div>
-
 
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
                       <label>
-                        Reg.Date
+                        Registration Date
                       </label>
 
                       <div>
-                        <Field type="date" className="w-100" name="Phone" />
+                        <Field type="date" className="w-100" name="Registration_Date" />
                       </div>
                     </div>
                   </div>
+
 
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
@@ -82,14 +178,16 @@ export function Add_customer() {
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
                       <label>
-                        Phone.no
+                        Phone.No
                       </label>
 
                       <div>
-                        <Field type="number" className="w-100" name="Org_Email" />
+                        <Field type="number" className="w-100 border border-1 border-black p-1" name="Phone_Number" />
                       </div>
                     </div>
                   </div>
+
+
 
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
@@ -98,14 +196,12 @@ export function Add_customer() {
                       </label>
 
                       <div>
-                        <Field type="email" className="w-100 border border-1 border-black p-1"  />
+                        <Field type="email" className="w-100 border border-1 border-black p-1" name="Email" />
                       </div>
                     </div>
                   </div>
-                  
 
 
-                 
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
                       <label>
@@ -113,7 +209,7 @@ export function Add_customer() {
                       </label>
 
                       <div>
-                        <Field type="text" className="w-100 border border-1 border-black p-1"  />
+                        <Field type="text" className="w-100 border border-1 border-black p-1" name="Username" />
                       </div>
                     </div>
                   </div>
@@ -126,45 +222,23 @@ export function Add_customer() {
                       </label>
 
                       <div>
-                        <Field type="text" className="w-100 border border-1 border-black p-1"  />
+                        <Field type="text" className="w-100 border border-1 border-black p-1" name="Password" />
                       </div>
                     </div>
                   </div>
 
+
                   <div className='px-2 d-flex pb-3'>
-                    <div className='w-50 me-1'>
+                    <div className='w-100 me-1'>
                       <label>
-                        CTC / Monthly
+                        Status
                       </label>
 
                       <div>
-                        <Field type="number" className="w-100" name="CTC_Mon" />
-                      </div>
-                    </div>
-
-
-                    <div className='w-50 ms-1'>
-                      <label>
-                        Gender
-                      </label>
-
-                      <div>
-                        <Field as="select" className="w-100" name="Gender">
-                          <option>
-                            Choose Gender
-                          </option>
-
-                          <option value="Male">
-                            Male
-                          </option>
-
-                          <option value="Female">
-                            Female
-                          </option>
-
-                          <option value="Other">
-                            Other
-                          </option>
+                        <Field as="select" className="w-100 border border-1 border-black p-1" name="Status" >
+                          <option>choose one option</option>
+                          <option value="0">De-active</option>
+                          <option value="1">active</option>
                         </Field>
                       </div>
                     </div>
@@ -174,194 +248,21 @@ export function Add_customer() {
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
                       <label>
-                        Photo
+                        Image
                       </label>
 
                       <div>
-                        <Field type="file" className="w-100 border border-1 border-black p-1" name="Photo" />
+                        <Field type="file" className="w-100 border border-1 border-black p-1" name="Image" />
                       </div>
                     </div>
                   </div>
-
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Date Of Birth
-                      </label>
-
-                      <div>
-                        <Field type="date" className="w-100 border border-1 border-black p-1" name="DOB" />
-                      </div>
-                    </div>
+                  <div className=' d-flex justify-content-center my-3'>
+                    <button type='submit' className='bg-primary me-1 px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Save</button>
+                    <button type='reset' className='bg-danger px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Clear</button>
                   </div>
                 </div>
-
-
-
-
-                <div className='common_input_section_card bg-white rounded-1'>
-                  <div className='border-bottom border-1 border-secondary'>
-                    <h3 className='p-2'>Joining Details</h3>
-                  </div>
-
-                  <div className='px-2 d-flex pb-3 pt-2'>
-                    <div className='w-50 me-1'>
-                      <label>
-                        Date Of Joining
-                      </label>
-
-                      <div>
-                        <Field type="date" className="w-100" name="Date_Of_Joining" />
-                      </div>
-                    </div>
-
-
-                    <div className='w-50 ms-1'>
-                      <label>
-                        Date of Leaving
-                      </label>
-
-                      <div>
-                        <Field type="date" className="w-100" name="Date_Of_Leaving" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Referred by
-                      </label>
-
-                      <div>
-                        <Field type="text" className="w-100" name="Referred" />
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Address Proof
-                      </label>
-
-                      <div>
-                        <Field type="file" className="w-100 p-1 border border-1 border-black" name="Address_Proof" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Designation
-                      </label>
-
-                      <div>
-                        <Field type="text" className="w-100" name="Designation" />
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Working Under
-                      </label>
-
-                      <div>
-                        <Field type="text" className="w-100" name="Working_under" />
-                      </div>
-                    </div>
-                  </div>
-
-
-
-                  <div className='px-2 d-flex pb-3'>
-                    <div className='w-100 me-1'>
-                      <label>
-                        Reporting To
-                      </label>
-
-                      <div>
-                        <Field type="text" className="w-100 border border-1 border-black p-1" name="Reporting" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className='common_input_section_card bg-white  rounded-1'>
-                    <div className='border-bottom border-1 border-secondary'>
-                      <h3 className='p-2'>Login Permission</h3>
-                    </div>
-
-
-
-                    <div className='px-2 d-flex pb-3 pt-2'>
-                      <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                        <label>
-                          Enable Login Access
-                        </label>
-
-                        <Field type="checkbox" className="" name="Login_Access" />
-                      </div>
-                    </div>
-
-
-                    <div className='px-2 d-flex pb-3 '>
-                      <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                        <label>
-                          Activate User
-                        </label>
-
-                        <Field type="checkbox" className=" border border-1 border-black" name="Active_User" />
-                      </div>
-                    </div>
-
-
-                    <div className='px-2 d-flex pb-3'>
-                      <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                        <label>
-                          Lead Handler
-                        </label>
-
-                        <Field type="checkbox" className="" name="Lead_Handler" />
-                      </div>
-                    </div>
-
-
-                    <div className='px-2 d-flex pb-3'>
-                      <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                        <label>
-                          Show Only Assigned Customer List
-                        </label>
-
-                        <Field type="checkbox" className="" name="Customer_List" />
-                      </div>
-                    </div>
-
-
-                    <div className='px-2 d-flex pb-3'>
-                      <div className='w-100 me-1 d-flex justify-content-between align-items-center'>
-                        <label>
-                          Show Customer Billing
-                        </label>
-
-                        <Field type="checkbox" className="" name="Show_Billing" />
-                      </div>
-                    </div>
-                    <div className=' d-flex justify-content-center my-3'>
-                      <button type='submit' className='bg-primary me-1 px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Save</button>
-                      <button type='reset' className='bg-danger px-5 py-2 rounded border-0 text-white fw-bold fs-5'>Clear</button>
-                    </div>
-                  </div>
-                </div>
-
-
-
               </div>
+
             </Form>
 
 
@@ -378,6 +279,7 @@ export function Add_customer() {
         </section>
 
       </section>
+      <ToastContainer />
     </>
   )
 }

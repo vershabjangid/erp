@@ -7,6 +7,7 @@ import { Employee_login } from "../pages/Login pages/Employee_login";
 import { Add_employee } from "../pages/add pages/Add_employee";
 import { View_Employees } from "../pages/view pages/View_Employees";
 import { Add_customer } from "../pages/add pages/Add_customer";
+import { View_Customer } from "../pages/view pages/View_Customer";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/add-employee' element={<Add_employee />} />
             <Route path="/view-employee" element={<View_Employees />} />
             <Route path="/add-customer" element={<Add_customer/>} />
+            <Route path="/view-customer" element={<View_Customer/>} />
           </Route>
         </Routes>
       </BrowserRouter>
