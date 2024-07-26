@@ -26,13 +26,13 @@ export const sidebardata = [
                 id: 2,
                 subcategory_name: "Add Employee",
                 sub_icon: <FontAwesomeIcon icon={faPlus} />,
-                path:"/add-employee"
+                path: "/add-employee"
             },
             {
                 id: 2,
                 subcategory_name: "View Employee",
                 sub_icon: <FontAwesomeIcon icon={faEye} />,
-                path:"/view-employee"
+                path: "/view-employee"
             }
         ]
     },
@@ -46,13 +46,13 @@ export const sidebardata = [
                 id: 3,
                 subcategory_name: "Add Customer",
                 sub_icon: <FontAwesomeIcon icon={faPlus} />,
-                path:"/add-customer"
+                path: "/add-customer"
             },
             {
                 id: 3,
                 subcategory_name: "View Customer",
                 sub_icon: <FontAwesomeIcon icon={faEye} />,
-                path:"/view-customer"
+                path: "/view-customer"
             }
         ]
     },
@@ -66,12 +66,14 @@ export const sidebardata = [
             {
                 id: 4,
                 subcategory_name: "Add Project",
-                sub_icon: <FontAwesomeIcon icon={faPlus} />
+                sub_icon: <FontAwesomeIcon icon={faPlus} />,
+                path: "/add-project"
             },
             {
                 id: 4,
                 subcategory_name: "View Project",
-                sub_icon: <FontAwesomeIcon icon={faEye} />
+                sub_icon: <FontAwesomeIcon icon={faEye} />,
+                path: "/view-project"
             }
         ]
     },
@@ -107,5 +109,22 @@ export const sidebardata = [
                 sub_icon: <FontAwesomeIcon icon={faEye} />
             }
         ]
+    },
+
+
+    {
+        id: 7,
+        name: "GSTR",
+        icon: <BiTask className="fs-4 ms-1" />,
+        subcategory: [
+            {
+                id: 7,
+                subcategory_name: "GSTR-3b",
+                sub_icon: <FontAwesomeIcon icon={faPlus} />,
+                path:"/add-gstr-3b"
+            }
+        ]
     }
 ]
+
+

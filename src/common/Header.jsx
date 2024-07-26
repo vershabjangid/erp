@@ -16,7 +16,7 @@ export function Header() {
     let sidedata = sidebardata
     let [current, setcurrent] = useState(sidedata[0].id)
 
-    let [sidecollapse,setcollapse]=useState(true)
+    let [sidecollapse,setcollapse]=useState(false)
     return (
         <>
 

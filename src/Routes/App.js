@@ -8,6 +8,9 @@ import { Add_employee } from "../pages/add pages/Add_employee";
 import { View_Employees } from "../pages/view pages/View_Employees";
 import { Add_customer } from "../pages/add pages/Add_customer";
 import { View_Customer } from "../pages/view pages/View_Customer";
+import { Add_Product } from "../pages/add pages/Add_Product";
+import { View_Project } from "../pages/view pages/View_Project";
+import { Add_Gstr_3b } from "../pages/add pages/Add_Gstr_3b";
 
 function App() {
   return (
@@ -18,11 +21,14 @@ function App() {
           <Route path="/Employee-login" element={<Employee_login />} />
 
           <Route element={<PrivateRoute />} >
-            <Route path='/dashboard' element={<Dashboard />} />
+            <Route path='dashboard' element={<Dashboard />} />
             <Route path='/add-employee' element={<Add_employee />} />
             <Route path="/view-employee" element={<View_Employees />} />
             <Route path="/add-customer" element={<Add_customer/>} />
             <Route path="/view-customer" element={<View_Customer/>} />
+            <Route path="/add-project" element={<Add_Product/>} />
+            <Route path="/view-project" element={<View_Project/>} />
+            <Route path="/add-gstr-3b" element={<Add_Gstr_3b/>} />
           </Route>
         </Routes>
       </BrowserRouter>

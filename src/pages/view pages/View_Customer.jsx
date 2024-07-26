@@ -67,7 +67,7 @@ export function View_Customer() {
                                         <Link to={"/add-customer"} className='text-decoration-none'>
                                             <div className='fs-3'>
                                                 <IoIosLink className='me-2' />
-                                                Go To Add Employee
+                                                Go To Add Customer
                                             </div>
                                         </Link>
                                     </div>

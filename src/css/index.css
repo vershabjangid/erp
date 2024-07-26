@@ -206,6 +206,19 @@ header{
   display: flex;
   align-items: center;
 }
+
+
+input[type=number]{
+  outline: none;
+}
+input[type=number]::-webkit-inner-spin-button{
+  display: none;
+}
+
+
+input[type=text]{
+  outline: none;
+}
 /* common things closed */
 
 
@@ -268,4 +281,63 @@ table{
 
 .view_customer_action_button{
   width: 200px;
+}
+
+
+
+
+/* add gstr 3b  */
+
+
+.gstr_3b_form_section{
+  width: 1200px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 15px 10px;
+}
+
+
+.gstr_label{
+  background-color: #fad2b1;
+}
+
+.form_3_1_label{
+  background-color: #fad2b1;
+  padding: 0px 15px;
+  margin: 10px 0px;
+}
+
+.table_3_1_input{
+  width: 20%;
+  height: 100%;
+  padding: 10px 5px;
+  border-radius: 0px;
+  border: none;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+
+
+.table_3_1_heading{
+  background-color: #fad2b1;
+}
+
+.table_3_1_heading_right{
+  width: 20%;
+}
+
+.table_3_1_heading>td{
+  width: 20%;
+  padding-left: 5px;
+  text-align: center;
+}
+
+
+.table_3_1_heading>td>th{
+  width: 100% !important ;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
