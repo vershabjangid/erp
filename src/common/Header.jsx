@@ -46,7 +46,7 @@ export function Header() {
                             if (items.path) {
                                 return (
                                     <>
-                                        <Link className='text-decoration-none'>
+                                        <Link className='text-decoration-none' to={items.path}>
                                             <section className='sidebar_options d-flex align-items-center'>
                                                 <div className='col-12'>
                                                     <div className='d-flex align-items-center'>
@@ -55,6 +55,7 @@ export function Header() {
                                                     </div>
                                                 </div>
                                             </section>
+                                            
                                         </Link>
                                     </>
                                 )

@@ -11,6 +11,8 @@ import { View_Customer } from "../pages/view pages/View_Customer";
 import { Add_Product } from "../pages/add pages/Add_Product";
 import { View_Project } from "../pages/view pages/View_Project";
 import { Add_Gstr_3b } from "../pages/add pages/Add_Gstr_3b";
+import { Add_task } from "../pages/add pages/Add_task";
+import { View_task } from "../pages/view pages/View_task";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path="/view-customer" element={<View_Customer/>} />
             <Route path="/add-project" element={<Add_Product/>} />
             <Route path="/view-project" element={<View_Project/>} />
+            <Route path="/add-task" element={<Add_task/>} />
+            <Route path="/view-task" element={<View_task/>} />
             <Route path="/add-gstr-3b" element={<Add_Gstr_3b/>} />
           </Route>
         </Routes>

@@ -87,12 +87,14 @@ export const sidebardata = [
             {
                 id: 5,
                 subcategory_name: "Add Task",
-                sub_icon: <FontAwesomeIcon icon={faPlus} />
+                sub_icon: <FontAwesomeIcon icon={faPlus} />,
+                path:"/add-task"
             },
             {
                 id: 5,
                 subcategory_name: "View Task",
-                sub_icon: <FontAwesomeIcon icon={faEye} />
+                sub_icon: <FontAwesomeIcon icon={faEye} />,
+                path:"/view-task"
             }
         ]
     },
