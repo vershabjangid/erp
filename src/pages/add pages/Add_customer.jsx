@@ -36,6 +36,7 @@ export function Add_customer() {
     console.log(updatedata)
     axios.post(`/erp/update-customer.php?id=`, toFormData(updatedata))
       .then((res) => {
+        
         if (res.data.Status == 1) {
           dataupdate(res.data.msg)
         }
@@ -45,6 +46,10 @@ export function Add_customer() {
         }
       })
   }
+
+
+ let localdata =  JSON.parse(localStorage.getItem("customerdata"))
+  console.log(localdata)
   return (
     <>
       <section className='main'>
@@ -53,7 +58,7 @@ export function Add_customer() {
         <Formik
 
           initialValues={{
-            Admin_id: 0,
+            Admin_id: localdata.UserDetails.id,
             File_Code: data.File_Code || "",
             Name: data.Name || "",
             GSTIN: data.GSTIN || "",

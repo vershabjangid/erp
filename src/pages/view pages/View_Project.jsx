@@ -32,21 +32,24 @@ export function View_Project() {
     let count = 1
 
 
-    let deletecustomer = (deleteid) =>{
+    let deletecustomer = (deleteid) => {
         axios.delete(`/erp/delete-project.php?id=${deleteid}`)
-        .then((res)=>{
-            notifysucccess(res.data.msg)
-            getdata();
-        })
-        .catch((error)=>{
-            notifyerror(error)
-        })
+            .then((res) => {
+                notifysucccess(res.data.msg)
+                getdata();
+            })
+            .catch((error) => {
+                notifyerror(error)
+            })
     }
 
-let navigate = useNavigate();
-    let updateproject = (updatevalue) =>{
-        navigate('/add-project',{state : updatevalue})
+    let navigate = useNavigate();
+    let updateproject = (updatevalue) => {
+        navigate('/add-project', { state: updatevalue })
     }
+
+    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
+    console.log(getlocaldata)
     return (
         <>
             <section className='main'>
@@ -91,34 +94,38 @@ let navigate = useNavigate();
                                         {
                                             data.map((items, i) => {
                                                 return (
+                                                    <>
+                                                        {
+                                                            items.Admin_id == getlocaldata.UserDetails.id ?
+                                                                <tr>
+                                                                    <td className='border border-1 border-black text-center'>{count++}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Project_Name}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Start_Date}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.End_Date}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Customer}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Assigned_Employee}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.List_Of_Task}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Created_By}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Billable_Amount}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>
+                                                                        <div className='d-flex justify-content-center align-items-center flex-column'>
+                                                                            <Dropdown className="d-inline my-2 mx-2">
+                                                                                <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
+                                                                                    Action
+                                                                                </Dropdown.Toggle>
 
-
-                                                    <tr>
-                                                        <td className='border border-1 border-black text-center'>{count++}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Project_Name}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Start_Date}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.End_Date}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Customer}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Assigned_Employee}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.List_Of_Task}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Created_By}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Billable_Amount}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>
-                                                            <div className='d-flex justify-content-center align-items-center flex-column'>
-                                                                <Dropdown className="d-inline my-2 mx-2">
-                                                                    <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
-                                                                        Action
-                                                                    </Dropdown.Toggle>
-
-                                                                    <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
-                                                                        <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
-                                                                        <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' onClick={()=>updateproject(items)} >Edit</Dropdown.Item>
-                                                                        <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deletecustomer(items.id)}>Delete</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                                                <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
+                                                                                    <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
+                                                                                    <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' onClick={() => updateproject(items)} >Edit</Dropdown.Item>
+                                                                                    <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deletecustomer(items.id)}>Delete</Dropdown.Item>
+                                                                                </Dropdown.Menu>
+                                                                            </Dropdown>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr> :
+                                                                null
+                                                        }
+                                                    </>
                                                 )
                                             })
                                         }
@@ -128,7 +135,7 @@ let navigate = useNavigate();
                     </div>
                 </section>
             </section>
-            <ToastContainer/>
+            <ToastContainer />
         </>
     )
 }

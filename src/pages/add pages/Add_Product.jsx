@@ -36,6 +36,10 @@ export function Add_Product() {
                 notifysuccess("Data Updated")
             })
     }
+
+
+    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
+    console.log(getlocaldata)
     return (
         <>
             <section className='main w-100'>
@@ -44,6 +48,7 @@ export function Add_Product() {
                 <Formik
 
                     initialValues={{
+                        Admin_id: getlocaldata.UserDetails.id,
                         Project_Name: data.Project_Name || "",
                         Start_Date: data.Start_Date || "",
                         End_Date: data.End_Date || "",

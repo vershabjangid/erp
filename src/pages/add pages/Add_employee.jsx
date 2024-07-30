@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik'
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import axios, { toFormData } from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { json, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 
 export function Add_employee() {
@@ -13,33 +13,38 @@ export function Add_employee() {
     let notifyerror = (error) => toast.error(error)
     let dataupdate = (update) => toast.success(update)
 
-
+    
     const datainsert = (data) => {
-
+        
         console.log(data)
         axios.post('/erp/add-employe.php', toFormData(data))
-            .then((res) => {
-                if (res.data.Status == 1) {
-                    notifysuccess(res.data.msg)
-                }
-
-                else {
-                    notifyerror(res.data.msg)
-                }
-            })
+        .then((res) => {
+            if (res.data.Status == 1) {
+                notifysuccess(res.data.msg)
+            }
+            
+            else {
+                notifyerror(res.data.msg)
+            }
+        })
     }
-
+    
     const locatedata = useLocation();
     const data = locatedata.state || {};
     console.log(data)
     const navigate = useNavigate();
-
+    
     let updatedata = (upadatedata) => {
         axios.post(`/erp/updateemploye.php?id=`, toFormData(upadatedata))
-            .then((res) => {
-                dataupdate(res.data.msg)
-            })
+        .then((res) => {
+            dataupdate(res.data.msg)
+        })
     }
+    
+    let admindata = JSON.parse(localStorage.getItem("customerdata"));
+    console.log(admindata.UserDetails.id) 
+
+
 
     return (
         <>
@@ -49,7 +54,7 @@ export function Add_employee() {
                 <Formik
 
                     initialValues={{
-                        Admin_id: "0",
+                        Admin_id: admindata.UserDetails.id,
                         First_Name: data.First_Name || "",
                         Last_Name: data.Last_Name || "",
                         Email: data.Email || "",
@@ -99,7 +104,7 @@ export function Add_employee() {
                         resetform(
                             {
                                 values: {
-                                    // Admin_id: '',
+                                    Admin_id: '',
                                     First_Name: '',
                                     Last_Name: '',
                                     Email: '',
@@ -141,7 +146,12 @@ export function Add_employee() {
                                         <h3 className='p-2'>Employee Details</h3>
                                     </div>
 
+
+
+
                                     <div className='px-2 d-flex pb-3 pt-2'>
+                                       
+
                                         <div className='w-50 me-1'>
                                             <label>
                                                 First Name

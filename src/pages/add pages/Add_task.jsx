@@ -42,6 +42,9 @@ export function Add_task() {
                 }
             })
     }
+
+
+    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
     return (
         <>
             <section className='main'>
@@ -50,6 +53,7 @@ export function Add_task() {
                 <Formik
 
                     initialValues={{
+                        Admin_id : getlocaldata.UserDetails.id,
                         Admin_Name: data.Admin_Name || "",
                         Financial_Year: data.Financial_Year || "",
                         Service: data.Service || "",

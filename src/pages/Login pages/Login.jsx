@@ -48,6 +48,7 @@ export function Login() {
 
   if (userdata != null) {
     if (userdata.UserDetails.Email == FormValues.Email || userdata.UserDetails.Password == FormValues.Password) {
+      localStorage.setItem("customerdata",JSON.stringify(userdata));
       successnotification("Login succeed")
       return <Navigate to={"/dashboard"} />
     }

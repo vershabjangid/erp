@@ -45,6 +45,9 @@ export function View_task() {
     let updatetask = (updatevalue) => {
         navigate("/add-task",{state : updatevalue})
     }
+
+
+    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
     return (
         <>
             <section className='main'>
@@ -93,39 +96,46 @@ export function View_task() {
                                         {
                                             data.map((items, i) => {
                                                 return (
+                                                   <>
+                                                   {
+                                                    items.Admin_id == getlocaldata.UserDetails.id ? 
                                                     <tr>
-                                                        <td className='border border-1 border-black text-center'>{count++}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Admin_Name}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Financial_Year}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Service}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Customer}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Task_Title}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Task_Instruction}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Assigned}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Reviewer}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Billing_Details}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Per_Hour_Charge}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Start_Date}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.End_Date}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Priority}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Status == 0 ? "De-active" : "Active"}</td>
-                                                        <td className='view_customer_action_button border border-1 border-black text-center px-1'>
-                                                            <div className='d-flex justify-content-center align-items-center flex-column'>
-                                                            <Dropdown className="d-inline my-2 ">
-                                                                <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
-                                                                    Action
-                                                                </Dropdown.Toggle>
+                                                    <td className='border border-1 border-black text-center'>{count++}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Admin_Name}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Financial_Year}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Service}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Customer}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Task_Title}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Task_Instruction}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Assigned}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Reviewer}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Billing_Details}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Per_Hour_Charge}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Start_Date}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.End_Date}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Priority}</td>
+                                                    <td className='border border-1 border-black text-center px-1'>{items.Status == 0 ? "De-active" : "Active"}</td>
+                                                    <td className='view_customer_action_button border border-1 border-black text-center px-1'>
+                                                        <div className='d-flex justify-content-center align-items-center flex-column'>
+                                                        <Dropdown className="d-inline my-2 ">
+                                                            <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
+                                                                Action
+                                                            </Dropdown.Toggle>
 
-                                                                <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
-                                                                    <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
-                                                                    <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2' onClick={()=>updatetask(items)}>Edit</Dropdown.Item>
-                                                                    <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={()=>deletedata(items.id)}>Delete</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                            </div>
+                                                            <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
+                                                                <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
+                                                                <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2' onClick={()=>updatetask(items)}>Edit</Dropdown.Item>
+                                                                <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={()=>deletedata(items.id)}>Delete</Dropdown.Item>
+                                                            </Dropdown.Menu>
+                                                        </Dropdown>
+                                                        </div>
 
-                                                        </td>
-                                                    </tr>
+                                                    </td>
+                                                </tr>
+                                                    :
+                                                    null
+                                                   }
+                                                   </>
                                                 )
                                             })
                                         }

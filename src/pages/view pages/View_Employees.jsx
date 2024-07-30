@@ -18,6 +18,7 @@ export function View_Employees() {
     const viewemployee = () => {
         axios.get('/erp/view-employe.php')
             .then((res) => {
+                console.log(res)
                 setdata(res.data.Details)
                 setdataid(res.data.Details)
             })
@@ -42,6 +43,9 @@ let navigate = useNavigate();
 let updatedata = (employedata) =>{
     navigate('/add-employee',{state : employedata})
 }
+
+
+let localdata =  JSON.parse(localStorage.getItem("customerdata"))
     return (
         <>
             <section className='main'>
@@ -101,9 +105,10 @@ let updatedata = (employedata) =>{
                                         {
                                             data.map((items, i) => {
                                                 return (
-
-
-                                                    <tr>
+                                                    <>
+                                                    {
+                                                        items.Admin_id == localdata.UserDetails.id ?
+                                                        <tr>
                                                         <td className='border border-1 border-black text-center'>{count++}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.First_Name}</td>
                                                         <td className='border border-1 border-black text-center px-1'>{items.Last_Name}</td>
@@ -144,6 +149,9 @@ let updatedata = (employedata) =>{
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                         : null
+                                                    }
+                                                    </>
                                                 )
                                             })
                                         }

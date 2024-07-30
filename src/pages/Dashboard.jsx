@@ -4,6 +4,8 @@ import { Sidebar } from '../common/Sidebar'
 
 export function Dashboard() {
 
+  let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
+  console.log(getlocaldata)
   
   return (
     <>
@@ -13,9 +15,8 @@ export function Dashboard() {
         <section className='dashboard_section border border-2 border-success w-100 position-relative'>
           <Header />
 
-          <section>
-
-            dfghjkl;'dfghjkl;'
+          <section className=''>
+            
           </section>
         </section>
       </section>
