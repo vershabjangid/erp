@@ -9,12 +9,11 @@ export function Add_task() {
 
     let noitfyerror = (error) => toast.error(error)
     let noitfysuccess = (success) => toast.success(success)
+    let Successfully = "Data Inserted"
 
     let sendtask = (inserting) => {
-        console.log(inserting)
         axios.post(`/erp/add-task.php`, toFormData(inserting))
             .then((res) => {
-                console.log(res)
                 if (res.data.Status == 1) {
                     noitfysuccess(res.data.msg)
                 }
@@ -31,7 +30,6 @@ export function Add_task() {
 
     let location = useLocation();
     const data = location.state || {}
-    console.log(data)
     let navigate = useNavigate();
 
     let updatetask = (updatevalue) => {
@@ -99,6 +97,7 @@ export function Add_task() {
                             End_Date: "",
                             Priority: "",
                             Status: "",
+                            id: data.id
                         }
                     }}
 

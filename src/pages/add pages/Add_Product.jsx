@@ -14,6 +14,7 @@ export function Add_Product() {
     let insertdata = (datainsert) => {
         axios.post(`/erp/add-project.php`, toFormData(datainsert))
             .then((res) => {
+                console.log(res)
                 if (res.data.Status == 1) {
                     notifysuccess("Got The Data")
                 }

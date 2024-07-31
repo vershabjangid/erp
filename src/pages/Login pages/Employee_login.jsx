@@ -54,7 +54,7 @@ export function Employee_login() {
 
                                 <div className='forgot_password w-100 my-4 d-flex justify-content-end'>
                                     <div className=' w-100 text-end fw-bold text-white fs-5'>
-                                        Forgot Password ?
+                                        
                                     </div>
                                 </div>
                                 <button type="submit" className='py-2 rounded-5 bg-white border-0 mt-3  fw-bolder fs-5'>Login</button>
