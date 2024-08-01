@@ -1,10 +1,13 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import React, { useEffect, useState } from 'react'
-import { IoIosLink } from 'react-icons/io'
+import { IoIosArrowDropright, IoIosLink } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast, ToastContainer } from 'react-toastify'
 import { Header } from '../../common/Header'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { MdOutlineShoppingBag } from 'react-icons/md';
 
 export function View_Customer() {
 
@@ -56,6 +59,10 @@ export function View_Customer() {
             <section className='main'>
                 <Header />
 
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <MdOutlineShoppingBag className='ms-2 me-2' />  View Customer</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/add-customer"}>Add Customer <IoIosArrowDropright /></Link></div>
+                </section>
 
                 <section className='table_overflow_section'>
                     <div className='table_customer_main'>

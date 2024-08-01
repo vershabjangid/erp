@@ -1,22 +1,14 @@
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import axios from 'axios';
 import { Field, Form, Formik } from 'formik'
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-export function Employee_login() {
-
-    let [eye, seteye] = useState(true);
-    let [userdata, setdata] = useState([]);
-    let [formvalue, setformvalue] = useState('');
-
-    // /erp/view-employe.php
-
-    
-    return (
-        <>
-            <section className='Login_main border border-1 border-danger'>
+export function Register() {
+    let [eye, seteye] = useState(true)
+  return (
+    <>
+      <section className='Login_main border border-1 border-danger'>
                 <section className='login_inner border border-3 border-white'>
                     {/* <div className='logo_section d-flex justify-content-center overflow-hidden'>
                     <img src={logo} alt="" className='w-50' />
@@ -24,7 +16,7 @@ export function Employee_login() {
 
 
                     <div className='welcome_heading my-2'>
-                        <h1 className='text-center text-white'>Employee Login</h1>
+                        <h1 className='text-center text-white'>Register</h1>
                     </div>
 
                     <Formik
@@ -35,7 +27,7 @@ export function Employee_login() {
                         }}
 
                         onSubmit={(value) => {
-                            setformvalue(value)
+                            // setformvalue(value)
                         }}
 
                     >
@@ -57,18 +49,16 @@ export function Employee_login() {
                                         
                                     </div>
                                 </div>
-                                <button type="submit" className='py-2 rounded-5 bg-white border-0 mt-3  fw-bolder fs-5'>Login</button>
-                                
-                                    <p className='login_change mb-5 mt-1 text-white fw-bold text-center'>Login As <Link to={"/"} className='text-decoration-none'> Admin</Link> or <Link to={"/supervisor-login"} className='text-decoration-none'>Supervisor</Link>
-                                    <div><Link to={"/register"} className='text-decoration-none'>Create a account ?</Link></div>
-                                    </p>
-                                
+                                <button type="submit" className='py-2 rounded-5 bg-white border-0 mt-3  fw-bolder fs-5'>Register</button>
+                                <Link to={"/"} className='text-decoration-none'>
+                                    <p className='login_change mb-5 mt-1 text-white fw-bold text-center'>Already have account ?</p>
+                                </Link>
                             </div>
 
                         </Form>
                     </Formik>
                 </section>
             </section>
-        </>
-    )
+    </>
+  )
 }

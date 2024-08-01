@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { Link, useNavigate } from 'react-router-dom'
-import { IoIosLink } from 'react-icons/io'
+import { IoIosArrowDropright, IoIosConstruct, IoIosLink } from 'react-icons/io'
 import { toast, ToastContainer } from 'react-toastify'
 import axios from 'axios'
 
@@ -55,6 +55,10 @@ export function View_Project() {
             <section className='main'>
                 <Header />
 
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <IoIosConstruct className='ms-2 me-2' />  View Project</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/add-project"}>Add Project <IoIosArrowDropright /></Link></div>
+                </section>
 
                 <section className='table_overflow_section'>
                     <div className='table_main'>

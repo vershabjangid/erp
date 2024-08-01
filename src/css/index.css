@@ -347,3 +347,17 @@ table{
   border: 1px solid red;
   z-index: -999;
 }
+
+
+.main_404{
+  height: 100vh;
+  background: linear-gradient(blue,rgb(228, 5, 228));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.page_label{
+  margin-top: 70px;
+}

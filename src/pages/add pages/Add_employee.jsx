@@ -4,8 +4,10 @@ import { Formik, Form, Field } from 'formik'
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import axios, { toFormData } from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import { json, useLocation, useNavigate, useParams } from 'react-router-dom';
-
+import { json, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { IoIosArrowDropright } from "react-icons/io";
 
 export function Add_employee() {
 
@@ -50,6 +52,11 @@ export function Add_employee() {
         <>
             <section className='main w-100'>
                 <Header />
+
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <FontAwesomeIcon icon={faUserTie} className='ms-2 me-2' />  Add Employee</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-employee"}>View Employee <IoIosArrowDropright/> </Link></div>
+                </section>
 
                 <Formik
 

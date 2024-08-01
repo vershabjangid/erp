@@ -33,6 +33,7 @@ export function Login() {
       .then((res) => {
         if (res.data.Status == 1) {
           setdata(res.data)
+          successnotification(res.data.msg)
         }
 
         else {
@@ -102,9 +103,12 @@ export function Login() {
                   </div>
                 </div>
                 <button type="submit" className='py-2 rounded-5 bg-white border-0 mt-3  fw-bolder fs-5'>Login</button>
-                <Link to={"/Employee-login"} className='text-decoration-none'>
-                  <p className='login_change mb-5 mt-1 text-white fw-bold text-center'>Login As Employee</p>
-                </Link>
+              
+                  <p className='login_change mb-5 mt-1 text-white fw-bold text-center'>Login As 
+                  <Link to={"/Employee-login"} className='text-decoration-none'> Employee </Link> or <Link to={"/supervisor-login"} className='text-decoration-none'> Supervisor</Link>
+                  <div><Link to={"/register"} className='text-decoration-none'>Create a account ?</Link></div>
+                  </p>
+                
               </div>
 
             </Form>

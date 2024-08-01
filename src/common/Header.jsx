@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { CgProfile } from "react-icons/cg";
 
 import { FaBars } from "react-icons/fa";
-import { Sidebar } from './Sidebar';
 import { Dashboard } from '../pages/Dashboard';
 import logo from '../images/360_F_513476156_AA8IEOmw88mX2R384H6ggnkPJFhLzxxU-removebg-preview.png'
 import { IoHomeOutline } from "react-icons/io5";
@@ -20,7 +19,7 @@ export function Header() {
     return (
         <>
 
-            <header className='bg-white w-100 position-relative'>
+            <header className='bg-white w-100 position-fixed'>
                 <div className='col-6 h-100 d-flex align-items-center'>
 
                     <div className='menubar ms-4 fs-5 justify-content-center d-flex align-items-center' onClick={()=>setcollapse(!sidecollapse)}>

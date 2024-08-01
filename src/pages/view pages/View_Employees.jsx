@@ -4,7 +4,10 @@ import axios from 'axios'
 import Dropdown from 'react-bootstrap/Dropdown';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { IoIosLink } from "react-icons/io";
+import { IoIosArrowDropright, IoIosLink } from "react-icons/io";
+import { IoHomeOutline } from 'react-icons/io5';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -38,18 +41,23 @@ export function View_Employees() {
 
     let count = 1;
 
-let navigate = useNavigate();
+    let navigate = useNavigate();
 
-let updatedata = (employedata) =>{
-    navigate('/add-employee',{state : employedata})
-}
+    let updatedata = (employedata) => {
+        navigate('/add-employee', { state: employedata })
+    }
 
 
-let localdata =  JSON.parse(localStorage.getItem("customerdata"))
+    let localdata = JSON.parse(localStorage.getItem("customerdata"))
     return (
         <>
             <section className='main'>
                 <Header />
+
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <FontAwesomeIcon icon={faUserTie} className='ms-2 me-2' />  View Employee</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/add-employee"}>Add Employee <IoIosArrowDropright/></Link></div>
+                </section>
 
 
                 <section className='table_overflow_section'>
@@ -104,53 +112,55 @@ let localdata =  JSON.parse(localStorage.getItem("customerdata"))
 
                                         {
                                             data.map((items, i) => {
+                                                console.log(items)
                                                 return (
                                                     <>
-                                                    {
-                                                        items.Admin_id == localdata.UserDetails.id ?
-                                                        <tr>
-                                                        <td className='border border-1 border-black text-center'>{count++}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.First_Name}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Last_Name}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Email}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Phone}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Address}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Org_Email}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.CTC_Hrs}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Billable}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Password}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.CTC_Mon}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Gender}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.DOB}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Date_Of_Joining}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Date_Of_Leaving}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Referred}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Designation}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Working_under}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Reporting}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Login_Access}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Active_User}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Lead_Handler}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Customer_List}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>{items.Show_Billing}</td>
-                                                        <td className='border border-1 border-black text-center px-1'>
-                                                            <div className='d-flex justify-content-center align-items-center flex-column'>
-                                                                <Dropdown className="d-inline my-2 mx-2">
-                                                                    <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
-                                                                        Action
-                                                                    </Dropdown.Toggle>
+                                                        {
+                                                            items.Admin_id == localdata.UserDetails.id ?
 
-                                                                    <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
-                                                                        <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
-                                                                        <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' onClick={()=>updatedata(items)} >Edit</Dropdown.Item>
-                                                                        <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deleteemployee(items.id)}>Delete</Dropdown.Item>
-                                                                    </Dropdown.Menu>
-                                                                </Dropdown>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                         : null
-                                                    }
+                                                                <tr>
+                                                                    <td className='border border-1 border-black text-center'>{count++}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.First_Name}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Last_Name}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Email}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Phone}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Address}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Org_Email}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.CTC_Hrs}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Billable}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Password}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.CTC_Mon}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Gender}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.DOB}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Date_Of_Joining}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Date_Of_Leaving}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Referred}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Designation}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Working_under}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Reporting}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Login_Access}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Active_User}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Lead_Handler}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Customer_List}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Show_Billing}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>
+                                                                        <div className='d-flex justify-content-center align-items-center flex-column'>
+                                                                            <Dropdown className="d-inline my-2 mx-2">
+                                                                                <Dropdown.Toggle className='bg-secondary border-0 py-3 px-5' id="dropdown-autoclose-true">
+                                                                                    Action
+                                                                                </Dropdown.Toggle>
+
+                                                                                <Dropdown.Menu className='table_action_dropdown p-0 rounded-0 bg-transparent border-0'>
+                                                                                    <Link className='text-decoration-none'><Dropdown.Item href="#" className='bg-primary text-center rounded text-white fw-bold py-2'>View</Dropdown.Item></Link>
+                                                                                    <Dropdown.Item href="#" className='bg-success text-center rounded text-white my-1 fw-bold py-2 ' onClick={() => updatedata(items)} >Edit</Dropdown.Item>
+                                                                                    <Dropdown.Item href="#" className='bg-danger text-center rounded text-white fw-bold py-2' onClick={() => deleteemployee(items.id)}>Delete</Dropdown.Item>
+                                                                                </Dropdown.Menu>
+                                                                            </Dropdown>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                : null
+                                                        }
                                                     </>
                                                 )
                                             })

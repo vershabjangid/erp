@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
 import { Field, Formik, Form } from 'formik';
 import axios from 'axios';
-import { IoIosLink } from 'react-icons/io';
+import { IoIosArrowDropright, IoIosLink } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { toast, ToastContainer } from 'react-toastify';
+import { FaTasks } from 'react-icons/fa';
 
 export function View_task() {
 
@@ -52,6 +53,12 @@ export function View_task() {
         <>
             <section className='main'>
                 <Header />
+
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <FaTasks className='ms-2 me-2' />  View Task</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/add-task"}>Add Task <IoIosArrowDropright /></Link></div>
+                </section>
+
 
                 <section className='table_overflow_section'>
                     <div className='table_customer_main'>

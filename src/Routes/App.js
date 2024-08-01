@@ -13,14 +13,20 @@ import { View_Project } from "../pages/view pages/View_Project";
 import { Add_Gstr_3b } from "../pages/add pages/Add_Gstr_3b";
 import { Add_task } from "../pages/add pages/Add_task";
 import { View_task } from "../pages/view pages/View_task";
+import { Login_supervisor } from "../pages/Login pages/Login_supervisor";
+import { Register } from "../pages/Login pages/Register";
+import { Page404 } from "../pages/Page404";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
+        <Route path='*' element={<Page404 />} />
           <Route path='/' element={<Login />} />
           <Route path="/Employee-login" element={<Employee_login />} />
+          <Route path="/supervisor-login" element={<Login_supervisor/>}/>
+          <Route path="/register" element={<Register/>}/>
 
           <Route element={<PrivateRoute />} >
             <Route path='dashboard' element={<Dashboard />} />
@@ -35,6 +41,7 @@ function App() {
             <Route path="/add-gstr-3b" element={<Add_Gstr_3b/>} />
           </Route>
         </Routes>
+        
       </BrowserRouter>
     </>
   );

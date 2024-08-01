@@ -3,7 +3,9 @@ import { Header } from '../../common/Header'
 import { Field, Formik, Form } from 'formik';
 import axios, { toFormData } from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaTasks } from 'react-icons/fa';
+import { IoIosArrowDropright } from 'react-icons/io';
 
 export function Add_task() {
 
@@ -47,6 +49,13 @@ export function Add_task() {
         <>
             <section className='main'>
                 <Header />
+
+
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <FaTasks className='ms-2 me-2' />  Add Task</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-task"}>View Task <IoIosArrowDropright /></Link></div>
+                </section>
+
 
                 <Formik
 

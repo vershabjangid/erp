@@ -3,7 +3,8 @@ import React from 'react'
 import { Header } from '../../common/Header'
 import axios, { toFormData } from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { IoIosArrowDropright, IoIosConstruct } from 'react-icons/io'
 
 export function Add_Product() {
 
@@ -46,6 +47,11 @@ export function Add_Product() {
             <section className='main w-100'>
                 <Header />
 
+
+                <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
+                    <div className='d-flex align-items-center'> <IoIosConstruct className='ms-2 me-2' />  Add Project</div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-project"}>View Project <IoIosArrowDropright /></Link></div>
+                </section>
                 <Formik
 
                     initialValues={{
