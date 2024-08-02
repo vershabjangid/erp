@@ -61,7 +61,7 @@ export function Add_customer() {
 
 
         <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
-          <div className='d-flex align-items-center'> <MdOutlineShoppingBag icon={faUserTie} className='ms-2 me-2' />  View Customer</div>
+          <div className='d-flex align-items-center'> <MdOutlineShoppingBag className='ms-2 me-2' />  View Customer</div>
           <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-customer"}>View Customer <IoIosArrowDropright /></Link></div>
         </section>
 

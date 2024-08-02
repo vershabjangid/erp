@@ -284,7 +284,6 @@ table{
 
 
 
-
 /* add gstr 3b  */
 
 
@@ -360,4 +359,13 @@ table{
 
 .page_label{
   margin-top: 70px;
+}
+
+.table_label{
+  background-color: #fad2b1af;
+}
+
+.entries_main_section{
+  width: 100%;
+  border: 1px solid black;
 }

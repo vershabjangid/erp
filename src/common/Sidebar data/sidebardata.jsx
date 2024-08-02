@@ -7,7 +7,7 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 import { IoIosConstruct } from "react-icons/io";
 import { FaTasks } from "react-icons/fa";
 import { BiTask } from "react-icons/bi";
-
+import { FaPercentage } from "react-icons/fa";
 
 export const sidebardata = [
     {
@@ -117,15 +117,8 @@ export const sidebardata = [
     {
         id: 7,
         name: "GSTR",
-        icon: <BiTask className="fs-4 ms-1" />,
-        subcategory: [
-            {
-                id: 7,
-                subcategory_name: "GSTR-3b",
-                sub_icon: <FontAwesomeIcon icon={faPlus} />,
-                path:"/add-gstr-3b"
-            }
-        ]
+        icon: <FaPercentage />,
+        path:"/add-gstr"
     }
 ]
 

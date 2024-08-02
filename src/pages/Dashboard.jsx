@@ -31,7 +31,7 @@ export function Dashboard() {
 
       <section className='main d-flex'>
 
-        <section className='dashboard_section border border-2 border-success w-100 position-relative'>
+        <section className='dashboard_section border border-2 border-success w-100'>
           <Header />
 
           <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
