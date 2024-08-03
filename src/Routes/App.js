@@ -17,6 +17,7 @@ import { Register } from "../pages/Login pages/Register";
 import { Page404 } from "../pages/Page404";
 import { Gstr } from "../pages/Gstr/Gstr";
 import { Add_Gstr_3b } from "../pages/Gstr/add gstr/Add_Gstr_3b";
+import { View_Gstr_3b } from "../pages/Gstr/view gstr/View_Gstr_3b";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             <Route path="/view-task" element={<View_task/>} />
             <Route path="/add-gstr" element={<Gstr/>} />
             <Route path="/add-gstr-3b" element={<Add_Gstr_3b/>}/>
+            <Route path="/view-gstr-3b" element={<View_Gstr_3b/>}/>
           </Route>
         </Routes>
         

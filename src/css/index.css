@@ -224,6 +224,19 @@ input[type=text]{
 
 /* dashboard section  */
 
+.total_information_dashboard{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.total_employee{
+  width: 350px;
+  margin: 10px;
+  background-color: #002869;
+  padding: 20px;
+}
 
 /* dashboard section  closed  */
 
