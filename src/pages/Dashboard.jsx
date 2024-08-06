@@ -3,51 +3,51 @@ import { Header } from '../common/Header'
 import { IoHomeOutline } from "react-icons/io5";
 import axios from 'axios';
 import { IoIosConstruct } from 'react-icons/io';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 
 export function Dashboard() {
 
   let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
+  console.log(getlocaldata)
+
+  // let [data, setdata] = useState([]);
+  // let [employeedata, setemployeedata] = useState([]);
+
+  // let getdata = () => {
+  //   axios.get(`/erp/view-project.php`)
+  //     .then((res) => {
+  //       setdata(res.data.Details)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
+
+  // useEffect(() => {
+  //   getdata();
+  // }, [])
 
 
-  let [data, setdata] = useState([]);
-  let [employeedata, setemployeedata] = useState([]);
-
-  let getdata = () => {
-    axios.get(`/erp/view-project.php`)
-      .then((res) => {
-        setdata(res.data.Details)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
-
-  useEffect(() => {
-    getdata();
-  }, [])
+  // console.log(data)
 
 
-  console.log(data)
 
-  
-  
-  let getemployeedata = () => {
-    axios.get(`/erp/view-employe.php`)
-    .then((res) => {
-      setemployeedata(res.data.Details)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
-  
-  useEffect(() => {
-    getemployeedata();
-  }, [])
-  
-  let count= 0;
-  let employeecount = 0;
-  
+  // let getemployeedata = () => {
+  //   axios.get(`/erp/view-employe.php`)
+  //     .then((res) => {
+  //       setemployeedata(res.data.Details)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+  // }
+
+  // useEffect(() => {
+  //   getemployeedata();
+  // }, [])
+
+
   return (
     <>
 
@@ -61,102 +61,23 @@ export function Dashboard() {
           </section>
 
 
-          <section className='total_information_dashboard'>
-            <section className='total_employee text-center'>
-              <h4>
-                <IoIosConstruct className='text-white fs-1' />
-              </h4>
-              <h3 className='text-white'>Total Projects</h3>
-              <h2 className='text-white'>
-                {
-                  data.map((items,i)=>{
-                    if(getlocaldata.UserDetails.id == items.Admin_id){
-                      count++
-                    }
-
-                  })
-                }
-                {count}
-              </h2>
+          <section className='welcome_user_banner col-6 border border-1 border-black my-2 p-3 bg-white rounded mx-1'>
+            <section className=''>
+              <h1 className='fs-3'>Welcome Back</h1>
+              <h2>{getlocaldata.UserDetails.Name}</h2>
             </section>
 
-
-
-
-            <section className='total_employee text-center'>
-              <h4>
-                <IoIosConstruct className='text-white fs-1' />
-              </h4>
-              <h3 className='text-white'>Total Employee</h3>
-              <h2 className='text-white'>
-                {
-                  employeedata.map((items,i)=>{
-                    if(getlocaldata.UserDetails.id == items.Admin_id){
-                      employeecount++
-                    }
-
-                  })
-                }
-                {employeecount}
-              </h2>
-            </section>
-
-
-            <section className='total_employee text-center'>
-              <h4>
-                <IoIosConstruct className='text-white fs-1' />
-              </h4>
-              <h3 className='text-white'>Total Projects</h3>
-              <h2 className='text-white'>
-                {
-                  data.map((items,i)=>{
-                    if(getlocaldata.UserDetails.id == items.Admin_id){
-                      count++
-                    }
-
-                  })
-                }
-                {count}
-              </h2>
-            </section>
-
-
-
-            <section className='total_employee text-center'>
-              <h4>
-                <IoIosConstruct className='text-white fs-1' />
-              </h4>
-              <h3 className='text-white'>Total Projects</h3>
-              <h2 className='text-white'>
-                {
-                  data.map((items,i)=>{
-                    if(getlocaldata.UserDetails.id == items.Admin_id){
-                      count++
-                    }
-
-                  })
-                }
-                {count}
-              </h2>
-            </section>
-
-
-            <section className='total_employee text-center'>
-              <h4>
-                <IoIosConstruct className='text-white fs-1' />
-              </h4>
-              <h3 className='text-white'>Total Projects</h3>
-              <h2 className='text-white'>
-                {
-                  data.map((items,i)=>{
-                    if(getlocaldata.UserDetails.id == items.Admin_id){
-                      count++
-                    }
-
-                  })
-                }
-                {count}
-              </h2>
+            <section className='d-flex mt-4'>
+              <div className='col-6 border border-1 border-danger'>
+                <div className='col-3 my-4'>
+                  <div className='text-center'>
+                  <FontAwesomeIcon icon={faUserTie} className="fs-4 ms-1" />
+                  </div>
+                  <h5 className='text-center'>Total Employee</h5>
+                </div>
+                
+              </div>
+              <div className='col-6 border border-1 border-success'></div>
             </section>
           </section>
         </section>

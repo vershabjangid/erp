@@ -20,7 +20,7 @@ export function Add_Gstr_3b() {
         axios.post(`/erp/add-gstr3b.php`, toFormData(inserting))
             .then((res) => {
                 console.log(res)
-                if (res.data.Status == 1) {
+                if (res.data.Status === 1) {
                     notifysuccess(res.data.msg)
                 }
 
@@ -53,15 +53,14 @@ export function Add_Gstr_3b() {
                         userID: "100",
                         adminID: getlocalstorage.UserDetails.id,
                         ClientID: "100",
-                        gstr3b_id: "",
 
                         // 3.1 
                         NOS3_1: "",
-                        TTV3_1: "",
-                        IT3_1: "",
-                        CT3_1: "",
-                        ST3_1: "",
-                        C3_1: "",
+                        TTV3_1 : "",
+                        IT3_1 : "",
+                        CT3_1 : "",
+                        ST3_1 : "",
+                        C3_1 : "",
 
 
 
@@ -121,17 +120,17 @@ export function Add_Gstr_3b() {
 
                         // 3.2
                         NOS32_1: "",
-                        CT32_1: "",
+                        IT32_1: "",
                         TTV32_1: "",
 
 
                         NOS32_2: "",
-                        CT32_2: "",
+                        IT32_2: "",
                         TTV32_2: "",
 
 
                         NOS32_3: "",
-                        CT32_3: "",
+                        IT32_3: "",
                         TTV32_3: "",
 
                         // 4
@@ -406,7 +405,7 @@ export function Add_Gstr_3b() {
                     }}
                 >
                     <Form>
-                        <section className='gstr_3b_form_section bg-white border border-1 border-black'>
+                        <section className='gstr_form_section bg-white border border-1 border-black'>
                             <h3 className='text-center'>Form GSTR-3B</h3>
                             <h5 className='text-center'>[See rule 61(5)]</h5>
 
@@ -1093,7 +1092,7 @@ export function Add_Gstr_3b() {
                                         </div>
 
                                         <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
-                                            <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="IT4_9" />
+                                            <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="CT4_9" />
                                         </div>
 
                                         <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>

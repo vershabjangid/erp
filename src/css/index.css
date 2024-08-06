@@ -224,19 +224,7 @@ input[type=text]{
 
 /* dashboard section  */
 
-.total_information_dashboard{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.total_employee{
-  width: 350px;
-  margin: 10px;
-  background-color: #002869;
-  padding: 20px;
-}
 
 /* dashboard section  closed  */
 
@@ -300,7 +288,7 @@ table{
 /* add gstr 3b  */
 
 
-.gstr_3b_form_section{
+.gstr_form_section{
   width: 1200px;
   margin: auto;
   margin-top: 15px;
@@ -381,4 +369,14 @@ table{
 .entries_main_section{
   width: 100%;
   border: 1px solid black;
+}
+
+
+.form_3_date_table{
+  width: 30%;
+}
+
+.gstr1_entry{
+  font-size: 13px;
+  background-color: #fad2b1;
 }

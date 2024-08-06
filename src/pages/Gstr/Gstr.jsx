@@ -1,10 +1,7 @@
 import React from 'react'
 import { Header } from '../../common/Header'
-import { MdOutlineShoppingBag } from 'react-icons/md'
-import { IoIosArrowDropright } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { FaPercentage } from 'react-icons/fa'
-import { Field, Formik } from 'formik'
 import { BiPlus } from 'react-icons/bi'
 
 export function Gstr() {
@@ -36,7 +33,7 @@ export function Gstr() {
                                     <Link className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
                                         View GSTR
                                     </Link>
-                                    <Link className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
+                                    <Link to={"/add-gstr-1"} className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
                                         Add GSTR
                                     </Link>
                                 </div>
