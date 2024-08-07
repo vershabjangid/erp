@@ -44,25 +44,25 @@ export function Add_Gstr_3b() {
                 <Formik
 
                     initialValues={{
-                        year: "",
-                        month: "",
                         legal_name: "",
                         trade_name: "",
                         arn: "",
                         date_of_arn: "",
-                        userID: "100",
-                        adminID: getlocalstorage.UserDetails.id,
-                        ClientID: "100",
+                        month: "",
+                        year: "",
+                        userID: "200",
+                        Admin_id: getlocalstorage.UserDetails.id,
+                        ClientID: "200",
+
+
 
                         // 3.1 
                         NOS3_1: "",
-                        TTV3_1 : "",
-                        IT3_1 : "",
-                        CT3_1 : "",
-                        ST3_1 : "",
-                        C3_1 : "",
-
-
+                        TTV3_1: "",
+                        IT3_1: "",
+                        CT3_1: "",
+                        ST3_1: "",
+                        C3_1: "",
 
                         NOS3_2: "",
                         TTV3_2: "",
@@ -71,8 +71,6 @@ export function Add_Gstr_3b() {
                         ST3_2: "",
                         C3_2: "",
 
-
-
                         NOS3_3: "",
                         TTV3_3: "",
                         IT3_3: "",
@@ -80,15 +78,12 @@ export function Add_Gstr_3b() {
                         ST3_3: "",
                         C3_3: "",
 
-
-
                         NOS3_4: "",
                         TTV3_4: "",
                         IT3_4: "",
                         CT3_4: "",
                         ST3_4: "",
                         C3_4: "",
-
 
                         NOS3_5: "",
                         TTV3_5: "",
@@ -120,18 +115,19 @@ export function Add_Gstr_3b() {
 
                         // 3.2
                         NOS32_1: "",
-                        IT32_1: "",
                         TTV32_1: "",
-
+                        IT32_1: "",
 
                         NOS32_2: "",
-                        IT32_2: "",
                         TTV32_2: "",
-
+                        IT32_2: "",
 
                         NOS32_3: "",
-                        IT32_3: "",
                         TTV32_3: "",
+                        IT32_3: "",
+
+
+
 
                         // 4
                         NOS4_1: "",
@@ -140,18 +136,11 @@ export function Add_Gstr_3b() {
                         ST4_1: "",
                         C4_1: "",
 
-
-
-
                         NOS4_2: "",
                         IT4_2: "",
                         CT4_2: "",
                         ST4_2: "",
                         C4_2: "",
-
-
-
-
 
                         NOS4_3: "",
                         IT4_3: "",
@@ -159,14 +148,11 @@ export function Add_Gstr_3b() {
                         ST4_3: "",
                         C4_3: "",
 
-
-
                         NOS4_4: "",
                         IT4_4: "",
                         CT4_4: "",
                         ST4_4: "",
                         C4_4: "",
-
 
                         NOS4_5: "",
                         IT4_5: "",
@@ -174,14 +160,11 @@ export function Add_Gstr_3b() {
                         ST4_5: "",
                         C4_5: "",
 
-
                         NOS4_6: "",
                         IT4_6: "",
                         CT4_6: "",
                         ST4_6: "",
                         C4_6: "",
-
-
 
                         NOS4_7: "",
                         IT4_7: "",
@@ -189,13 +172,11 @@ export function Add_Gstr_3b() {
                         ST4_7: "",
                         C4_7: "",
 
-
                         NOS4_8: "",
                         IT4_8: "",
                         CT4_8: "",
                         ST4_8: "",
                         C4_8: "",
-
 
                         NOS4_9: "",
                         IT4_9: "",
@@ -209,17 +190,13 @@ export function Add_Gstr_3b() {
                         ST4_10: "",
                         C4_10: "",
 
-
                         NOS4_11: "",
                         IT4_11: "",
                         CT4_11: "",
                         ST4_11: "",
                         C4_11: "",
 
-
-
                         //5
-
                         NOS5_1: "",
                         Inter_SS5_1: "",
                         Intra_SS5_1: "",
@@ -229,29 +206,27 @@ export function Add_Gstr_3b() {
                         Intra_SS5_2: "",
 
                         //5.1
+
                         NOS5_1_1: "",
-                        TTV5_1_1: "",
+                        IT5_1_1: "",
                         CT5_1_1: "",
                         ST5_1_1: "",
                         C5_1_1: "",
 
-
                         NOS5_1_2: "",
-                        TTV5_1_2: "",
+                        IT5_1_2: "",
                         CT5_1_2: "",
                         ST5_1_2: "",
                         C5_1_2: "",
 
-
-
                         NOS5_1_3: "",
-                        TTV5_1_3: "",
+                        IT5_1_3: "",
                         CT5_1_3: "",
                         ST5_1_3: "",
                         C5_1_3: "",
 
-
                         // 6
+
 
                         NOS6_1: "",
                         TTP6_1: "",
@@ -273,7 +248,6 @@ export function Add_Gstr_3b() {
                         IP6_2: "",
                         LF6_2: "",
 
-
                         NOS6_3: "",
                         TTP6_3: "",
                         IT6_3: "",
@@ -283,7 +257,6 @@ export function Add_Gstr_3b() {
                         TP6_3: "",
                         IP6_3: "",
                         LF6_3: "",
-
 
                         NOS6_4: "",
                         TTP6_4: "",
@@ -295,7 +268,6 @@ export function Add_Gstr_3b() {
                         IP6_4: "",
                         LF6_4: "",
 
-
                         NOS6_5: "",
                         TTP6_5: "",
                         IT6_5: "",
@@ -305,7 +277,6 @@ export function Add_Gstr_3b() {
                         TP6_5: "",
                         IP6_5: "",
                         LF6_5: "",
-
 
                         NOS6_6: "",
                         TTP6_6: "",
@@ -317,7 +288,6 @@ export function Add_Gstr_3b() {
                         IP6_6: "",
                         LF6_6: "",
 
-
                         NOS6_7: "",
                         TTP6_7: "",
                         IT6_7: "",
@@ -327,7 +297,6 @@ export function Add_Gstr_3b() {
                         TP6_7: "",
                         IP6_7: "",
                         LF6_7: "",
-
 
                         NOS6_8: "",
                         TTP6_8: "",
@@ -340,15 +309,12 @@ export function Add_Gstr_3b() {
                         LF6_8: "",
 
 
-
-                        // 7
-
-
+                        // // 7
                         NOS7_1: "",
                         IT7_1: "",
                         CT7_1: "",
                         ST7_1: "",
-                        C7_1: ""
+                        C7_1: "",
 
                     }}
 
@@ -397,7 +363,7 @@ export function Add_Gstr_3b() {
                         values.NOS6_8 = "Cess"
 
                         // 7
-                        values.NOS7_1 = values.date_of_arn
+                        values.NOS7_1 = ""
 
 
 
@@ -410,6 +376,7 @@ export function Add_Gstr_3b() {
                             <h5 className='text-center'>[See rule 61(5)]</h5>
 
 
+                            {/* date and period section  */}
                             <section className='form_3_date_section mb-3 d-flex justify-content-end'>
                                 <table className='w-25 h-100 form_3_date_table'>
                                     <tr className='w-100 border border-1 border-black'>
@@ -426,8 +393,8 @@ export function Add_Gstr_3b() {
                             </section>
 
 
-
                             <section className=''>
+                                {/* personal information section  */}
                                 <table className='w-100 h-100 form_3_date_table'>
                                     <tr className='w-100 border border-1 border-black'>
                                         <th className='w-25  p-2 border-end border-1 border-black gstr_label '>GSTIN of the supplier</th>
@@ -457,10 +424,10 @@ export function Add_Gstr_3b() {
                                     </tr>
                                 </table>
 
-
+                                {/*3.1 section*/}
                                 <div className='table_label px-1 py-1 my-3'>3.1 Details of Outward supplies and inward supplies liable to reverse charge (other than those covered by Table 3.1.1)</div>
 
-
+                                {/*3.1 section heading*/}
                                 <div className='entries_main_section border-bottom-0'>
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black fw-bold d-flex align-items-center ps-1'>
@@ -490,7 +457,7 @@ export function Add_Gstr_3b() {
 
 
 
-
+                                    {/*3.1 section 1st entry section*/}
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black d-flex align-items-center ps-1'>
                                             (a) Outward taxable supplies (other than zero rated, nil rated and
@@ -520,7 +487,7 @@ export function Add_Gstr_3b() {
 
 
 
-
+                                    {/*3.1 section 2nd entry section*/}
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black d-flex align-items-center ps-1'>
                                             (b) Outward taxable supplies (zero rated)
@@ -548,7 +515,7 @@ export function Add_Gstr_3b() {
                                     </div>
 
 
-
+                                    {/*3.1 section 3rd entry section*/}
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black d-flex align-items-center ps-1'>
                                             (c) Other outward supplies (nil rated, exempted)
@@ -578,7 +545,7 @@ export function Add_Gstr_3b() {
 
 
 
-
+                                    {/*3.1 section 4th entry section*/}
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black d-flex align-items-center ps-1'>
                                             (d) Inward supplies (liable to reverse charge)
@@ -607,7 +574,7 @@ export function Add_Gstr_3b() {
 
 
 
-
+                                    {/*3.1 section 5th entry section*/}
                                     <div className='border-bottom border-1 border-black d-flex'>
                                         <div className='col-5 border-end border-1 border-black d-flex align-items-center ps-1'>
                                             (e) Non-GST outward supplies
@@ -636,7 +603,7 @@ export function Add_Gstr_3b() {
                                 </div>
 
 
-
+                                {/*3.1 section*/}
                                 <div className='table_label px-1 py-1 my-3'>3.1.1 Details of Supplies notifed under section 9(5) of the CGST Act, 2017 and corresponding provisions in IGST/UTGST/
                                     SGST Acts
                                 </div>
@@ -734,9 +701,10 @@ export function Add_Gstr_3b() {
                                 </div>
 
 
-
-                                <div className='table_label px-1 py-1 my-3'>3.2 Out of supplies made in 3.1 (a) and 3.1.1 (i), details of inter-state supplies made </div>
-
+                                {/*3.2 section*/}
+                                <div className='table_label px-1 py-1 my-3'>
+                                    3.2 Out of supplies made in 3.1 (a) and 3.1.1 (i), details of inter-state supplies made
+                                </div>
 
                                 <div className='entries_main_section border-bottom-0'>
                                     <div className='border-bottom border-1 border-black d-flex'>
@@ -806,6 +774,7 @@ export function Add_Gstr_3b() {
                                         </div>
 
                                     </div>
+
                                 </div>
 
                                 {/* 4. section */}
@@ -1159,6 +1128,8 @@ export function Add_Gstr_3b() {
                                 </div>
                             </section>
 
+                            {/* 5th section */}
+
 
                             <div className='table_label px-1 py-1 my-3'>5 Values of exempt, nil-rated and non-GST inward supplies</div>
 
@@ -1215,7 +1186,7 @@ export function Add_Gstr_3b() {
                                 </div>
                             </div>
 
-
+                            {/* 5.1 section  */}
                             <div className='table_label px-1 py-1 my-3'>5.1 Interest and Late fee for previous tax period</div>
 
 
@@ -1252,7 +1223,7 @@ export function Add_Gstr_3b() {
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
-                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="TTV5_1_1" />
+                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="IT5_1_1 " />
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
@@ -1280,7 +1251,7 @@ export function Add_Gstr_3b() {
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
-                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="TTV5_1_2" />
+                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="IT5_1_2 " />
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
@@ -1306,7 +1277,7 @@ export function Add_Gstr_3b() {
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
-                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="TTV5_1_3" />
+                                        <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="IT5_1_3" />
                                     </div>
 
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
@@ -1398,7 +1369,7 @@ export function Add_Gstr_3b() {
                                     </div>
 
                                     <div className='col-5 text-center fw-bold border-end border-1 border-black fw-bold d-flex'>
-                                        
+
                                         <div><Field type="number" className="w-100 h-100 border-0 ps-2 py-2 border-end border-1 border-black" placeholder="0.00" name="IT6_1" /></div>
                                         <div><Field type="number" className="w-100 h-100 border-0 ps-2 py-2 border-end border-1 border-black" placeholder="0.00" name="CT6_1" /></div>
                                         <div><Field type="number" className="w-100 h-100 border-0 ps-2 py-2 border-end border-1 border-black" placeholder="0.00" name="ST6_1" /></div>
@@ -1487,7 +1458,7 @@ export function Add_Gstr_3b() {
                                     <div className='col-2 border-end border-1 border-black d-flex align-items-center ps-1'>
                                         Cess
                                     </div>
-                                 
+
                                     <div className='col-1 text-center fw-bold border-end border-1 border-black fw-bold'>
                                         <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="TTP6_4" />
                                     </div>
@@ -1532,7 +1503,7 @@ export function Add_Gstr_3b() {
                                     <div className='col-1 text-center fw-bold border-end border-1 border-black fw-bold'>
                                         <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="TTP6_5" />
                                     </div>
-                                  
+
                                     <div className='col-5 text-center fw-bold border-end border-1 border-black fw-bold d-flex'>
                                         <div><Field type="number" className="w-100 h-100 border-0 ps-2 py-2 border-end border-1 border-black" placeholder="0.00" name="IT6_5" /></div>
                                         <div><Field type="number" className="w-100 h-100 border-0 ps-2 py-2 border-end border-1 border-black" placeholder="0.00" name="CT6_5" /></div>
@@ -1686,7 +1657,7 @@ export function Add_Gstr_3b() {
                                         Month
                                     </div>
 
-                   
+
                                     <div className='col-2 text-center fw-bold border-end border-1 border-black fw-bold'>
                                         <Field type="number" className="w-100 h-100 border-0 ps-2 py-2" placeholder="0.00" name="IT7_1" />
                                     </div>

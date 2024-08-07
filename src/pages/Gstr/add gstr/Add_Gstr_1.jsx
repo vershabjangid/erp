@@ -141,6 +141,10 @@ export function Add_Gstr_1() {
                                     <div className='col-2 text-center border-end border-1 border-black'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
+
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
                                 </section>
 
 
@@ -177,6 +181,10 @@ export function Add_Gstr_1() {
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
                                     <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+
+                                    <div className='col-1 text-center'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
                                 </section>
@@ -216,6 +224,10 @@ export function Add_Gstr_1() {
                                     <div className='col-2 text-center border-end border-1 border-black'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
+
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
                                 </section>
 
 
@@ -252,7 +264,614 @@ export function Add_Gstr_1() {
                                     <div className='col-2 text-center border-end border-1 border-black'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
                                 </section>
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWOP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+                                {/* 6b section  */}
+
+
+
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    6B - Supplies made to SEZ unit or SEZ developer - SEZWP/SEZWOP
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - SEZWP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - SEZWOP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+
+                                {/* 6c section  */}
+
+
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    6C - Deemed Exports – DE
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    
+                                </section>
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+                                {/* 7 - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    7- Taxable supplies (Net of debit and credit notes) to unregistered persons (other than the supplies covered in Table 5) including supplies made through e-commerce operator attracting TCS - B2CS (Others)
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+
+                                {/* 8 section  */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    8 - Nil rated, exempted and non GST outward supplies
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-6 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-6 border-end border-1 border-black text-center p-1'>
+                                        - Nil
+                                    </div>
+
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-6 border-end border-1 border-black text-center p-1'>
+                                        - Exempted
+                                    </div>
+
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-6 border-end border-1 border-black text-center p-1'>
+                                        - Non-GST
+                                    </div>
+
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+
+                                {/* 9 - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9A - Amendment to taxable outward supplies made to registered person in returns of earlier tax periods in table 4 - B2B Regular
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+                                {/* 9-a second - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9A - Amendment to taxable outward supplies made to registered person in returns of earlier tax periods in table 4 - B2B Reverse charge
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+
+                                {/* 9-a third - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9A - Amendment to Inter-State supplies made to unregistered person (where invoice value is more than Rs.2.5 lakh) in returns of earlier tax periods in table 5 - B2CL (Large)
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+                                {/* 9-a fourth - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9A - Amendment to Export supplies in returns of earlier tax periods in table 6A (EXPWP/EXPWOP)
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original) - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
 
 
                                 <section className=' border-bottom border-1 border-black d-flex'>
@@ -305,24 +924,27 @@ export function Add_Gstr_1() {
                                 </section>
 
 
-
-
                                 <section className='border-bottom border-1 border-black'>
                                     <div className='col-12 text-center'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
                                     </div>
                                 </section>
-                                {/* 6b section  */}
 
 
 
+
+
+
+
+
+                                {/* 9-a fifth - section */}
                                 <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
-                                    6B - Supplies made to SEZ unit or SEZ developer - SEZWP/SEZWOP
+                                    9A - Amendment to supplies made to SEZ units or SEZ developers in returns of earlier tax periods in table 6B (SEZWP/SEZWOP)
                                 </section>
 
                                 <section className=' border-bottom border-1 border-black d-flex'>
                                     <div className='col-4 border-end border-1 border-black text-center p-1'>
-                                        Total
+                                        Amended amount - Total
                                     </div>
                                     <div className='col-1 text-center border-end border-1 border-black'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
@@ -343,6 +965,31 @@ export function Add_Gstr_1() {
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
                                 </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original) - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
 
 
                                 <section className=' border-bottom border-1 border-black d-flex'>
@@ -395,8 +1042,6 @@ export function Add_Gstr_1() {
                                 </section>
 
 
-
-
                                 <section className='border-bottom border-1 border-black'>
                                     <div className='col-12 text-center'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
@@ -405,16 +1050,39 @@ export function Add_Gstr_1() {
 
 
 
-                                {/* 6c section  */}
 
-
+                                {/* 9-a sixth - section */}
                                 <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
-                                6C - Deemed Exports – DE
+                                9A - Amendment to Deemed Exports in returns of earlier tax periods in table 6C (DE)
                                 </section>
 
                                 <section className=' border-bottom border-1 border-black d-flex'>
                                     <div className='col-4 border-end border-1 border-black text-center p-1'>
-                                        Total
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Invoice
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original) - Total
                                     </div>
                                     <div className='col-1 text-center border-end border-1 border-black'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
@@ -438,13 +1106,14 @@ export function Add_Gstr_1() {
 
 
 
-
-
                                 <section className='border-bottom border-1 border-black'>
                                     <div className='col-12 text-center'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" disabled />
                                     </div>
                                 </section>
+
+
+
                             </section>
 
 
