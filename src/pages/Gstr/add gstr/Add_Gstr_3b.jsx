@@ -53,6 +53,7 @@ export function Add_Gstr_3b() {
                         userID: "200",
                         Admin_id: getlocalstorage.UserDetails.id,
                         ClientID: "200",
+                        gstin:"",
 
 
 
@@ -399,7 +400,7 @@ export function Add_Gstr_3b() {
                                     <tr className='w-100 border border-1 border-black'>
                                         <th className='w-25  p-2 border-end border-1 border-black gstr_label '>GSTIN of the supplier</th>
                                         <td className='w-50 h-100'>
-                                            <Field type="text" placeholder='Enter GSTIN of the supplier' className='w-100 border-0 h-100' name="GSTIN" />
+                                            <Field type="text" placeholder='Enter GSTIN of the supplier' className='w-100 border-0 h-100' name="gstin" />
                                         </td>
                                     </tr>
                                     <tr className='w-100 border border-1 border-black'>

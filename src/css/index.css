@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body{
+body {
   font-family: "Roboto", sans-serif;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
   display: none;
 }
 
 
 /* login page */
 
-.Login_main{
+.Login_main {
   width: 100%;
   height: 100vh;
   background-image: url("../images/2824605-Photoroom.png");
@@ -22,36 +23,36 @@ body::-webkit-scrollbar{
   align-items: center;
 }
 
-.Login_main::-webkit-scrollbar{
+.Login_main::-webkit-scrollbar {
   display: none;
 }
 
-.login_input_fields{
+.login_input_fields {
   width: 75%;
 }
 
-.login_inner{
+.login_inner {
   width: 500px;
   padding: 0px 5px;
   background-color: transparent;
   backdrop-filter: blur(5px);
   border-radius: 10px;
-  box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.5),inset -20px -20px 80px rgba(255, 255, 255, 0.514);
+  box-shadow: 20px 20px 80px rgba(0, 0, 0, 0.5), inset -20px -20px 80px rgba(255, 255, 255, 0.514);
 }
 
 
-.welcome_heading{
+.welcome_heading {
   font-family: "Roboto", sans-serif;
   padding: 50px 0px;
 }
 
 
-.login_inputs::placeholder{
+.login_inputs::placeholder {
   color: white;
   font-size: 18px;
 }
 
-.login_inputs{
+.login_inputs {
   outline: none;
   background-color: rgba(0, 0, 0, 0.281);
   backdrop-filter: blur(10px);
@@ -59,54 +60,55 @@ body::-webkit-scrollbar{
 }
 
 
-.eye_icon{
+.eye_icon {
   right: 20px;
   top: 22px;
   font-size: 18px;
 }
 
-.login_change{
+.login_change {
   cursor: pointer;
 }
+
 /* login page closed */
 
 
 /* sidebar section  */
-.sidebar{
+.sidebar {
   width: 260px;
-  height:calc(100vh - 75px);
+  height: calc(100vh - 75px);
   background-color: white;
   overflow-y: scroll;
   transition: 0.5s;
   z-index: 9999;
-  
+
 }
 
-.sidebar_deactive{
+.sidebar_deactive {
   width: 0px;
-  height:calc(100vh - 75px);
+  height: calc(100vh - 75px);
   background-color: white;
   left: -100%;
 }
 
-.sidebar::-webkit-scrollbar{
+.sidebar::-webkit-scrollbar {
   display: none;
 }
 
-.sidebar_options{
+.sidebar_options {
   color: #5f5f5f;
   font-size: 15px;
   height: 50px;
 }
 
-.sidebar_options:hover{
+.sidebar_options:hover {
   color: #002869;
   background-color: #f2f9ff;
 }
 
 
 
-.subnav_active{
+.subnav_active {
   background-color: #3f6199;
   color: white;
   height: auto;
@@ -116,26 +118,27 @@ body::-webkit-scrollbar{
 
 
 
-.subnav_de-active{
+.subnav_de-active {
   background-color: #3f6199;
   color: white;
   height: 0;
   transform: scale(0);
 }
+
 /* sidebar section closed */
 
 
 
 /* header section  */
 
-header{
+header {
   height: 70px;
   display: flex;
   align-items: center;
 }
 
 
-.menubar{
+.menubar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -143,12 +146,12 @@ header{
 }
 
 
-.menubar:hover{
+.menubar:hover {
   background-color: #002869;
   color: white;
 }
 
-.header_profile{
+.header_profile {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -163,22 +166,22 @@ header{
 
 /* common things */
 
-.main{
+.main {
   margin: auto;
   height: 100vh;
   overflow-y: scroll;
   background-color: #eff1f3;
 }
 
-.main::-webkit-scrollbar{
+.main::-webkit-scrollbar {
   display: none;
 }
 
-.page_label{
+.page_label {
   height: 70px;
 }
 
-.common_form_outer{
+.common_form_outer {
   background-image: url("../images/top-view-desk-concept-with-notepad.jpg");
   background-size: cover;
   background-position: center;
@@ -187,17 +190,17 @@ header{
 }
 
 
-.common_form_outer::-webkit-scrollbar{
+.common_form_outer::-webkit-scrollbar {
   display: none;
 }
 
-.common_input_section_card{
+.common_input_section_card {
   width: 600px;
   margin: 10px 0px;
 }
 
-.customize_btn{
-  background: linear-gradient(red,purple,blue);
+.customize_btn {
+  background: linear-gradient(red, purple, blue);
   bottom: 15px;
   right: 15px;
   border-radius: 15px;
@@ -208,17 +211,19 @@ header{
 }
 
 
-input[type=number]{
+input[type=number] {
   outline: none;
 }
-input[type=number]::-webkit-inner-spin-button{
+
+input[type=number]::-webkit-inner-spin-button {
   display: none;
 }
 
 
-input[type=text]{
+input[type=text] {
   outline: none;
 }
+
 /* common things closed */
 
 
@@ -233,12 +238,12 @@ input[type=text]{
 
 /* add employee section  */
 
-.add_employee_secction{
+.add_employee_secction {
   display: flex;
   justify-content: space-evenly;
 }
 
-.common_input_section_card{
+.common_input_section_card {
   margin-left: 10px;
 }
 
@@ -247,39 +252,39 @@ input[type=text]{
 
 
 
-.table_overflow_section{
+.table_overflow_section {
   width: 100%;
   height: calc(100vh - 72.5px);
   overflow: scroll;
 }
 
 
-.table_overflow_section::-webkit-scrollbar{
+.table_overflow_section::-webkit-scrollbar {
   /* display: none; */
 }
 
-table{
+table {
   width: 3850px;
 }
 
-.first_name_table_heading{
+.first_name_table_heading {
   width: 200px;
 }
 
-.last_name_table_heading{
+.last_name_table_heading {
   width: 200px;
 }
 
-.email_table_heading{
+.email_table_heading {
   width: 300px;
 }
 
-.address_table_heading{
+.address_table_heading {
   width: 400px;
 }
 
 
-.view_customer_action_button{
+.view_customer_action_button {
   width: 200px;
 }
 
@@ -288,25 +293,25 @@ table{
 /* add gstr 3b  */
 
 
-.gstr_form_section{
-  width: 1200px;
+.gstr_form_section {
+  width: 1400px;
   margin: auto;
   margin-top: 15px;
   padding: 15px 10px;
 }
 
 
-.gstr_label{
+.gstr_label {
   background-color: #fad2b1;
 }
 
-.form_3_1_label{
+.form_3_1_label {
   background-color: #fad2b1;
   padding: 0px 15px;
   margin: 10px 0px;
 }
 
-.table_3_1_input{
+.table_3_1_input {
   width: 20%;
   height: 100%;
   padding: 10px 5px;
@@ -318,23 +323,23 @@ table{
 
 
 
-.table_3_1_heading{
+.table_3_1_heading {
   background-color: #fad2b1;
 }
 
-.table_3_1_heading_right{
+.table_3_1_heading_right {
   width: 20%;
 }
 
-.table_3_1_heading>td{
+.table_3_1_heading>td {
   width: 20%;
   padding-left: 5px;
   text-align: center;
 }
 
 
-.table_3_1_heading>td>th{
-  width: 100% !important ;
+.table_3_1_heading>td>th {
+  width: 100% !important;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -342,41 +347,52 @@ table{
 }
 
 
-.charts{
+.charts {
   width: 500px;
   border: 1px solid red;
   z-index: -999;
 }
 
 
-.main_404{
+.main_404 {
   height: 100vh;
-  background: linear-gradient(blue,rgb(228, 5, 228));
+  background: linear-gradient(blue, rgb(228, 5, 228));
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.page_label{
+.page_label {
   margin-top: 70px;
 }
 
-.table_label{
+.table_label {
   background-color: #fad2b1af;
 }
 
-.entries_main_section{
+.entries_main_section {
   width: 100%;
   border: 1px solid black;
 }
 
 
-.form_3_date_table{
+.form_3_date_table {
   width: 30%;
 }
 
-.gstr1_entry{
+.gstr1_entry {
   font-size: 13px;
   background-color: #fad2b1;
+}
+
+.common_input_gstr {
+  width: 1100px;
+  height: calc(100vh - 180px);
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+  overflow-y: scroll;
 }

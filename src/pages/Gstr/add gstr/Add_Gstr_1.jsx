@@ -467,7 +467,7 @@ export function Add_Gstr_1() {
                                     <div className='col-1 text-center'>
                                         <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
                                     </div>
-                                    
+
                                 </section>
 
                                 <section className='border-bottom border-1 border-black'>
@@ -1053,7 +1053,7 @@ export function Add_Gstr_1() {
 
                                 {/* 9-a sixth - section */}
                                 <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
-                                9A - Amendment to Deemed Exports in returns of earlier tax periods in table 6C (DE)
+                                    9A - Amendment to Deemed Exports in returns of earlier tax periods in table 6C (DE)
                                 </section>
 
                                 <section className=' border-bottom border-1 border-black d-flex'>
@@ -1112,6 +1112,1006 @@ export function Add_Gstr_1() {
                                     </div>
                                 </section>
 
+
+
+
+                                {/* 9-b first - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9B - Credit/Debit Notes (Registered) – CDNR
+                                </section>
+                                {/* 9-b first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total - Net off debit/credit notes (Debit notes - Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Credit / Debit notes issued to registered person for taxable outward supplies in table 4 other than table 6 - B2B Regular"} />
+                                    </div>
+                                </section>
+
+
+                                {/* 9-b second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Total (Debit notes – Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Credit / Debit notes issued to registered person for taxable outward supplies in table 4 other than table 6 - B2B Reverse charge"} />
+                                    </div>
+                                </section>
+
+
+                                {/* 9-b third entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Total (Debit notes – Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Credit / Debit notes issued to registered person for taxable outward supplies in table 6B - SEZWP/SEZWOP"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+                                {/* 9-b fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Total (Debit notes – Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Credit / Debit notes issued to registered person for taxable outward supplies in table 6C – DE"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-b fifth entry */}
+
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Total (Debit notes – Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+
+
+
+
+                                {/* 9-b second - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9B - Credit/Debit Notes (Unregistered) – CDNUR
+                                </section>
+                                {/* 9-b first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total - Net off debit/credit notes (Debit notes - Credit notes)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" disabled value={"Unregistered Type "} />
+                                    </div>
+                                </section>
+
+
+                                {/* 9-b second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - B2CL
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+                                {/* 9-b third entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                {/* 9-b fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWOP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+
+
+                                {/* 9-c first - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9C - Amended Credit/Debit Notes (Registered) - CDNRA
+                                </section>
+                                {/* 9-c first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                {/* 9-c second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Differential amount (Net Amended Debit notes - Net
+                                        Amended Credit notes) - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Amended Credit / Debit notes issued to registered person for taxable outward supplies in table 4 other than table 6 - B2B Regular "} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c third entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net total (Net Amended Debit notes - Net Amended Credit notes)
+
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Amended Credit / Debit notes issued to registered person for taxable outward supplies in table 4 other than table 6 - B2B Reverse charge"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net total (Net Amended Debit notes - Net Amended Credit notes)
+
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Amended Credit / Debit notes issued to registered person for taxable outward supplies in table 6B - SEZWP/SEZWO"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net total (Net Amended Debit notes - Net Amended Credit notes)
+
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 text-primary" disabled value={"Amended Credit / Debit notes issued to registered person for taxable outward supplies in table 6C – DE"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-b fifth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net total (Net Amended Debit notes - Net Amended Credit notes)
+
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c second - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    9C - Amended Credit/Debit Notes (Unregistered) - CDNURA
+                                </section>
+                                {/* 9-c first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                {/* 9-c second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net Differential amount (Net Amended Debit notes - Net Amended Credit notes) - Total
+
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled value={"Unregistered Type"} />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c third entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - B2CL
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 9-c fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                {/* 9-c fourth entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        - EXPWOP
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Note
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+
+
+                                {/* 10 second - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    10 - Amendment to taxable outward supplies made to unregistered person in returns for earlier tax periods in table 7 including supplies made through e-commerce operator attracting TCS - B2C (Others)
+                                </section>
+                                {/* 10 first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+                                {/* 10 second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Net differential amount (Amended - Original)
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+
+                                {/* 11  section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    11A(1), 11A(2) - Advances received for which invoice has not been issued (tax amount to be added to the output tax liability) (Net of refund vouchers, if any)
+                                </section>
+                                {/* 11 first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 11  second - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    11B(1), 11B(2) - Advance amount received in earlier tax period and adjusted against the supplies being shown in this tax period in Table Nos. 4, 5, 6 and 7 (Net of refund vouchers, if any)
+                                </section>
+                                {/* 11 first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+
+                                {/* 11  third - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    11A - Amendment to advances received in returns for earlier tax periods in table 11A(1), 11A(2) (Net of refund vouchers, if any)
+                                </section>
+                                {/* 11 first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                {/* 11 second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
+
+
+
+
+                                {/* 11  fourth - section */}
+                                <section className='gstr1_entry border-bottom border-1 border-black p-2 '>
+                                    11B - Amendment to advances adjusted in returns for earlier tax periods in table 11B(1), 11B(2) (Net of refund vouchers, if any)
+                                </section>
+                                {/* 11 first entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Amended amount - Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                {/* 11 second entry */}
+                                <section className=' border-bottom border-1 border-black d-flex'>
+                                    <div className='col-4 border-end border-1 border-black text-center p-1'>
+                                        Total
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black py-1'>
+                                        Net Value
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-1 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                    <div className='col-2 text-center border-end border-1 border-black'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1" placeholder="0.00" />
+                                    </div>
+                                </section>
+
+
+                                <section className='border-bottom border-1 border-black'>
+                                    <div className='col-12 text-center'>
+                                        <Field type="text" className=" col-12 h-100 border-0 p-1 " disabled />
+                                    </div>
+                                </section>
 
 
                             </section>

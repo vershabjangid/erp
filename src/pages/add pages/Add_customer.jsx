@@ -73,6 +73,7 @@ export function Add_customer() {
             File_Code: data.File_Code || "",
             Name: data.Name || "",
             GSTIN: data.GSTIN || "",
+            Trade_Name:data.Trade_Name || "",
             Registration_Date: data.Registration_Date || "",
             Address: data.Address || "",
             Phone_Number: data.Phone_Number || "",
@@ -110,6 +111,7 @@ export function Add_customer() {
                   Password: "",
                   Status: "",
                   Image: "",
+                  Trade_Name:"",
                   id: data.id
                 }
               }
@@ -143,7 +145,7 @@ export function Add_customer() {
                   <div className='px-2 d-flex pb-3'>
                     <div className='w-100 me-1'>
                       <label>
-                        Name
+                      Company Name
                       </label>
 
                       <div>
@@ -161,6 +163,19 @@ export function Add_customer() {
 
                       <div>
                         <Field type="text" className="w-100" name="GSTIN" />
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div className='px-2 d-flex pb-3'>
+                    <div className='w-100 me-1'>
+                      <label>
+                      Trade Name
+                      </label>
+
+                      <div>
+                        <Field type="text" className="w-100" name="Trade_Name" />
                       </div>
                     </div>
                   </div>
