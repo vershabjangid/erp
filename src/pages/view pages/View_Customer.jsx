@@ -91,6 +91,7 @@ export function View_Customer() {
                                             <th className=' border border-1 border-black text-center px-1'>File Code</th>
                                             <th className=' border border-1 border-black text-center px-1'> Name</th>
                                             <th className=' border border-1 border-black text-center px-1'>GSTIN</th>
+                                            <th className='border border-1 border-black text-center px-1'>Trade Name</th>
                                             <th className=' border border-1 border-black text-center px-1'>Registration Date </th>
                                             <th className=' border border-1 border-black text-center px-1'>Address</th>
                                             <th className='border border-1 border-black text-center px-1'>Phone.No</th>
@@ -112,6 +113,7 @@ export function View_Customer() {
                                                                     <td className='border border-1 border-black text-center px-1'>{items.File_Code}</td>
                                                                     <td className='border border-1 border-black text-center px-1'>{items.Name}</td>
                                                                     <td className='border border-1 border-black text-center px-1'>{items.GSTIN}</td>
+                                                                    <td className='border border-1 border-black text-center px-1'>{items.Trade_Name}</td>
                                                                     <td className='border border-1 border-black text-center px-1'>{items.Registration_Date}</td>
                                                                     <td className='border border-1 border-black text-center px-1'>{items.Address}</td>
                                                                     <td className='border border-1 border-black text-center px-1'>{items.Phone_Number}</td>

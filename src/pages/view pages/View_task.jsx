@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
-import { Field, Formik, Form } from 'formik';
 import axios from 'axios';
 import { IoIosArrowDropright, IoIosLink } from 'react-icons/io';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,7 +9,7 @@ import { FaTasks } from 'react-icons/fa';
 
 export function View_task() {
 
-    let notifyerror = (error) => toast.error(error)
+    // let notifyerror = (error) => toast.error(error)
     let notifysuccess = (success) => toast.error(success)
 
     let [data, setdata] = useState([])
@@ -32,7 +31,7 @@ export function View_task() {
     let deletedata = (deletevalue) =>{
         axios.delete(`/erp/delete-task.php?id=${deletevalue}`)
         .then((res)=>{
-            if(res.data.status == 1){
+            if(res.data.status === 1){
                 notifysuccess("data deleted");
                 getdata();
             }
@@ -65,7 +64,7 @@ export function View_task() {
 
                         <div className='table_section'>
                             {
-                                data == "No Data Found" ?
+                                data === "No Data Found" ?
 
                                     <div className='text-center fs-1 text-danger fw-bold '>
                                         <div>
@@ -105,7 +104,7 @@ export function View_task() {
                                                 return (
                                                    <>
                                                    {
-                                                    items.Admin_id == getlocaldata.UserDetails.id ? 
+                                                    items.Admin_id === getlocaldata.UserDetails.id ? 
                                                     <tr>
                                                     <td className='border border-1 border-black text-center'>{count++}</td>
                                                     <td className='border border-1 border-black text-center px-1'>{items.Admin_Name}</td>

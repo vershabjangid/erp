@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Header } from '../../../common/Header'
 import { FaPercent } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoIosArrowDropright } from 'react-icons/io'
 import { Field, Formik, Form } from 'formik'
 import { BiSearch } from 'react-icons/bi'
@@ -10,23 +10,48 @@ import axios from 'axios'
 export function View_Gstr_3b() {
 
   let [company, setcompany] = useState([]);
+  let [filter, setfilter] = useState([])
   let [search, setsearch] = useState('');
-  console.log(search)
-  let viewallcomapny = () => {
-    let data = axios.get(`/erp/all-gstr3b-data-view.php`)
-      .then((res) => {
-        setcompany(res.data.data)
-      })
+
+  // get api fetching 
+
+  let viewallcomapny = async () => {
+    let data = await fetch("/erp/getcustomer.php")
+    let resdata = await data.json()
+    setcompany(resdata.Details)
+    setfilter(resdata.Details)
   }
 
   useEffect(() => {
     viewallcomapny();
   }, [])
 
-  let getlocaldata = JSON.parse(localStorage.getItem('customerdata'))
-  console.log(getlocaldata)
 
-  console.log(company)
+  // search handling 
+
+  let handlesearch = (event) => {
+    let getsearch = event.target.value
+    if (getsearch.length > 0) {
+      const getsearchvalue = company.filter((item) => item.GSTIN.includes(getsearch));
+      setcompany(getsearchvalue)
+    }
+
+    else {
+      setcompany(filter);
+    }
+    setsearch(getsearch)
+  }
+
+
+  // local storage data 
+  let getlocaldata = JSON.parse(localStorage.getItem('customerdata'))
+
+  // navigate to other function 
+  
+  let naviget= useNavigate();
+  let navigate = (value) => {
+    naviget('/view-company', { state: value })
+  }
   return (
     <>
       <section className='main'>
@@ -39,14 +64,14 @@ export function View_Gstr_3b() {
         </section>
         <Formik>
           <Form>
-            <section className='common_input_gstr'>
-              <h3 className='pb-2'>Company Details </h3>
+            <section className='common_input_gstr position-relative'>
+              <h3 className='pb-2'>Company List </h3>
               <div className=''>
                 <div className=' position-absolute px-2 fs-5'>
                   <BiSearch />
                 </div>
                 <div>
-                  <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" onChange={(e) => setsearch(e.target.value)} />
+                  <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" value={search} onChange={(e) => handlesearch(e)} />
                 </div>
               </div>
 
@@ -75,16 +100,16 @@ export function View_Gstr_3b() {
                       <>
                         <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
                           <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
-                            GSTIN
+                            {items.GSTIN}
                           </div>
                           <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
-                            {items.LegalName}
+                            {items.Name}
                           </div>
                           <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
-                            {items.TradeName}
+                            {items.Trade_Name}
                           </div>
                           <div className='company_name fw-bold col-3 text-center'>
-                            <button className='py-2 px-4 border-0  rounded bg-primary text-white'>
+                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={()=>navigate(items)}>
                               View All
                             </button>
                           </div>

@@ -8,8 +8,8 @@ import logo from "../../images/360_F_513476156_AA8IEOmw88mX2R384H6ggnkPJFhLzxxU-
 import { Link } from 'react-router-dom';
 import { sidebardata } from './sidebardata';
 export  function Sidebar(props) {
-console.log(props.value)
-localStorage.setItem('sidebar',JSON.stringify(props.value))
+
+
     let sidedata = sidebardata
     let [current, setcurrent] = useState(sidedata[0].id)
   return (
