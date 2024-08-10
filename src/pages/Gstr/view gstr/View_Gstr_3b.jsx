@@ -10,8 +10,7 @@ import axios from 'axios'
 export function View_Gstr_3b() {
 
   let [company, setcompany] = useState([]);
-  let [filter, setfilter] = useState([])
-  let [search, setsearch] = useState('');
+  let [records, setrecords] = useState([]);
 
   // get api fetching 
 
@@ -19,7 +18,7 @@ export function View_Gstr_3b() {
     let data = await fetch("/erp/getcustomer.php")
     let resdata = await data.json()
     setcompany(resdata.Details)
-    setfilter(resdata.Details)
+    setrecords(resdata.Details)
   }
 
   useEffect(() => {
@@ -28,27 +27,18 @@ export function View_Gstr_3b() {
 
 
   // search handling 
-
   let handlesearch = (event) => {
-    let getsearch = event.target.value
-    if (getsearch.length > 0) {
-      const getsearchvalue = company.filter((item) => item.GSTIN.includes(getsearch));
-      setcompany(getsearchvalue)
-    }
-
-    else {
-      setcompany(filter);
-    }
-    setsearch(getsearch)
+    setrecords(company.filter((item) => item.Name.toLowerCase().includes(event.target.value) || item.GSTIN.toLowerCase().includes(event.target.value) || item.Trade_Name.toLowerCase().includes(event.target.value)))
   }
+
 
 
   // local storage data 
   let getlocaldata = JSON.parse(localStorage.getItem('customerdata'))
 
   // navigate to other function 
-  
-  let naviget= useNavigate();
+
+  let naviget = useNavigate();
   let navigate = (value) => {
     naviget('/view-company', { state: value })
   }
@@ -71,7 +61,7 @@ export function View_Gstr_3b() {
                   <BiSearch />
                 </div>
                 <div>
-                  <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" value={search} onChange={(e) => handlesearch(e)} />
+                  <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" onChange={handlesearch} />
                 </div>
               </div>
 
@@ -94,7 +84,7 @@ export function View_Gstr_3b() {
 
 
               {
-                company.map((items, i) => {
+                records.map((items, i) => {
                   if (items.Admin_id == getlocaldata.UserDetails.id) {
                     return (
                       <>
@@ -109,7 +99,7 @@ export function View_Gstr_3b() {
                             {items.Trade_Name}
                           </div>
                           <div className='company_name fw-bold col-3 text-center'>
-                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={()=>navigate(items)}>
+                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => navigate(items)}>
                               View All
                             </button>
                           </div>

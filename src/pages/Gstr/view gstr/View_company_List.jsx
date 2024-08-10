@@ -9,31 +9,41 @@ import axios from 'axios'
 
 export function View_company_List() {
 
-    let [data, setdata] = useState([])
+    let [data, setdata] = useState([]);
+    let [records, setrecords] = useState([])
 
     let fetchdata = () => {
         axios.get(`/erp/all-gstr3b-data-view.php`)
             .then((res) => {
                 setdata(res.data.data);
+                setrecords(res.data.data)
             })
+            .catch((error) => console.log(error))
     }
 
     useEffect(() => {
         fetchdata()
     }, [])
 
+
+    let filter = (event) => {
+        setrecords(data.filter(item => item.LegalName.toLowerCase().includes(event.target.value) || item.TradeName.toLowerCase().includes(event.target.value) || item.year.toLowerCase().includes(event.target.value) || item.month.toLowerCase().includes(event.target.value)))
+    }
+
+
+    // here i use location to fetch data 
     let location = useLocation();
     let indata = location.state || {}
 
-    console.log(indata)
     let getdata = JSON.parse(localStorage.getItem('customerdata'))
 
 
     let naviget = useNavigate();
 
-    let navigate = (value) =>{
-        naviget('/3b-form',{state : value})
+    let navigate = (value) => {
+        naviget('/3b-form', { state: value })
     }
+
     return (
         <>
             <section className='main'>
@@ -53,13 +63,13 @@ export function View_company_List() {
                                     <BiSearch />
                                 </div>
                                 <div>
-                                    <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" />
+                                    <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" onChange={filter} />
                                 </div>
                             </div>
 
 
                             <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                <div className='company_name fw-bold col-3 text-center'>
+                                <div className='company_name fw-bold col-2 text-center'>
                                     GSTIN
                                 </div>
                                 <div className='company_name fw-bold col-3 text-center'>
@@ -67,6 +77,9 @@ export function View_company_List() {
                                 </div>
                                 <div className='company_name fw-bold col-3 text-center'>
                                     Trade Name
+                                </div>
+                                <div className='company_name fw-bold col-1 text-center'>
+                                    Month
                                 </div>
                                 <div className='company_name fw-bold col-1 text-center'>
                                     Date
@@ -79,14 +92,12 @@ export function View_company_List() {
 
 
                             {
-                                data.map((items, i) => {
-                                    console.log(items)
+                                records.map((items, i) => {
                                     if (items.Admin_id === getdata.UserDetails.id) {
                                         if (indata.GSTIN === items.gstin && indata.Name === items.LegalName && indata.Trade_Name === items.TradeName) {
                                             return (
-
                                                 <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                                    <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
+                                                    <div className='company_name fw-bold col-2 d-flex align-items-center justify-content-center'>
                                                         {items.gstin}
                                                     </div>
                                                     <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
@@ -95,11 +106,14 @@ export function View_company_List() {
                                                     <div className='company_name fw-bold col-3 d-flex align-items-center justify-content-center'>
                                                         {items.TradeName}
                                                     </div>
-                                                    <div className='company_name fw-bold col-1 text-center'>
-                                                        Date
+                                                    <div className='company_name fw-bold col-1 text-center d-flex justify-content-center align-items-center'>
+                                                        {items.month}
+                                                    </div>
+                                                    <div className='company_name fw-bold col-1 text-center d-flex justify-content-center align-items-center'>
+                                                        {items.year}
                                                     </div>
                                                     <div className='company_name fw-bold col-2 text-center'>
-                                                        <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={()=>navigate(items)} >
+                                                        <button className='py-2 px-4 border-0 rounded bg-primary text-white' onClick={() => navigate(items)} >
                                                             View All
                                                         </button>
                                                     </div>

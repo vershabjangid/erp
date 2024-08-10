@@ -101,20 +101,6 @@ export const sidebardata = [
 
 
     {
-        id: 6,
-        name: "Attendance",
-        icon: <BiTask className="fs-4 ms-1" />,
-        subcategory: [
-            {
-                id: 6,
-                subcategory_name: "View Attendance",
-                sub_icon: <FontAwesomeIcon icon={faEye} />
-            }
-        ]
-    },
-
-
-    {
         id: 7,
         name: "GSTR",
         icon: <FaPercentage />,

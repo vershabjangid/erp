@@ -1,25 +1,47 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from '../../../common/Header'
 import { Field, Formik, Form } from 'formik'
 import axios, { toFormData } from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
-import { FaPercent } from 'react-icons/fa'
+import { FaPercent, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { IoIosArrowDropright } from 'react-icons/io'
-
+import { FaXmark } from "react-icons/fa6";
 
 export function Add_Gstr_3b() {
-
+    // view all customer 
+    let [getclient, setgetclient] = useState([])
+    let [filterclient, setfilterclient] = useState([])
+    let [clientdata, setclientinfo] = useState({})
+    let [searchsection, setsearchsection] = useState(false)
+    
+    let sendtolocal = localStorage.setItem('clientdata',JSON.stringify(clientdata))
+    let getclientdata = JSON.parse(localStorage.getItem('clientdata'))
+    let getcustomer = () => {
+        axios.get(`/erp/getcustomer.php`)
+            .then((res) => {
+                setgetclient(res.data.Details)
+                setfilterclient(res.data.Details)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+    
+    useEffect(() => {
+        getcustomer();
+    }, [])
+    
     let getlocalstorage = JSON.parse(localStorage.getItem("customerdata"))
 
     let notifyerror = (error) => toast.error(error)
     let notifysuccess = (success) => toast.success(success)
 
+    // add data api 
     let send_gstr_3 = (inserting) => {
         console.log(inserting)
         axios.post(`/erp/add-gstr3b.php`, toFormData(inserting))
             .then((res) => {
-                console.log(res)
                 if (res.data.Status === 1) {
                     notifysuccess(res.data.msg)
                 }
@@ -30,6 +52,13 @@ export function Add_Gstr_3b() {
             })
     }
 
+
+
+
+
+    let filter = (event) => {
+        setfilterclient(getclient.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
+    }
     return (
         <>
             <section className='main'>
@@ -44,7 +73,7 @@ export function Add_Gstr_3b() {
                 <Formik
 
                     initialValues={{
-                        legal_name: "",
+                        legal_name: getclientdata.Name,
                         trade_name: "",
                         arn: "",
                         date_of_arn: "",
@@ -53,10 +82,10 @@ export function Add_Gstr_3b() {
                         userID: "200",
                         Admin_id: getlocalstorage.UserDetails.id,
                         ClientID: "200",
-                        gstin:"",
-
-
-
+                        gstin: getclientdata.GSTIN,
+                        
+                        
+                        
                         // 3.1 
                         NOS3_1: "",
                         TTV3_1: "",
@@ -71,164 +100,164 @@ export function Add_Gstr_3b() {
                         CT3_2: "",
                         ST3_2: "",
                         C3_2: "",
-
+                        
                         NOS3_3: "",
                         TTV3_3: "",
                         IT3_3: "",
                         CT3_3: "",
                         ST3_3: "",
                         C3_3: "",
-
+                        
                         NOS3_4: "",
                         TTV3_4: "",
                         IT3_4: "",
                         CT3_4: "",
                         ST3_4: "",
                         C3_4: "",
-
+                        
                         NOS3_5: "",
                         TTV3_5: "",
                         IT3_5: "",
                         CT3_5: "",
                         ST3_5: "",
                         C3_5: "",
-
-
-
+                        
+                        
+                        
                         // 3.1.1
-
-
+                        
+                        
                         NOS3_1_1: "",
                         TTV3_1_1: "",
                         IT3_1_1: "",
                         CT3_1_1: "",
                         ST3_1_1: "",
                         C3_1_1: "",
-
-
+                        
+                        
                         NOS3_1_2: "",
                         TTV3_1_2: "",
                         IT3_1_2: "",
                         CT3_1_2: "",
                         ST3_1_2: "",
                         C3_1_2: "",
-
-
+                        
+                        
                         // 3.2
                         NOS32_1: "",
                         TTV32_1: "",
                         IT32_1: "",
-
+                        
                         NOS32_2: "",
                         TTV32_2: "",
                         IT32_2: "",
-
+                        
                         NOS32_3: "",
                         TTV32_3: "",
                         IT32_3: "",
-
-
-
-
+                        
+                        
+                        
+                        
                         // 4
                         NOS4_1: "",
                         IT4_1: "",
                         CT4_1: "",
                         ST4_1: "",
                         C4_1: "",
-
+                        
                         NOS4_2: "",
                         IT4_2: "",
                         CT4_2: "",
                         ST4_2: "",
                         C4_2: "",
-
+                        
                         NOS4_3: "",
                         IT4_3: "",
                         CT4_3: "",
                         ST4_3: "",
                         C4_3: "",
-
+                        
                         NOS4_4: "",
                         IT4_4: "",
                         CT4_4: "",
                         ST4_4: "",
                         C4_4: "",
-
+                        
                         NOS4_5: "",
                         IT4_5: "",
                         CT4_5: "",
                         ST4_5: "",
                         C4_5: "",
-
+                        
                         NOS4_6: "",
                         IT4_6: "",
                         CT4_6: "",
                         ST4_6: "",
                         C4_6: "",
-
+                        
                         NOS4_7: "",
                         IT4_7: "",
                         CT4_7: "",
                         ST4_7: "",
                         C4_7: "",
-
+                        
                         NOS4_8: "",
                         IT4_8: "",
                         CT4_8: "",
                         ST4_8: "",
                         C4_8: "",
-
+                        
                         NOS4_9: "",
                         IT4_9: "",
                         CT4_9: "",
                         ST4_9: "",
                         C4_9: "",
-
+                        
                         NOS4_10: "",
                         IT4_10: "",
                         CT4_10: "",
                         ST4_10: "",
                         C4_10: "",
-
+                        
                         NOS4_11: "",
                         IT4_11: "",
                         CT4_11: "",
                         ST4_11: "",
                         C4_11: "",
-
+                        
                         //5
                         NOS5_1: "",
                         Inter_SS5_1: "",
                         Intra_SS5_1: "",
-
+                        
                         NOS5_2: "",
                         Inter_SS5_2: "",
                         Intra_SS5_2: "",
-
+                        
                         //5.1
-
+                        
                         NOS5_1_1: "",
                         IT5_1_1: "",
                         CT5_1_1: "",
                         ST5_1_1: "",
                         C5_1_1: "",
-
+                        
                         NOS5_1_2: "",
                         IT5_1_2: "",
                         CT5_1_2: "",
                         ST5_1_2: "",
                         C5_1_2: "",
-
+                        
                         NOS5_1_3: "",
                         IT5_1_3: "",
                         CT5_1_3: "",
                         ST5_1_3: "",
                         C5_1_3: "",
-
+                        
                         // 6
-
-
+                        
+                        
                         NOS6_1: "",
                         TTP6_1: "",
                         IT6_1: "",
@@ -238,7 +267,7 @@ export function Add_Gstr_3b() {
                         TP6_1: "",
                         IP6_1: "",
                         LF6_1: "",
-
+                        
                         NOS6_2: "",
                         TTP6_2: "",
                         IT6_2: "",
@@ -248,7 +277,7 @@ export function Add_Gstr_3b() {
                         TP6_2: "",
                         IP6_2: "",
                         LF6_2: "",
-
+                        
                         NOS6_3: "",
                         TTP6_3: "",
                         IT6_3: "",
@@ -258,7 +287,7 @@ export function Add_Gstr_3b() {
                         TP6_3: "",
                         IP6_3: "",
                         LF6_3: "",
-
+                        
                         NOS6_4: "",
                         TTP6_4: "",
                         IT6_4: "",
@@ -268,7 +297,7 @@ export function Add_Gstr_3b() {
                         TP6_4: "",
                         IP6_4: "",
                         LF6_4: "",
-
+                        
                         NOS6_5: "",
                         TTP6_5: "",
                         IT6_5: "",
@@ -278,7 +307,7 @@ export function Add_Gstr_3b() {
                         TP6_5: "",
                         IP6_5: "",
                         LF6_5: "",
-
+                        
                         NOS6_6: "",
                         TTP6_6: "",
                         IT6_6: "",
@@ -288,7 +317,7 @@ export function Add_Gstr_3b() {
                         TP6_6: "",
                         IP6_6: "",
                         LF6_6: "",
-
+                        
                         NOS6_7: "",
                         TTP6_7: "",
                         IT6_7: "",
@@ -298,7 +327,7 @@ export function Add_Gstr_3b() {
                         TP6_7: "",
                         IP6_7: "",
                         LF6_7: "",
-
+                        
                         NOS6_8: "",
                         TTP6_8: "",
                         IT6_8: "",
@@ -308,15 +337,15 @@ export function Add_Gstr_3b() {
                         TP6_8: "",
                         IP6_8: "",
                         LF6_8: "",
-
-
+                        
+                        
                         // // 7
                         NOS7_1: "",
                         IT7_1: "",
                         CT7_1: "",
                         ST7_1: "",
                         C7_1: "",
-
+                        
                     }}
 
                     onSubmit={(values) => {
@@ -344,11 +373,11 @@ export function Add_Gstr_3b() {
                         values.NOS4_9 = "(D) Other Details"
                         values.NOS4_10 = "(1) ITC reclaimed which was reversed under Table 4(B)(2) in earlier tax period"
                         values.NOS4_11 = "(2) Ineligible ITC under section 16(4) & ITC restricted due to PoS rules"
-
+                        
                         //5
                         values.NOS5_1 = "From a supplier under composition scheme, Exempt, Nil rated supply"
                         values.NOS5_2 = "Non GST supply"
-
+                        
                         // 5.1
                         values.NOS5_1_1 = "System computed Interest"
                         values.NOS5_1_2 = "Interest Paid "
@@ -362,16 +391,75 @@ export function Add_Gstr_3b() {
                         values.NOS6_6 = "Central tax"
                         values.NOS6_7 = "State/UT tax"
                         values.NOS6_8 = "Cess"
-
+                        
                         // 7
                         values.NOS7_1 = ""
-
-
-
+                        
+                        
+                        
                         send_gstr_3(values)
                     }}
-                >
+                    >
                     <Form>
+                    {
+                        searchsection ?
+                            <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
+                                <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
+                                    <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
+                                    <div className='p-2' onClick={() => setsearchsection(false)}>
+                                        <FaXmark />
+                                    </div>
+                                </div>
+                    
+                                <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                    <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                        <div className='company_name fw-bold col-2 text-center'>
+                                            GSTIN
+                                        </div>
+                                        <div className='company_name fw-bold col-3 text-center'>
+                                            Legal Register Name
+                                        </div>
+                                        <div className='company_name fw-bold col-3 text-center'>
+                                            Trade Name
+                                        </div>
+                                        <div className='company_name fw-bold col-2 text-center'>
+                                            Action
+                                        </div>
+                                    </div>
+                    
+                                    {
+                                        filterclient.map((items, i) => {
+                                            if (getlocalstorage.UserDetails.id === items.Admin_id) {
+                                                return (
+                                                    <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                        <div className='company_name fw-bold col-2 text-center'>
+                                                            {items.GSTIN}
+                                                        </div>
+                                                        <div className='company_name fw-bold col-3 text-center'>
+                                                            {items.Name}
+                                                        </div>
+                                                        <div className='company_name fw-bold col-3 text-center'>
+                                                            {items.Trade_Name}
+                                                        </div>
+                                                        <div className='company_name fw-bold col-2 text-center'>
+                                                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() =>(setclientinfo(items) || setsearchsection(false))}>
+                                                                 Select
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                    
+                                                )
+                                            }
+                                        })
+                                    }
+                                </div>
+                            </div>
+                            : null
+                    }
+
+
+
+
                         <section className='gstr_form_section bg-white border border-1 border-black'>
                             <h3 className='text-center'>Form GSTR-3B</h3>
                             <h5 className='text-center'>[See rule 61(5)]</h5>
@@ -399,19 +487,30 @@ export function Add_Gstr_3b() {
                                 <table className='w-100 h-100 form_3_date_table'>
                                     <tr className='w-100 border border-1 border-black'>
                                         <th className='w-25  p-2 border-end border-1 border-black gstr_label '>GSTIN of the supplier</th>
-                                        <td className='w-50 h-100'>
-                                            <Field type="text" placeholder='Enter GSTIN of the supplier' className='w-100 border-0 h-100' name="gstin" />
+                                        <td className='w-100 h-100 d-flex justify-content-between align-items-center'>
+                                            <Field type="text" placeholder='Enter GSTIN of the supplier' className='w-100 border-0 h-100' value={clientdata.GSTIN} name="gstin"  />
+                                            <div className='me-1' onClick={() => setsearchsection(true)}>
+                                                <FaSearch />
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr className='w-100 border border-1 border-black'>
-                                        <th className='w-25  p-2 border-end border-1 border-black gstr_label '>2(a). Legal name of the registered person</th>
-                                        <td className='w-50 h-100 '>
-                                            <Field name="legal_name" type="text" placeholder='Enter Legal name of the registered person' className='w-100 border border-1 border-white h-100' /></td>
+                                        <th className='w-25  p-2 border-end border-1 border-black gstr_label'>2(a). Legal name of the registered person</th>
+                                        <td className='w-100 h-100 d-flex justify-content-between align-items-center'>
+                                            <Field value={clientdata.Name} name="legal_name" type="text" placeholder='Enter Legal name of the registered person' className='w-100 border border-1 border-white h-100' />
+                                            <div className='me-1' onClick={() => setsearchsection(true)}>
+                                                <FaSearch />
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr className='w-100 border border-1 border-black'>
                                         <th className='w-25  p-2 border-end border-1 border-black gstr_label '>2(b). Trade name, if any </th>
-                                        <td className='w-50 h-100'>
-                                            <Field name="trade_name" type="text" placeholder='Enter Trade name, if any' className='w-100 border-0 h-100' /></td>
+                                        <td className='w-100 h-100 d-flex justify-content-between align-items-center'>
+                                            <Field value={clientdata.Trade_Name} name="trade_name" type="text" placeholder='Enter Trade name, if any' className='w-100 border-0 h-100' />
+                                            <div className='me-1' onClick={() => setsearchsection(true)}>
+                                                <FaSearch />
+                                            </div>
+                                        </td>
                                     </tr>
                                     <tr className='w-100 border border-1 border-black'>
                                         <th className='w-25  p-2 border-end border-1 border-black gstr_label'>2(c). ARN </th>
@@ -1301,7 +1400,7 @@ export function Add_Gstr_3b() {
 
 
 
-
+                            {/* {6.1 section} */}
                             <div className='table_label px-1 py-1 my-3'>6.1 Payment of tax</div>
 
                             <div className='entries_main_section border-bottom-0'>
