@@ -27,7 +27,7 @@ export function View_company_List() {
 
 
     let filter = (event) => {
-        setrecords(data.filter(item => item.LegalName.toLowerCase().includes(event.target.value) || item.TradeName.toLowerCase().includes(event.target.value) || item.year.toLowerCase().includes(event.target.value) || item.month.toLowerCase().includes(event.target.value)))
+        setrecords(data.filter(item => item.gstin.toLowerCase().includes(event.target.value) || item.LegalName.toLowerCase().includes(event.target.value) || item.TradeName.toLowerCase().includes(event.target.value) || item.year.toLowerCase().includes(event.target.value) || item.month.toLowerCase().includes(event.target.value)))
     }
 
 

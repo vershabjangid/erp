@@ -1,10 +1,15 @@
 import axios from 'axios'
 import { Field } from 'formik'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Header } from '../../../common/Header'
 import { IoIosArrowDropright } from 'react-icons/io'
-import { FaPercent } from 'react-icons/fa'
+import { FaPercent, FaPrint } from 'react-icons/fa'
+import { RiFileExcel2Fill } from "react-icons/ri";
+import { DownloadTableExcel } from 'react-export-table-to-excel';
+import { useReactToPrint } from 'react-to-print'
+import { FaFilePdf } from 'react-icons/fa6'
+
 
 export function View_3b_Form() {
     let [data, setdata] = useState([])
@@ -12,7 +17,7 @@ export function View_3b_Form() {
     let fetchdata = () => {
         axios.get(`/erp/all-gstr3b-data-view.php`)
             .then((res) => {
-                setdata(res.data.data) 
+                setdata(res.data.data)
             })
     }
 
@@ -24,19 +29,37 @@ export function View_3b_Form() {
 
     let location = useLocation();
     let outerdata = location.state || {}
+
+
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+      content: () => componentRef.current,
+    });
     return (
         <>
-          
+
 
             <section className='main'>
                 <Header />
-
 
                 <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center'>
                     <div className='d-flex align-items-center'> <FaPercent className='ms-2 me-2' />  GSTR-3b</div>
                 </section>
 
-                <section className='gstr_form_section bg-white border border-1 border-black'>
+
+                <div className='col-9 m-auto d-flex justify-content-end align-items-center'>
+                    {/* <DownloadTableExcel
+                    filename='gstr-3-b'
+                    sheet='users'
+                    currentTableRef={tableRef.current}
+                    >
+                        <button className='border border-0 bg-success text-white py-2 px-4 my-2 rounded'><RiFileExcel2Fill className='fs-4' /> Download Excel</button>
+                    </DownloadTableExcel> */}
+                    <button className='border border-0 bg-danger text-white py-2 px-4 my-2 mx-3 rounded' onClick={handlePrint}><FaFilePdf className='me-2' /> Save Pdf</button>
+                </div>
+
+                <section className='gstr_form_section bg-white border border-0 border-black' ref={componentRef}>
                     <h3 className='text-center'>Form GSTR-3B</h3>
                     <h5 className='text-center'>[See rule 61(5)]</h5>
 
@@ -51,13 +74,13 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25 text-center p-2 border-end border-1 border-black gstr_label '>Year</th>
                                                     <td className='w-75 h-100'>
-                                                        <div className='w-100 border-0 h-100 d-flex align-items-center' >{item.year}</div>
+                                                        <div className='w-100 border-0 h-100 d-flex align-items-center ms-1'>{item.year}</div>
                                                     </td>
                                                 </tr>
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25 text-center p-2 border-end border-1 border-black gstr_label '>Period</th>
                                                     <td className='w-75 h-100'>
-                                                        <div type="text" className='w-100 border border-1 border-white h-100 d-flex align-items-center'>
+                                                        <div type="text" className='w-100 border border-1 border-white h-100 d-flex align-items-center ms-1'>
                                                             {item.month}
                                                         </div>
                                                     </td>
@@ -72,7 +95,7 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25  p-2 border-end border-1 border-black gstr_label '>GSTIN of the supplier</th>
                                                     <td className='w-50 h-100'>
-                                                        <div className='w-100 border-0 h-100 d-flex align-items-center'>
+                                                        <div className='w-100 border-0 h-100 d-flex align-items-center ms-1'>
                                                             {item.gstin}
                                                         </div>
                                                     </td>
@@ -80,7 +103,7 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25  p-2 border-end border-1 border-black gstr_label '>2(a). Legal name of the registered person</th>
                                                     <td className='w-50 h-100 '>
-                                                        <div className='w-100 border border-1 border-white h-100 d-flex align-items-center'>
+                                                        <div className='w-100 border border-1 border-white h-100 d-flex align-items-center ms-1'>
                                                             {item.LegalName}
                                                         </div>
                                                     </td>
@@ -88,7 +111,7 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25  p-2 border-end border-1 border-black gstr_label '>2(b). Trade name, if any </th>
                                                     <td className='w-50 h-100'>
-                                                        <div className='w-100 border-0 h-100 d-flex align-items-center'>
+                                                        <div className='w-100 border-0 h-100 d-flex align-items-center ms-1'>
                                                             {item.TradeName}
                                                         </div>
 
@@ -97,7 +120,7 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25  p-2 border-end border-1 border-black gstr_label'>2(c). ARN </th>
                                                     <td className='w-50 h-100'>
-                                                        <div className='w-100 border border-1 border-white h-100 d-flex align-items-center'>
+                                                        <div className='w-100 border border-1 border-white h-100 d-flex align-items-center ms-1'>
                                                             {item.arn}
                                                         </div>
                                                     </td>
@@ -105,12 +128,13 @@ export function View_3b_Form() {
                                                 <tr className='w-100 border border-1 border-black'>
                                                     <th className='w-25  p-2 border-end border-1 border-black gstr_label '>2(d). Date of ARN </th>
                                                     <td className='w-50 h-100'>
-                                                        <div placeholder='Enter Date of ARN' className='w-100 border-0 h-100 d-flex align-items-center'>
+                                                        <div placeholder='Enter Date of ARN' className='w-100 border-0 h-100 d-flex align-items-center ms-1'>
                                                             {item.arnDate}
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
+                                            <div className='text-end my-1'>(Amount in ₹ for all tables)</div>
                                         </section>
 
 
@@ -1485,7 +1509,7 @@ export function View_3b_Form() {
 
                                                             <div className='border-bottom border-1 border-black d-flex'>
                                                                 <div className='col-4 border-end border-1 border-black d-flex align-items-center ps-1'>
-                                                                    Month
+                                                                    {items.NOS7_1}
                                                                 </div>
 
 
@@ -1520,7 +1544,11 @@ export function View_3b_Form() {
                         })
                     }
 
+                    <p className='fw-bold mt-4'> Verifcation:</p>
+                    <p>I hereby solemnly affrm and declare that the information given herein above is true and correct to the best of my knowledge and belief and
+                        nothing has been concealed there from.</p>
                 </section>
+
             </section >
         </>
     )
