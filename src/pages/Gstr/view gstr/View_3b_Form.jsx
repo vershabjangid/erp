@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { Field } from 'formik'
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Header } from '../../../common/Header'
 import { IoIosArrowDropright } from 'react-icons/io'
-import { FaPercent, FaPrint } from 'react-icons/fa'
+import { FaEdit, FaPercent, FaPrint } from 'react-icons/fa'
 import { RiFileExcel2Fill } from "react-icons/ri";
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import { useReactToPrint } from 'react-to-print'
@@ -30,12 +30,20 @@ export function View_3b_Form() {
     let location = useLocation();
     let outerdata = location.state || {}
 
-
+    // print function 
     const componentRef = useRef();
 
     const handlePrint = useReactToPrint({
-      content: () => componentRef.current,
+        content: () => componentRef.current,
     });
+
+
+    // update function 
+    let navigate = useNavigate();
+    let update = (value) => {
+        navigate("/add-gstr-3b", { state: value })
+    }
+
     return (
         <>
 
@@ -48,16 +56,7 @@ export function View_3b_Form() {
                 </section>
 
 
-                <div className='col-9 m-auto d-flex justify-content-end align-items-center'>
-                    {/* <DownloadTableExcel
-                    filename='gstr-3-b'
-                    sheet='users'
-                    currentTableRef={tableRef.current}
-                    >
-                        <button className='border border-0 bg-success text-white py-2 px-4 my-2 rounded'><RiFileExcel2Fill className='fs-4' /> Download Excel</button>
-                    </DownloadTableExcel> */}
-                    <button className='border border-0 bg-danger text-white py-2 px-4 my-2 mx-3 rounded' onClick={handlePrint}><FaFilePdf className='me-2' /> Save Pdf</button>
-                </div>
+
 
                 <section className='gstr_form_section bg-white border border-0 border-black' ref={componentRef}>
                     <h3 className='text-center'>Form GSTR-3B</h3>
@@ -169,8 +168,6 @@ export function View_3b_Form() {
                                                     Cess
                                                 </div>
                                             </div>
-
-
 
 
                                             {
@@ -1538,17 +1535,22 @@ export function View_3b_Form() {
                                                 )
                                             })
                                         }
+                                        <p className='fw-bold mt-4'> Verifcation:</p>
+                                        <p>I hereby solemnly affrm and declare that the information given herein above is true and correct to the best of my knowledge and belief and
+                                            nothing has been concealed there from.
+                                        </p>
+                                        <div className='col-9 m-auto d-flex justify-content-center align-items-center'>
+                                            <button className='border border-0 bg-secondary text-white py-2 px-4 my-2 rounded' onClick={() => update(item)}><FaEdit className='me-2 fs-5' />Update</button>
+                                            <button className='border border-0 bg-danger text-white py-2 px-4 my-2 mx-3 rounded' onClick={handlePrint}><FaFilePdf className='me-2' /> Save Pdf</button>
+                                        </div>
                                     </>
                                 )
                             }
                         })
                     }
 
-                    <p className='fw-bold mt-4'> Verifcation:</p>
-                    <p>I hereby solemnly affrm and declare that the information given herein above is true and correct to the best of my knowledge and belief and
-                        nothing has been concealed there from.</p>
-                </section>
 
+                </section>
             </section >
         </>
     )

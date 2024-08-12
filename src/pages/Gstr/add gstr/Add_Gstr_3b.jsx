@@ -4,7 +4,7 @@ import { Field, Formik, Form } from 'formik'
 import axios, { toFormData } from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { FaPercent, FaSearch } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { IoIosArrowDropright } from 'react-icons/io'
 import { FaXmark } from "react-icons/fa6";
 
@@ -56,12 +56,14 @@ export function Add_Gstr_3b() {
     }
 
 
-
-
-
     let filter = (event) => {
         setfilterclient(getclient.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
     }
+
+
+    let location = useLocation();
+    let data = location.state || ""
+    console.log(data)
     return (
         <>
             <section className='main'>

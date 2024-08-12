@@ -1,10 +1,12 @@
 import { Field, Formik, Form } from 'formik'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Header } from '../../common/Header'
 import axios, { toFormData } from 'axios'
 import { toast, ToastContainer } from 'react-toastify'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IoIosArrowDropright, IoIosConstruct } from 'react-icons/io'
+import { FaSearch } from 'react-icons/fa'
+import { FaXmark } from 'react-icons/fa6'
 
 export function Add_Product() {
 
@@ -25,23 +27,71 @@ export function Add_Product() {
             })
     }
 
+// update data section 
+
     const locatedata = useLocation();
     const data = locatedata.state || {}
-    console.log(data)
 
     let navigate = useNavigate();
 
     let updateproject = (updatevalue) => {
-        console.log(updatevalue)
         axios.post(`/erp/update-project.php?id=`, toFormData(updatevalue))
             .then((res) => {
                 notifysuccess("Data Updated")
             })
     }
 
-
+    // localstorage data section 
     let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
-    console.log(getlocaldata)
+
+    // customer search section 
+
+    let [customer, setcustomer] = useState([])
+    let [customerfilter, setcustomerfilter] = useState([])
+    let [searchsection, setsearchsection] = useState(false)
+    let [customerinfo, setcustomerinfo] = useState("")
+
+
+    let getcustomer = () => {
+        axios.get(`/erp/getcustomer.php`)
+            .then((res) => {
+                setcustomer(res.data.Details)
+                setcustomerfilter(res.data.Details)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+
+    // employee search section 
+
+    let [employeesearch, setemployeesearch] = useState(false)
+    let [employeeinfo, setemployeeinfo] = useState("")
+    let [employeedata, setemployeedata] = useState([])
+    let [employeedatafilter, setemployeedatafilter] = useState([])
+
+    let getemployee = () => {
+        axios.get(`/erp/view-employe.php`)
+            .then((res) => {
+                setemployeedata(res.data.Details)
+                setemployeedatafilter(res.data.Details)
+            })
+    }
+
+    let filter = (event) => {
+        setcustomerfilter(customer.filter((items) => items.Name.toLowerCase().includes(event.target.value)))
+        setemployeedatafilter(employeedata.filter((items) => items.First_Name.toLowerCase().includes(event.target.value) || items.Last_Name.toLowerCase().includes(event.target.value) || items.Email.toLowerCase().includes(event.target.value)))
+    }
+
+    useEffect(() => {
+        getcustomer();
+        getemployee();
+    }, [])
+
+
+
+
     return (
         <>
             <section className='main w-100'>
@@ -64,12 +114,18 @@ export function Add_Product() {
                         List_Of_Task: data.List_Of_Task || "",
                         Created_By: data.Created_By || "",
                         Billable_Amount: data.Billable_Amount || "",
+                        Client_id: "",
+                        Employee_id: "",
                         id: data.id
                     }}
 
 
                     onSubmit={(values, { resetform }) => {
                         if (!data.id) {
+                            values.Client_id = customerinfo.id
+                            values.Customer = customerinfo.Name
+                            values.Employee_id = employeeinfo.id
+                            values.Assigned_Employee = employeeinfo.First_Name
                             insertdata(values)
                         }
                         else {
@@ -94,7 +150,132 @@ export function Add_Product() {
                     }}
                 >
                     <div className='add_employee_secction w-100 border border-1 border-success'>
+                        {
+                            searchsection ?
+                                <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
+                                    <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
+                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
+                                        <div className='p-2' onClick={() => setsearchsection(false)}>
+                                            <FaXmark />
+                                        </div>
+                                    </div>
+
+                                    <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                GSTIN
+                                            </div>
+                                            <div className='company_name fw-bold col-3 text-center'>
+                                                Legal Register Name
+                                            </div>
+                                            <div className='company_name fw-bold col-3 text-center'>
+                                                Trade Name
+                                            </div>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                Action
+                                            </div>
+                                        </div>
+
+                                        {
+                                            customerfilter.map((items, i) => {
+                                                if (getlocaldata.UserDetails.id === items.Admin_id) {
+                                                    return (
+                                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                {items.GSTIN}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-3 text-center'>
+                                                                {items.Name}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-3 text-center'>
+                                                                {items.Trade_Name}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setcustomerinfo(items) || setsearchsection(false))}>
+                                                                    Select
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    )
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                : null
+                        }
+
+
+
+
+                        {
+                            employeesearch ?
+                                <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
+                                    <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
+                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by Name, Email' onChange={filter} />
+                                        <div className='p-2' onClick={() => setemployeesearch(false)}>
+                                            <FaXmark />
+                                        </div>
+                                    </div>
+
+                                    <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                Name
+                                            </div>
+                                            <div className='company_name fw-bold col-3 text-center'>
+                                                Email
+                                            </div>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                CTC / Hrs
+                                            </div>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                Billable / Hrs
+                                            </div>
+                                            <div className='company_name fw-bold col-2 text-center'>
+                                                Action
+                                            </div>
+                                        </div>
+
+                                        {
+                                            employeedatafilter.map((items, i) => {
+                                                if (getlocaldata.UserDetails.id === items.Admin_id) {
+                                                    return (
+                                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                {items.First_Name} {items.Last_Name}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-3 text-center'>
+                                                                {items.Email}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                {items.CTC_Hrs}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                {items.Billable}
+                                                            </div>
+                                                            <div className='company_name fw-bold col-2 text-center'>
+                                                                <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setemployeeinfo(items) || setemployeesearch(false))}>
+                                                                    Select
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    )
+                                                }
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                                : null
+                        }
+
+
+
+
                         <Form>
+
                             <div className='input_common_outer d-flex'>
                                 <div className='common_input_section_card bg-white  rounded-1'>
                                     <div className='border-bottom border-1 border-secondary'>
@@ -148,8 +329,11 @@ export function Add_Product() {
                                                 Customer
                                             </label>
 
-                                            <div>
-                                                <Field type="text" className="w-100" name="Customer" />
+                                            <div className='d-flex align-items-center justify-content-between border border-1 border-black p-1'>
+                                                <Field type="text" className="w-100 border-0 py-1" value={customerinfo.Name} disabled name="Customer" />
+                                                <div className='' onClick={() => setsearchsection(true)} >
+                                                    <FaSearch />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -161,8 +345,11 @@ export function Add_Product() {
                                                 Assigned Employee
                                             </label>
 
-                                            <div>
-                                                <Field type="text" className="w-100" name="Assigned_Employee" />
+                                            <div className='d-flex align-items-center justify-content-between border border-1 border-black p-1'>
+                                                <Field type="text" className="w-100 border-0" disabled value={employeeinfo.First_Name + employeeinfo.Last_Name || ""} name="Assigned_Employee" />
+                                                <div className='' onClick={() => setemployeesearch(true)} >
+                                                    <FaSearch />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
