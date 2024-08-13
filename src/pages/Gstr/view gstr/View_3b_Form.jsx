@@ -41,7 +41,7 @@ export function View_3b_Form() {
     // update function 
     let navigate = useNavigate();
     let update = (value) => {
-        navigate("/add-gstr-3b", { state: value })
+        navigate("/update-3b-form", { state: value })
     }
 
     return (

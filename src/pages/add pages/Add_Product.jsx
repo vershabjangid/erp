@@ -27,7 +27,7 @@ export function Add_Product() {
             })
     }
 
-// update data section 
+    // update data section 
 
     const locatedata = useLocation();
     const data = locatedata.state || {}
@@ -114,8 +114,8 @@ export function Add_Product() {
                         List_Of_Task: data.List_Of_Task || "",
                         Created_By: data.Created_By || "",
                         Billable_Amount: data.Billable_Amount || "",
-                        Client_id: "",
-                        Employee_id: "",
+                        Client_id: data.Client_id || "",
+                        Employee_id: data.Employee_id || "",
                         id: data.id
                     }}
 
@@ -125,10 +125,14 @@ export function Add_Product() {
                             values.Client_id = customerinfo.id
                             values.Customer = customerinfo.Name
                             values.Employee_id = employeeinfo.id
-                            values.Assigned_Employee = employeeinfo.First_Name
+                            values.Assigned_Employee = employeeinfo.First_Name + employeeinfo.Last_Name
                             insertdata(values)
                         }
                         else {
+                            values.Client_id = customerinfo.id
+                            values.Customer = customerinfo.Name
+                            values.Employee_id = employeeinfo.id
+                            values.Assigned_Employee = employeeinfo.First_Name + employeeinfo.Last_Name
                             updateproject(values);
                             navigate("/view-project", { state: {} });
                         }
@@ -408,6 +412,9 @@ export function Add_Product() {
                 </Formik>
             </section >
             <ToastContainer />
+
+
+            
         </>
     )
 }
