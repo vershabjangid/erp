@@ -52,8 +52,7 @@ export function View_Gstr_3b() {
           <div className='d-flex align-items-center'> <FaPercent className='ms-2 me-2' />  View GSTR-3b List</div>
           <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-customer"}>View Customer <IoIosArrowDropright /></Link></div>
         </section>
-        <Formik>
-          <Form>
+     
             <section className='common_input_gstr position-relative'>
               <h3 className='pb-2'>Company List </h3>
               <div className=''>
@@ -110,9 +109,6 @@ export function View_Gstr_3b() {
                 })
               }
             </section>
-
-          </Form>
-        </Formik>
       </section>
     </>
   )

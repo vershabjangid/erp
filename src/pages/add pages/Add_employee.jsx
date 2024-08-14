@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik'
 import { HiAdjustmentsHorizontal } from "react-icons/hi2";
 import axios, { toFormData } from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
-import { json, Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { IoIosArrowDropright } from "react-icons/io";
@@ -15,38 +15,39 @@ export function Add_employee() {
     let notifyerror = (error) => toast.error(error)
     let dataupdate = (update) => toast.success(update)
 
-    
+
     const datainsert = (data) => {
-        
         console.log(data)
-        axios.post('/erp/add-employe.php', toFormData(data))
-        .then((res) => {
-            if (res.data.Status == 1) {
-                notifysuccess(res.data.msg)
-            }
-            
-            else {
-                notifyerror(res.data.msg)
-            }
-        })
+        axios.post('/erp/add-employe.php',toFormData(data))
+            .then((res) => {
+                if (res.data.Status == 1) {
+                    notifysuccess(res.data.msg)
+                }
+
+                else {
+                    notifyerror(res.data.msg)
+                }
+            })
     }
-    
+
+
+
     const locatedata = useLocation();
     const data = locatedata.state || {};
-    console.log(data)
     const navigate = useNavigate();
-    
+
+
+
     let updatedata = (upadatedata) => {
         axios.post(`/erp/updateemploye.php?id=`, toFormData(upadatedata))
-        .then((res) => {
-            dataupdate(res.data.msg)
-        })
+            .then((res) => {
+                dataupdate(res.data.msg)
+            })
     }
-    
+
+
+
     let admindata = JSON.parse(localStorage.getItem("customerdata"));
-    console.log(admindata.UserDetails.id) 
-
-
 
     return (
         <>
@@ -55,7 +56,7 @@ export function Add_employee() {
 
                 <section className='bg-primary text-white page_label fs-3 d-flex justify-content-between align-items-center border border-1 border-black'>
                     <div className='d-flex align-items-center'> <FontAwesomeIcon icon={faUserTie} className='ms-2 me-2' />  Add Employee</div>
-                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-employee"}>View Employee <IoIosArrowDropright/> </Link></div>
+                    <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-employee"}>View Employee <IoIosArrowDropright /> </Link></div>
                 </section>
 
                 <Formik
@@ -157,7 +158,7 @@ export function Add_employee() {
 
 
                                     <div className='px-2 d-flex pb-3 pt-2'>
-                                       
+
 
                                         <div className='w-50 me-1'>
                                             <label>

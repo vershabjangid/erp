@@ -14,14 +14,20 @@ export function View_Customer() {
     let notifysuccess = (succeed) => toast.success(succeed)
 
     let count = 1;
-
     let [data, setdata] = useState([])
+
+    let localdata = JSON.parse(localStorage.getItem("customerdata"))
 
     let viewdata = () => {
         axios.get(`/erp/getcustomer.php`)
             .then((res) => {
                 console.log(res)
-                setdata(res.data.Details)
+                if (res.data.Details === "No Data Found") {
+                    setdata("No Data Found")
+                }
+                else {
+                    setdata(res.data.Details.filter((items) => items.Admin_id == localdata.UserDetails.id))
+                }
             })
             .catch((err) => {
                 console.log(err)
@@ -53,7 +59,6 @@ export function View_Customer() {
 
 
 
-    let localdata = JSON.parse(localStorage.getItem("customerdata"))
     return (
         <>
             <section className='main'>
@@ -69,7 +74,7 @@ export function View_Customer() {
 
                         <div className='table_section'>
                             {
-                                data == "No Data Found" ?
+                                data == "No Data Found" || data == "" ?
 
                                     <div className='text-center fs-1 text-danger fw-bold '>
                                         <div>

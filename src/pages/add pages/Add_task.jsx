@@ -124,8 +124,8 @@ export function Add_task() {
                         Priority: data.Priority || "",
                         Status: data.Status || "",
                         id: data.id,
-                        ClientID: "",
-                        UserID: ""
+                        ClientID: data.ClientID || "",
+                        UserID: data.UserID || ""
                     }}
 
 

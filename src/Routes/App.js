@@ -22,6 +22,8 @@ import { Add_Gstr_1 } from "../pages/Gstr/add gstr/Add_Gstr_1";
 import { View_company_List } from "../pages/Gstr/view gstr/View_company_List";
 import { View_3b_Form } from "../pages/Gstr/view gstr/View_3b_Form";
 import { Update3b } from "../pages/Gstr/update/Update3b";
+import { View_gst1_company } from "../pages/Gstr/view gstr/View_gst1_company";
+import { View_gst1_form_list } from "../pages/Gstr/view gstr/View_gst1_form_list";
 
 function App() {
   return (
@@ -51,6 +53,8 @@ function App() {
             <Route path="/3b-form" element={<View_3b_Form/>}/>
             <Route path="/update-3b-form" element={<Update3b/>}/>
             <Route path="/add-gstr-1" element={<Add_Gstr_1/>}/>
+            <Route path="/view-company-gstr1" element={<View_gst1_company/>}/>
+            <Route path="/view-gstr1-form-list" element={<View_gst1_form_list/>}/>
           </Route>
         </Routes>
         

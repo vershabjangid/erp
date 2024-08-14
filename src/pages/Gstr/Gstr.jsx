@@ -30,7 +30,7 @@ export function Gstr() {
                                 </label>
 
                                 <div className='w-100 d-flex justify-content-evenly py-2'>
-                                    <Link className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
+                                    <Link to={"/view-company-gstr1"} className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
                                         View GSTR
                                     </Link>
                                     <Link to={"/add-gstr-1"} className='w-50 border border-1 border-black mx-2 py-2 bg-black text-white text-decoration-none fw-bold'>
