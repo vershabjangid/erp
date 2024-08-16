@@ -9,39 +9,54 @@ import axios from 'axios'
 
 export function View_Gstr_3b() {
 
-  let [company, setcompany] = useState([]);
-  let [records, setrecords] = useState([]);
+  let [customerdata, setcustomerdata] = useState([])
+  let [searchingfilter, setsearchingfilter] = useState('')
 
-  // get api fetching 
+  let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
 
-  let viewallcomapny = async () => {
-    let data = await fetch("/erp/getcustomer.php")
-    let resdata = await data.json()
-    setcompany(resdata.Details)
-    setrecords(resdata.Details)
+  let getcustomerdata = () => {
+    axios.get(`/erp/getcustomer.php`)
+      .then((res) => {
+        if (res.data.Details === "No Data Found") {
+          setcustomerdata("No Data Found")
+          setsearchingfilter("No Data Found")
+        }
+        else {
+          setcustomerdata(res.data.Details.filter((item) => item.Admin_id === getlocaldata.UserDetails.id))
+          setsearchingfilter(res.data.Details.filter((item) => item.Admin_id === getlocaldata.UserDetails.id))
+        }
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   useEffect(() => {
-    viewallcomapny();
+    getcustomerdata()
   }, [])
 
 
-  // search handling 
-  let handlesearch = (event) => {
-    setrecords(company.filter((item) => item.Name.toLowerCase().includes(event.target.value) || item.GSTIN.toLowerCase().includes(event.target.value) || item.Trade_Name.toLowerCase().includes(event.target.value)))
+  let searchfilter = (event) => {
+
+    if (searchingfilter == " ") {
+      getcustomerdata()
+    }
+    else {
+      setcustomerdata(searchingfilter.filter((items) => items.GSTIN.toLowerCase().includes(event) || items.Name.toLowerCase().includes(event) || items.Trade_Name.toLowerCase().includes(event)))
+    }
   }
 
 
 
-  // local storage data 
-  let getlocaldata = JSON.parse(localStorage.getItem('customerdata'))
 
-  // navigate to other function 
+  // navigate section 
 
-  let naviget = useNavigate();
-  let navigate = (value) => {
-    naviget('/view-company', { state: value })
+  let navigate = useNavigate();
+
+  let naviget = (value) => {
+    navigate("/view-company", { state: value })
   }
+
   return (
     <>
       <section className='main'>
@@ -52,39 +67,46 @@ export function View_Gstr_3b() {
           <div className='d-flex align-items-center'> <FaPercent className='ms-2 me-2' />  View GSTR-3b List</div>
           <div className='d-flex align-items-center me-2 fs-5'><Link className='text-white text-decoration-none' to={"/view-customer"}>View Customer <IoIosArrowDropright /></Link></div>
         </section>
-     
-            <section className='common_input_gstr position-relative'>
-              <h3 className='pb-2'>Company List </h3>
-              <div className=''>
-                <div className=' position-absolute px-2 fs-5'>
-                  <BiSearch />
-                </div>
-                <div>
-                  <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" onChange={handlesearch} />
-                </div>
+
+        <section className='common_input_gstr position-relative'>
+          <h3 className='pb-2'>Company List </h3>
+          <div className=''>
+            <div className=' position-absolute px-2 fs-5'>
+              <BiSearch />
+            </div>
+            <div>
+              <input type="text" className="w-100 rounded-5 border border-1 border-secondary py-1 px-5" onChange={(e) => searchfilter(e.target.value)} />
+            </div>
+          </div>
+
+
+          {
+            customerdata == "No Data Found" || customerdata == "" ?
+              <div className='fw-bold fs-3 text-center mt-3'>
+                No Data Found
               </div>
+              :
 
-
-              <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                <div className='company_name fw-bold col-3 text-center'>
-                  GSTIN
+              <div>
+                <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                  <div className='company_name fw-bold col-3 text-center'>
+                    GSTIN
+                  </div>
+                  <div className='company_name fw-bold col-3 text-center'>
+                    Legal Register Name
+                  </div>
+                  <div className='company_name fw-bold col-3 text-center'>
+                    Trade Name
+                  </div>
+                  <div className='company_name fw-bold col-3 text-center'>
+                    Action
+                  </div>
                 </div>
-                <div className='company_name fw-bold col-3 text-center'>
-                  Legal Register Name
-                </div>
-                <div className='company_name fw-bold col-3 text-center'>
-                  Trade Name
-                </div>
-                <div className='company_name fw-bold col-3 text-center'>
-                  Action
-                </div>
-              </div>
 
 
 
-              {
-                records.map((items, i) => {
-                  if (items.Admin_id == getlocaldata.UserDetails.id) {
+                {
+                  customerdata.map((items, i) => {
                     return (
                       <>
                         <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
@@ -98,17 +120,20 @@ export function View_Gstr_3b() {
                             {items.Trade_Name}
                           </div>
                           <div className='company_name fw-bold col-3 text-center'>
-                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => navigate(items)}>
+                            <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={()=>naviget(items)}>
                               View All
                             </button>
                           </div>
                         </div>
                       </>
                     )
-                  }
-                })
-              }
-            </section>
+                  })
+                }
+
+              </div>
+          }
+
+        </section>
       </section>
     </>
   )
