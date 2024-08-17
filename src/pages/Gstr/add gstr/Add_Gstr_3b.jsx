@@ -9,7 +9,20 @@ import { IoIosArrowDropright } from 'react-icons/io'
 import { FaXmark } from "react-icons/fa6";
 
 export function Add_Gstr_3b() {
-    // view all customer 
+
+    // here i take location and data for paarticular entry 
+    let location = useLocation();
+    let data = location.state || ""
+
+
+    // local storage memory
+    let getlocalstorage = JSON.parse(localStorage.getItem("customerdata"))
+
+    // error or success msg function 
+    let notifyerror = (error) => toast.error(error)
+    let notifysuccess = (success) => toast.success(success)
+
+
     let [getclient, setgetclient] = useState([])
     let [filterclient, setfilterclient] = useState([])
     let [clientdata, setclientinfo] = useState({})
@@ -18,8 +31,14 @@ export function Add_Gstr_3b() {
     let getcustomer = () => {
         axios.get(`/erp/getcustomer.php`)
             .then((res) => {
-                setgetclient(res.data.Details)
-                setfilterclient(res.data.Details)
+                if (res.data.Details === "No Data Found") {
+                    setgetclient("No Data Found")
+                    setfilterclient("No Data Found")
+                }
+                else {
+                    setgetclient(res.data.Details.filter((items) => items.Admin_id === getlocalstorage.UserDetails.id))
+                    setfilterclient(res.data.Details.filter((items) => items.Admin_id === getlocalstorage.UserDetails.id))
+                }
             })
             .catch((error) => {
                 console.log(error)
@@ -30,19 +49,52 @@ export function Add_Gstr_3b() {
         getcustomer();
     }, [])
 
-    // admin storage memory
-    let getlocalstorage = JSON.parse(localStorage.getItem("customerdata"))
 
-    // error or success msg function 
-    let notifyerror = (error) => toast.error(error)
-    let notifysuccess = (success) => toast.success(success)
+    let filter = (event) => {
+        setgetclient(filterclient.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // add data api 
 
     let [year, setyear] = useState('')
     let [month, setmonth] = useState('')
     let send_gstr_3 = (inserting) => {
-        console.log(inserting)
         axios.post(`/erp/add-gstr3b.php`, toFormData(inserting))
             .then((res) => {
                 if (res.data.Status === 1) {
@@ -56,14 +108,7 @@ export function Add_Gstr_3b() {
     }
 
 
-    let filter = (event) => {
-        setfilterclient(getclient.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
-    }
 
-
-    let location = useLocation();
-    let data = location.state || ""
-    console.log(data)
     return (
         <>
             <section className='main'>
@@ -417,59 +462,75 @@ export function Add_Gstr_3b() {
                     <Form>
                         {
                             searchsection ?
-                                <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
-                                    <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
-                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
-                                        <div className='p-2' onClick={() => setsearchsection(false)}>
-                                            <FaXmark />
+                                getclient == "" || getclient == "No Data Found" ?
+                                    <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
+                                        <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
+                                            <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
+                                            <div className='p-2' onClick={() => setsearchsection(false)}>
+                                                <FaXmark />
+                                            </div>
+                                        </div>
+                                        <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                            <div className='text-center fw-bolder fs-3 mt-3'>
+                                                No Data Found
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
-                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                GSTIN
-                                            </div>
-                                            <div className='company_name fw-bold col-3 text-center'>
-                                                Legal Register Name
-                                            </div>
-                                            <div className='company_name fw-bold col-3 text-center'>
-                                                Trade Name
-                                            </div>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                Action
+                                    :
+                                    <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
+                                        <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
+                                            <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
+                                            <div className='p-2' onClick={() => setsearchsection(false)}>
+                                                <FaXmark />
                                             </div>
                                         </div>
 
-                                        {
-                                            filterclient.map((items, i) => {
-                                                if (getlocalstorage.UserDetails.id === items.Admin_id) {
-                                                    return (
-                                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                {items.GSTIN}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-3 text-center'>
-                                                                {items.Name}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-3 text-center'>
-                                                                {items.Trade_Name}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setclientinfo(items) || setsearchsection(false))}>
-                                                                    Select
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                        <div>
+                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                                <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        GSTIN
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Legal Register Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Trade Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        Action
+                                                    </div>
+                                                </div>
 
-                                                    )
+                                                {
+                                                    getclient.map((items, i) => {
+                                                        return (
+                                                            <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    {items.GSTIN}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-3 text-center'>
+                                                                    {items.Name}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-3 text-center'>
+                                                                    {items.Trade_Name}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setclientinfo(items) || setsearchsection(false))}>
+                                                                        Select
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        )
+                                                    })
                                                 }
-                                            })
-                                        }
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                                 : null
                         }
+
 
 
 

@@ -18,8 +18,6 @@ export function View_company_List() {
     let location = useLocation()
     let indata = location.state || {}
 
-    console.log(indata)
-
 
     let [getform, setgetform] = useState([])
     let [getformfilter, setformfilter] = useState('')
