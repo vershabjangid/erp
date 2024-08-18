@@ -60,36 +60,6 @@ export function Add_Gstr_3b() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // add data api 
 
     let [year, setyear] = useState('')
