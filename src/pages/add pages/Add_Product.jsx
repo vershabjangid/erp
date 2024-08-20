@@ -54,8 +54,15 @@ export function Add_Product() {
     let getcustomer = () => {
         axios.get(`/erp/getcustomer.php`)
             .then((res) => {
-                setcustomer(res.data.Details)
-                setcustomerfilter(res.data.Details)
+                if (res.data.Details === "No Data Found") {
+                    setcustomer("No Data Found")
+                    setcustomerfilter("No Data Found")
+                }
+
+                else {
+                    setcustomer(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
+                    setcustomerfilter(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
+                }
             })
             .catch((error) => {
                 console.log(error)
@@ -73,15 +80,37 @@ export function Add_Product() {
     let getemployee = () => {
         axios.get(`/erp/view-employe.php`)
             .then((res) => {
-                setemployeedata(res.data.Details)
-                setemployeedatafilter(res.data.Details)
+                if (res.data.Details === "No Data Found") {
+                    setemployeedata(res.data.Details)
+                    setemployeedatafilter(res.data.Details)
+                }
+
+                else {
+                    setemployeedata(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
+                    setemployeedatafilter(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
+                }
+
             })
     }
 
     let filter = (event) => {
-        setcustomerfilter(customer.filter((items) => items.Name.toLowerCase().includes(event.target.value)))
-        setemployeedatafilter(employeedata.filter((items) => items.First_Name.toLowerCase().includes(event.target.value) || items.Last_Name.toLowerCase().includes(event.target.value) || items.Email.toLowerCase().includes(event.target.value)))
+        if (customer === "No Data Found") {
+            setcustomer("No Data Found")
+        }
+
+        else {
+            setcustomer(customerfilter.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
+        }
+
+
+        if (employeedata === "No Data Found") {
+            setemployeedata("No Data Found")
+        }
+        else {
+            setemployeedata(employeedatafilter.filter((items) => items.First_Name.toLowerCase().includes(event.target.value) || items.Last_Name.toLowerCase().includes(event.target.value) || items.Email.toLowerCase().includes(event.target.value)))
+        }
     }
+
 
     useEffect(() => {
         getcustomer();
@@ -163,48 +192,55 @@ export function Add_Product() {
                                         </div>
                                     </div>
 
-                                    <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
-                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                GSTIN
+                                    {
+                                        customer == "" || customer === "No Data Found" ?
+                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                                <div className="text-center fw-bold fs-2 mt-3">No Data Found</div>
                                             </div>
-                                            <div className='company_name fw-bold col-3 text-center'>
-                                                Legal Register Name
-                                            </div>
-                                            <div className='company_name fw-bold col-3 text-center'>
-                                                Trade Name
-                                            </div>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                Action
-                                            </div>
-                                        </div>
+                                            :
+                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                                <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        GSTIN
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Legal Register Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Trade Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        Action
+                                                    </div>
+                                                </div>
 
-                                        {
-                                            customerfilter.map((items, i) => {
-                                                if (getlocaldata.UserDetails.id === items.Admin_id) {
-                                                    return (
-                                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                {items.GSTIN}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-3 text-center'>
-                                                                {items.Name}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-3 text-center'>
-                                                                {items.Trade_Name}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setcustomerinfo(items) || setsearchsection(false))}>
-                                                                    Select
-                                                                </button>
-                                                            </div>
-                                                        </div>
+                                                {
+                                                    customer.map((items, i) => {
+                                                        if (getlocaldata.UserDetails.id === items.Admin_id) {
+                                                            return (
+                                                                <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                                        {items.GSTIN}
+                                                                    </div>
+                                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                                        {items.Name}
+                                                                    </div>
+                                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                                        {items.Trade_Name}
+                                                                    </div>
+                                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                                        <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setcustomerinfo(items) || setsearchsection(false))}>
+                                                                            Select
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
 
-                                                    )
+                                                            )
+                                                        }
+                                                    })
                                                 }
-                                            })
-                                        }
-                                    </div>
+                                            </div>
+                                    }
                                 </div>
                                 : null
                         }
@@ -222,54 +258,59 @@ export function Add_Product() {
                                         </div>
                                     </div>
 
-                                    <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
-                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                Name
+                                    {
+                                        employeedata == "" || employeedata === "No Data Found" ?
+                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                                <div className='text-center fw-bold fs-3 mt-3'>No Data Found</div>
                                             </div>
-                                            <div className='company_name fw-bold col-3 text-center'>
-                                                Email
-                                            </div>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                CTC / Hrs
-                                            </div>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                Billable / Hrs
-                                            </div>
-                                            <div className='company_name fw-bold col-2 text-center'>
-                                                Action
-                                            </div>
-                                        </div>
+                                            :
+                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                                <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Email
+                                                    </div>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        CTC / Hrs
+                                                    </div>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        Billable / Hrs
+                                                    </div>
+                                                    <div className='company_name fw-bold col-2 text-center'>
+                                                        Action
+                                                    </div>
+                                                </div>
 
-                                        {
-                                            employeedatafilter.map((items, i) => {
-                                                if (getlocaldata.UserDetails.id === items.Admin_id) {
-                                                    return (
-                                                        <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                {items.First_Name} {items.Last_Name}
+                                                {
+                                                    employeedata.map((items, i) => {
+                                                        return (
+                                                            <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    {items.First_Name} {items.Last_Name}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-3 text-center'>
+                                                                    {items.Email}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    {items.CTC_Hrs}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    {items.Billable}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-2 text-center'>
+                                                                    <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setemployeeinfo(items) || setemployeesearch(false))}>
+                                                                        Select
+                                                                    </button>
+                                                                </div>
                                                             </div>
-                                                            <div className='company_name fw-bold col-3 text-center'>
-                                                                {items.Email}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                {items.CTC_Hrs}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                {items.Billable}
-                                                            </div>
-                                                            <div className='company_name fw-bold col-2 text-center'>
-                                                                <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setemployeeinfo(items) || setemployeesearch(false))}>
-                                                                    Select
-                                                                </button>
-                                                            </div>
-                                                        </div>
 
-                                                    )
+                                                        )
+                                                    })
                                                 }
-                                            })
-                                        }
-                                    </div>
+                                            </div>
+                                    }
                                 </div>
                                 : null
                         }
@@ -413,7 +454,7 @@ export function Add_Product() {
             <ToastContainer />
 
 
-            
+
         </>
     )
 }

@@ -14,8 +14,11 @@ export function Add_task() {
     let noitfysuccess = (success) => toast.success(success)
     let Successfully = "Data Inserted"
 
+    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
+
+
+    // add task api 
     let sendtask = (inserting) => {
-        console.log(inserting)
         axios.post(`/erp/add-task.php`, toFormData(inserting))
             .then((res) => {
                 if (res.data.Status == 1) {
@@ -31,11 +34,12 @@ export function Add_task() {
 
 
 
-
+    // data from previous page 
     let location = useLocation();
     const data = location.state || {}
     let navigate = useNavigate();
 
+    // update task api fetch 
     let updatetask = (updatevalue) => {
         axios.post(`/erp/update-task.php`, toFormData(updatevalue))
             .then((res) => {
@@ -43,20 +47,16 @@ export function Add_task() {
                     noitfysuccess(res.data.msg);
                 }
             })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
 
-    let getlocaldata = JSON.parse(localStorage.getItem("customerdata"))
-
-
-
-
-
-
     let [searchsection, setsearchsection] = useState(false)
+    let [customerinfo, setcustomerinfo] = useState({});
     let [customer, setcustomer] = useState([])
     let [customerfilter, setcustomerfilter] = useState([])
-    let [customerinfo, setcustomerinfo] = useState({});
 
     let getcustomer = () => {
         axios.get(`/erp/getcustomer.php`)
@@ -65,6 +65,7 @@ export function Add_task() {
                     setcustomer("No Data Found")
                     setcustomerfilter("No Data Found")
                 }
+
                 else {
                     setcustomer(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
                     setcustomerfilter(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
@@ -75,10 +76,21 @@ export function Add_task() {
             })
     }
 
+
+    let filtercustomer = (event) => {
+        if (customerfilter == "No Data Found") {
+            getcustomer();
+        }
+        else {
+            setcustomer(customerfilter.filter((items) => items.GSTIN.toLowerCase().includes(event.target.value) || items.Name.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
+        }
+    }
+
+
     let [searchemployeesection, setsearchemployeesection] = useState(false)
+    let [employeeinfo, setemployeeinfo] = useState({});
     let [employee, setemployee] = useState([])
     let [employeefilter, setemployeefilter] = useState([])
-    let [employeeinfo, setemployeeinfo] = useState({});
 
 
     let getemployee = () => {
@@ -86,39 +98,33 @@ export function Add_task() {
             .then((res) => {
                 if (res.data.Details === "No Data Found") {
                     setemployee("No Data Found")
-                    setemployeefilter("No Data Found")
+                    setcustomerfilter("No Data Found")
                 }
                 else {
                     setemployee(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
                     setemployeefilter(res.data.Details.filter((items) => items.Admin_id === getlocaldata.UserDetails.id))
                 }
             })
-            .catch((error) => {
-                console.log(error)
-            })
     }
 
-    useEffect(() => {
-        getcustomer();
-        getemployee();
-    }, [])
-
-
-    let filter = (event) => {
-        if (customer === "") {
-            getcustomer();
-        }
-        else {
-            setcustomer(customerfilter.filter((items) => items.Name.toLowerCase().includes(event.target.value) || items.GSTIN.toLowerCase().includes(event.target.value) || items.Trade_Name.toLowerCase().includes(event.target.value)))
-        }
-
-        if (employee === "No Data Found") {
-            getemployee();
+    let filteremployee = (event) => {
+        if (employeefilter === "No Data Found") {
+            getemployee()
         }
         else {
             setemployee(employeefilter.filter((items) => items.First_Name.toLowerCase().includes(event.target.value) || items.Last_Name.toLowerCase().includes(event.target.value) || items.Email.toLowerCase().includes(event.target.value)))
         }
     }
+
+
+    useEffect(() => {
+        getcustomer()
+        getemployee()
+    }, [])
+
+
+
+
 
 
     return (
@@ -199,7 +205,7 @@ export function Add_task() {
                             searchsection ?
                                 <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
                                     <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
-                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filter} />
+                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filtercustomer} />
                                         <div className='p-2' onClick={() => setsearchsection(false)}>
                                             <FaXmark />
                                         </div>
@@ -256,37 +262,32 @@ export function Add_task() {
 
 
 
+
                         {
                             searchemployeesection ?
                                 <div className='w-100 m-auto position-fixed bg-black top-0 h-100'>
                                     <div className='w-100 m-auto my-2 border border-1 border-black d-flex align-items-center bg-white rounded'>
-                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by Name, Email' onChange={filter} />
+                                        <input type="text" className='w-100 p-1 border-0' placeholder='search by GSTIN, Legal Name, Trade Name' onChange={filteremployee} />
                                         <div className='p-2' onClick={() => setsearchemployeesection(false)}>
                                             <FaXmark />
                                         </div>
                                     </div>
 
                                     {
-                                        employee === "No Data Found" ?
+                                        employee == "" || employee === "No Data Found" ?
                                             <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
-                                                <div className="text-center fs-3 fw-bold mt-3">
-                                                    No Data Found
-                                                </div>
+                                                <div className='text-center fw-bold fs-3 mt-3'>No Data Found</div>
                                             </div>
-                                            :
-                                            <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
+                                            : <div className='position-absolute m-auto w-100 h-100 overflow-y-scroll border border-1 border-black bg-white px-2'>
                                                 <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
                                                     <div className='company_name fw-bold col-2 text-center'>
-                                                        Name
+                                                        First Name
+                                                    </div>
+                                                    <div className='company_name fw-bold col-3 text-center'>
+                                                        Last Name
                                                     </div>
                                                     <div className='company_name fw-bold col-3 text-center'>
                                                         Email
-                                                    </div>
-                                                    <div className='company_name fw-bold col-2 text-center'>
-                                                        CTC / Hrs
-                                                    </div>
-                                                    <div className='company_name fw-bold col-2 text-center'>
-                                                        Billable / Hrs
                                                     </div>
                                                     <div className='company_name fw-bold col-2 text-center'>
                                                         Action
@@ -295,20 +296,16 @@ export function Add_task() {
 
                                                 {
                                                     employee.map((items, i) => {
-
                                                         return (
                                                             <div className='border-bottom border-1 border-black mt-3 py-2 d-flex justify-content-between'>
                                                                 <div className='company_name fw-bold col-2 text-center'>
-                                                                    {items.First_Name} {items.Last_Name}
+                                                                    {items.First_Name}
+                                                                </div>
+                                                                <div className='company_name fw-bold col-3 text-center'>
+                                                                    {items.Last_Name}
                                                                 </div>
                                                                 <div className='company_name fw-bold col-3 text-center'>
                                                                     {items.Email}
-                                                                </div>
-                                                                <div className='company_name fw-bold col-2 text-center'>
-                                                                    {items.CTC_Hrs}
-                                                                </div>
-                                                                <div className='company_name fw-bold col-2 text-center'>
-                                                                    {items.Billable}
                                                                 </div>
                                                                 <div className='company_name fw-bold col-2 text-center'>
                                                                     <button className='py-2 px-4 border-0  rounded bg-primary text-white' onClick={() => (setemployeeinfo(items) || setsearchemployeesection(false))}>
@@ -316,9 +313,7 @@ export function Add_task() {
                                                                     </button>
                                                                 </div>
                                                             </div>
-
                                                         )
-
                                                     })
                                                 }
                                             </div>
@@ -326,6 +321,8 @@ export function Add_task() {
                                 </div>
                                 : null
                         }
+
+
                         <Form>
                             <div className='input_common_outer d-flex'>
                                 <div className='common_input_section_card bg-white  rounded-1'>
@@ -384,7 +381,7 @@ export function Add_task() {
                                             </label>
 
                                             <div className='d-flex align-items-center p-1 border border-1 border-black'>
-                                                <Field type="text" value={customerinfo.Name} className="w-100 border-0" name="Customer" />
+                                                <Field type="text" value={customerinfo.Name} className="w-100 border-0" disabled name="Customer" />
                                                 <div className='' onClick={() => setsearchsection(true)}>
                                                     <FaSearch />
                                                 </div>
@@ -423,7 +420,7 @@ export function Add_task() {
                                             </label>
 
                                             <div className='d-flex align-items-center border border-1 border-black p-1'>
-                                                <Field type="text" value={employeeinfo.First_Name + employeeinfo.Last_Name || ""} className="w-100 border-0" name="Assigned" />
+                                                <Field type="text" value={employeeinfo.First_Name + employeeinfo.Last_Name || ""} disabled className="w-100 border-0" name="Assigned" />
                                                 <div className='' onClick={() => setsearchemployeesection(true)} >
                                                     <FaSearch />
                                                 </div>
